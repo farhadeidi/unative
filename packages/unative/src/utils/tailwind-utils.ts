@@ -1,3 +1,3 @@
-import { tv, type VariantProps } from "tailwind-variants";
+import { cva, type VariantProps } from "class-variance-authority";
 
-export { tv, type VariantProps };
+export { cva, type VariantProps };

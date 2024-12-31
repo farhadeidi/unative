@@ -8,7 +8,7 @@ const Home = () => {
       <h1 className="font-bold text-3xl uppercase">
         {isNative ? "Native" : "Web"}
       </h1>
-      <Button>Click me</Button>
+      <Button variant="primary">Button</Button>
     </Box>
   );
 };

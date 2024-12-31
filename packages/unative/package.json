@@ -2,20 +2,27 @@
   "name": "unative",
   "version": "0.0.1",
   "description": "",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tsup --watch",
+    "watch": "tsup --watch",
     "build": "tsup"
   },
   "exports": {
     ".": {
       "browser": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
+        "types": "./dist/index.native.d.ts",
+        "require": "./dist/index.native.cjs",
+        "default": "./dist/index.native.js"
       },
       "react-native": {
         "types": "./dist/index.native.d.ts",
+        "require": "./dist/index.native.cjs",
         "default": "./dist/index.native.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
       },
       "import": {
         "types": "./dist/index.d.ts",
@@ -25,7 +32,18 @@
         "types": "./dist/index.d.ts",
         "default": "./dist/index.js"
       }
-    }
+    },
+    "./native/metro": {
+      "types": "./dist/native/metro/index.d.ts",
+      "require": "./dist/native/metro/index.cjs",
+      "import": "./dist/native/metro/index.js"
+    },
+    "./dist/native/metro": {
+      "types": "./dist/native/metro/index.d.ts",
+      "require": "./dist/native/metro/index.jcs",
+      "import": "./dist/native/metro/index.js"
+    },
+    "./types": "./dist/types.d.cts"
   },
   "keywords": [],
   "author": "",
@@ -33,20 +51,26 @@
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "~18.3.12",
+    "class-variance-authority": "^0.7.1",
     "nativewind": "*",
     "react": "18.3.1",
     "react-native": "0.76.5",
     "react-native-safe-area-context": "4.12.0",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "zustand": "^5.0.2"
   },
   "peerDependencies": {
+    "@react-native-async-storage/async-storage": "*",
+    "clsx": "^2.1.1",
     "nativewind": "*",
     "react": "*",
     "react-dom": "*",
     "react-native": "*",
     "react-native-safe-area-context": "*",
     "react-native-web": "*",
+    "tailwind-merge": "^2.6.0",
+    "tailwind-variants": "^0.3.0",
     "tailwindcss": "*"
   },
   "peerDependenciesMeta": {
@@ -63,6 +87,9 @@
       "optional": true
     },
     "react-native-safe-area-context": {
+      "optional": true
+    },
+    "@react-native-async-storage/async-storage": {
       "optional": true
     }
   },
