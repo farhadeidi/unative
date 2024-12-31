@@ -1,13 +1,33 @@
 {
   "name": "unative",
-  "version": "0.0.1",
-  "description": "",
+  "version": "0.0.3",
+  "description": "One UI Library for Web and Mobile",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "tsup --watch",
-    "build": "tsup"
+    "build": "tsup",
+    "prepare": "tsup",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
   },
+  "files": [
+    "dist",
+    "package.json",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/farhadeidi/unative.git"
+  },
+  "author": "Farhad Eidi <farcom7@gmail.com> (https://github.com/farhadeidi)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/farhadeidi/unative/issues"
+  },
+  "homepage": "https://unative.dev",
   "exports": {
     ".": {
       "browser": {
@@ -46,8 +66,6 @@
     "./types": "./dist/types.d.cts"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "~18.3.12",

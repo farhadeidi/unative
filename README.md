@@ -49,10 +49,8 @@ npx expo install clsx tailwind-merge class-variance-authority @react-native-asyn
 #### tsconfig.json
 
 ```json
-// tsconfig.json
 {
   "compilerOptions": {
-    // ...
     "moduleSuffixes": [".native", ""],
     "customConditions": ["react-native"]
   }

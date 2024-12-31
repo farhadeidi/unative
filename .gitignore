@@ -4,6 +4,8 @@
 node_modules
 .pnp
 .pnp.js
+*.tgz
+*.zip
 
 # Local env files
 .env
