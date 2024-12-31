@@ -3,7 +3,7 @@ module.exports = {
   // NOTE: Update this to include the paths to all of your component files.
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
-    "./node_modules/unative/**/*.{js,jsx,ts,tsx}",
+    "./node_modules/unative/**/*.{js,jsx,mjs,ts,tsx}",
   ],
   presets: [require("nativewind/preset")],
   theme: {
