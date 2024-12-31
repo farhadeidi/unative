@@ -1,84 +1,154 @@
-# Turborepo starter
+# Unative: One UI Library for Web and Mobile
 
-This is an official starter Turborepo.
+**Note:** This library is currently under development and is not recommended for use in production environments.
 
-## Using this example
+## The Story Behind
 
-Run the following command:
+Unative makes it easy to create great-looking and consistent user interfaces for both React Native and web apps. Powered by Tailwind CSS and Nativewind, it gives you a fast and simple way to handle styling across platforms. With full support for React Server Components, Unative helps you use modern tools to build amazing projects effortlessly.
+
+# Installation Guide for Mobile
+
+### 1. Create Your App with Expo
+
+Start by creating your mobile app using [Expo](https://docs.expo.dev/).
 
 ```sh
-npx create-turbo@latest
+npx create-expo-app my-app
 ```
 
-## What's inside?
+### 2. Add NativeWind
 
-This Turborepo includes the following packages/apps:
+Install [NativeWind](https://www.nativewind.dev/) and ensure it works correctly in your project.
 
-### Apps and Packages
-
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm build
+```sh
+pnpm i nativewind
 ```
 
-### Develop
+Follow the setup guide in the [NativeWind documentation](https://www.nativewind.dev/quick-starts/expo).
 
-To develop all apps and packages, run the following command:
+### 3. Install Unative
 
-```
-cd my-turborepo
-pnpm dev
-```
+Finally, add the Unative library to your project:
 
-### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
+```sh
+pnpm i unative
 ```
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+OR
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
+```sh
+npx expo install unative
 ```
 
-## Useful Links
+#### Peer Dependencies
 
-Learn more about the power of Turborepo:
+```sh
+npx expo install clsx tailwind-merge class-variance-authority @react-native-async-storage/async-storage
+```
 
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+#### tsconfig.json
+
+```json
+// tsconfig.json
+{
+  "compilerOptions": {
+    // ...
+    "moduleSuffixes": [".native", ""],
+    "customConditions": ["react-native"]
+  }
+}
+```
+
+#### Metro
+
+```js
+// metro.config.js
+const { getDefaultConfig } = require("expo/metro-config");
+const { withNativeWind } = require("nativewind/metro");
+const { withUnative } = require("unative/native/metro");
+
+/** @type {import('expo/metro-config').MetroConfig} */
+const config = getDefaultConfig(__dirname);
+config.resolver.unstable_enablePackageExports = true;
+
+module.exports = withUnative(withNativeWind(config, { input: "./global.css" }));
+```
+
+#### Unative Config
+
+```ts
+// unative.config.ts
+import type { UnativeConfig } from "unative/types";
+
+const config: UnativeConfig = {
+  cssFilePath: "./global.css",
+  outputDir: "src/lib/unative",
+};
+
+export default config;
+```
+
+#### Tailwind Config
+
+```js
+// tailwind.config.js
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  // NOTE: Update this to include the paths to all of your component files.
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+    "./node_modules/unative/**/*.{js,jsx,mjs,ts,tsx}",
+  ],
+  presets: [require("nativewind/preset")],
+  theme: {
+    extend: {
+      colors: {
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        positive: {
+          DEFAULT: "hsl(var(--positive))",
+          foreground: "hsl(var(--positive-foreground))",
+        },
+        warning: {
+          DEFAULT: "hsl(var(--warning))",
+          foreground: "hsl(var(--warning-foreground))",
+        },
+        link: "hsl(var(--link))",
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+      },
+    },
+  },
+  plugins: [],
+};
+```
