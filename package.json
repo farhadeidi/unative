@@ -1,0 +1,31 @@
+{
+  "name": "unative-repo",
+  "private": true,
+  "scripts": {
+    "dev": "turbo dev",
+    "dev:mobile": "turbo dev --filter=\"{./apps/mobile}...\"",
+    "dev:web": "turbo dev --filter=\"{./apps/web}...\"",
+    "lint": "turbo lint",
+    "test": "turbo test",
+    "build": "turbo build",
+    "build-packages": "turbo build --filter=\"{./packages}...\"",
+    "build:mobile": "turbo build --filter=\"...{./apps/mobile}\"",
+    "build:web": "turbo build --filter=\"...{./apps/web}\"",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "check-versions": "pnpm dlx sherif@latest",
+    "fix-versions": "pnpm dlx sherif@latest --fix --no-install",
+    "clean": "npx ts-node cleaner"
+  },
+  "devDependencies": {
+    "clean-package": "^2.2.0",
+    "cosmiconfig": "^9.0.0",
+    "prettier": "^3.2.5",
+    "tsup": "^8.3.5",
+    "turbo": "^2.3.3",
+    "typescript": "5.5.4"
+  },
+  "packageManager": "pnpm@9.0.0",
+  "engines": {
+    "node": ">=18"
+  }
+}
