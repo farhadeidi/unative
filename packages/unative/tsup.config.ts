@@ -13,15 +13,19 @@ function run(cmd: string) {
 
 export default defineConfig(() => {
   return {
-    entry: ["src/**/*.{js,jsx,ts,tsx}"],
-    format: ["cjs", "esm"],
+    entry: ["src/**/*.{js,jsx,ts}"],
+    format: ["esm", "cjs"],
     outDir: "dist",
-    splitting: false,
+    splitting: true,
     sourcemap: false,
     dts: true,
-    treeshake: false,
-    clean: true,
+    treeshake: true,
+    clean: false,
     publicDir: "public",
+    esbuildOptions(options, context) {
+      options.chunkNames = "chunks/[name]-[hash]";
+    },
+
     external: [
       "react",
       "react-dom",

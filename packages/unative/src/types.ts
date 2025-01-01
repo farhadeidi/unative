@@ -1,9 +1,6 @@
 import type { DefaultThemeVariables } from "./theme/common/default-themes";
 
-export type UnativeConfig = {
-  cssFilePath: string;
-  outputDir: string;
-};
+export type UnativeConfig = {};
 
 export type UnativeThemeVariables = DefaultThemeVariables &
   (

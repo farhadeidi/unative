@@ -1,22 +1,16 @@
 {
   "name": "unative",
-  "version": "0.0.3",
+  "version": "0.0.6",
   "description": "One UI Library for Web and Mobile",
   "type": "module",
   "scripts": {
     "watch": "tsup --watch",
     "build": "tsup",
-    "prepare": "tsup",
-    "prepack": "clean-package",
-    "postpack": "clean-package restore"
+    "prepare": "tsup"
   },
-  "files": [
-    "dist",
-    "package.json",
-    "README.md"
-  ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "directory": "dist"
   },
   "repository": {
     "type": "git",
@@ -31,45 +25,68 @@
   "exports": {
     ".": {
       "browser": {
-        "types": "./dist/index.native.d.ts",
-        "require": "./dist/index.native.cjs",
-        "default": "./dist/index.native.js"
+        "types": "./index.native.d.ts",
+        "require": "./index.native.cjs",
+        "default": "./index.native.js"
       },
       "react-native": {
-        "types": "./dist/index.native.d.ts",
-        "require": "./dist/index.native.cjs",
-        "default": "./dist/index.native.js"
+        "types": "./index.native.d.ts",
+        "require": "./index.native.cjs",
+        "default": "./index.native.js"
       },
       "require": {
-        "types": "./dist/index.d.cts",
-        "default": "./dist/index.cjs"
+        "types": "./index.d.cts",
+        "default": "./index.cjs"
       },
       "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
+        "types": "./index.d.ts",
+        "default": "./index.js"
       },
       "default": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
+        "types": "./index.d.ts",
+        "default": "./index.js"
       }
     },
+    "./ui": {
+      "react-native": {
+        "types": "./ui/index.native.d.ts",
+        "require": "./ui/index.native.cjs",
+        "import": "./ui/index.native.js"
+      },
+      "default": {
+        "types": "./ui/index.d.ts",
+        "require": "./ui/index.cjs",
+        "import": "./ui/index.js"
+      }
+    },
+    "./hooks": {
+      "react-native": {
+        "types": "./hooks/index.native.d.ts",
+        "require": "./hooks/index.native.cjs",
+        "import": "./hooks/index.native.js"
+      },
+      "default": {
+        "types": "./hooks/index.d.ts",
+        "require": "./hooks/index.cjs",
+        "import": "./hooks/index.js"
+      }
+    },
+    "./native": {
+      "types": "./native/index.d.ts",
+      "require": "./native/index.cjs",
+      "import": "./native/index.js"
+    },
     "./native/metro": {
-      "types": "./dist/native/metro/index.d.ts",
-      "require": "./dist/native/metro/index.cjs",
-      "import": "./dist/native/metro/index.js"
+      "types": "./native/metro/index.d.ts",
+      "require": "./native/metro/index.cjs",
+      "import": "./native/metro/index.js"
     },
-    "./dist/native/metro": {
-      "types": "./dist/native/metro/index.d.ts",
-      "require": "./dist/native/metro/index.jcs",
-      "import": "./dist/native/metro/index.js"
-    },
-    "./types": "./dist/types.d.cts"
+    "./types": "./types.d.cts"
   },
   "keywords": [],
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "~18.3.12",
-    "class-variance-authority": "^0.7.1",
     "nativewind": "*",
     "react": "18.3.1",
     "react-native": "0.76.5",
