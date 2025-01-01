@@ -8,14 +8,11 @@ import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
-import {
-  Provider as UnativeProvider,
-  DEFAULT_THEMES,
-  useColorScheme,
-  useTheme,
-} from "unative";
+import { DEFAULT_THEMES, useColorScheme, useTheme, isWeb } from "unative";
+import { Provider as UnativeProvider } from "unative/theme/native";
 import "react-native-reanimated";
 import "../../global.css";
+import { Text, View } from "react-native";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -40,25 +37,36 @@ const RootLayout = () => {
       themes={{ default: DEFAULT_THEMES }}
       defaultTheme="default"
     >
+      {/* <DemoApp /> */}
       <App />
     </UnativeProvider>
+  );
+};
+
+const DemoApp = () => {
+  const { isDarkMode } = useColorScheme();
+  return (
+    <View>
+      <Text>Hello {isWeb ? "Web" : "Native"}</Text>
+    </View>
   );
 };
 
 const App = () => {
   const { isDarkMode } = useColorScheme();
   const { navigationThemes } = useTheme();
+
   return (
     <ThemeProvider
       value={
         isDarkMode
           ? {
               ...DarkTheme,
-              colors: { ...DarkTheme.colors, ...navigationThemes.dark },
+              colors: { ...DarkTheme.colors, ...navigationThemes?.dark },
             }
           : {
               ...DefaultTheme,
-              colors: { ...DefaultTheme.colors, ...navigationThemes.light },
+              colors: { ...DefaultTheme.colors, ...navigationThemes?.light },
             }
       }
     >

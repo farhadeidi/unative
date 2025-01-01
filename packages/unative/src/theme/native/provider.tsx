@@ -38,7 +38,6 @@ const getNativeWindThemeVars = (values: {
       baseRemSize: 16,
       isWeb: false,
     });
-    console.log("dev => themes", lightVars);
 
     optimizedThemes[el as string] = {
       light: lightVars as UnativeThemeVariables,

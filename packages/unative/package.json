@@ -48,6 +48,11 @@
       }
     },
     "./ui": {
+      "browser": {
+        "types": "./ui/index.native.d.ts",
+        "require": "./ui/index.native.cjs",
+        "import": "./ui/index.native.js"
+      },
       "react-native": {
         "types": "./ui/index.native.d.ts",
         "require": "./ui/index.native.cjs",
@@ -60,6 +65,11 @@
       }
     },
     "./hooks": {
+      "browser": {
+        "types": "./hooks/index.native.d.ts",
+        "require": "./hooks/index.native.cjs",
+        "import": "./hooks/index.native.js"
+      },
       "react-native": {
         "types": "./hooks/index.native.d.ts",
         "require": "./hooks/index.native.cjs",

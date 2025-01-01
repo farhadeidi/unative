@@ -8,17 +8,31 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     ButtonVariants {
   asChild?: boolean;
+  onPress?: (
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => void | Promise<void>;
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  (
+    { className, variant, size, asChild = false, onClick, onPress, ...props },
+    ref
+  ) => {
     const Comp = asChild ? Slot : "button";
-    const { base, text } = buttonVariants({
+
+    const { base } = buttonVariants({
       variant,
       size: variant === "unstyled" ? "unstyled" : size,
     });
 
-    return <Comp className={cn(base())} ref={ref} {...props} />;
+    return (
+      <Comp
+        className={cn(base())}
+        ref={ref}
+        onClick={onClick || onPress}
+        {...props}
+      />
+    );
   }
 );
 Button.displayName = "Button";
