@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import type { UnativeThemeVariables, UnativeThemes } from "unative/types";
+import type { UnativeThemeVariables, UnativeThemes } from "unative/core/types";
 
 /*
 ** Auto generated code. Don't modify manually.

@@ -58,21 +58,21 @@
       "require": "./core/index.cjs",
       "import": "./core/index.js"
     },
+    "./core/web-provider": {
+      "types": "./core/web-provider.d.ts",
+      "require": "./core/web-provider.cjs",
+      "import": "./core/web-provider.js"
+    },
+    "./core/use-theme": {
+      "types": "./core/use-theme.d.ts",
+      "require": "./core/use-theme.cjs",
+      "import": "./core/use-theme.js"
+    },
     "./styles.css": "./styles.css",
     "./ui": {
       "types": "./ui/index.d.ts",
       "require": "./ui/index.cjs",
       "import": "./ui/index.js"
-    },
-    "./hooks": {
-      "types": "./hooks/index.d.ts",
-      "react-native": {
-        "types": "./hooks/index.native.d.ts",
-        "require": "./hooks/index.native.cjs",
-        "import": "./hooks/index.native.js"
-      },
-      "require": "./hooks/index.cjs",
-      "import": "./hooks/index.js"
     },
     "./native": {
       "types": "./native/index.d.ts",

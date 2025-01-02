@@ -1,2 +1,2 @@
-export * from "./provider.native";
+export * from "./native-provider";
 export * from "./use-theme";

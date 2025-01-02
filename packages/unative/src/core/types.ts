@@ -1,4 +1,4 @@
-import type { DefaultThemeVariables } from "./theme/common/default-themes";
+import type { DefaultThemeVariables } from "./default-themes";
 
 export type UnativeConfig = {};
 
@@ -13,3 +13,11 @@ export type UnativeThemes = {
 };
 
 export type ColorSchemes = "light" | "dark" | "system";
+
+export type ProviderProps = {
+  children?: React.ReactNode;
+  themes: UnativeThemes;
+  config?: UnativeConfig;
+  defaultTheme?: string;
+  onInitEnd?: () => void | Promise<void>;
+};

@@ -14,14 +14,35 @@ function run(cmd: string) {
 
 export default defineConfig((options) => {
   return {
-    entry: ["src/**/*.{js,jsx,ts}"],
+    entry: [
+      "./src/index.ts",
+      "./src/index.native.ts",
+      "./src/styles.css",
+
+      "./src/ui/index.ts",
+      "./src/ui/index.native.ts",
+
+      "./src/ui/components/box/index.ts",
+      "./src/ui/components/box/index.native.ts",
+      "./src/ui/components/text/index.ts",
+      "./src/ui/components/text/index.ts",
+      "./src/ui/components/button/index.native.ts",
+      "./src/ui/components/button/index.native.ts",
+
+      "./src/core/types.ts",
+      "./src/core/index.ts",
+      "./src/core/index.native.ts",
+
+      "./src/with-unative/index.ts",
+    ],
     format: ["esm", "cjs"],
     outDir: "dist",
-    splitting: false,
+    splitting: true,
     sourcemap: false,
     dts: true,
-    treeshake: false,
-    clean: !options.watch,
+    treeshake: true,
+    clean: true,
+    // clean: !options.watch,
     publicDir: "public",
     esbuildPlugins: [reactUseClient],
     esbuildOptions(options, context) {
@@ -43,6 +64,7 @@ export default defineConfig((options) => {
       "tailwind-merge",
       "tailwind-variants",
       "react-native-safe-area-context",
+      "@react-native-async-storage/async-storage",
     ],
     async onSuccess() {
       await run("cp ../../README.md ./dist/README.md");

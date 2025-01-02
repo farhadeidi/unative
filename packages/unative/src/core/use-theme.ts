@@ -3,17 +3,12 @@ import { ProviderContext } from "./provider-context";
 
 export const useTheme = () => {
   const context = useContext(ProviderContext);
+
   if (!context) {
-    throw new Error("useTheme must be used within a ThemeProvider");
+    throw new Error("useTheme must be used within a UnativeProvider");
   }
 
-  const { theme, themes } = context;
   return {
-    theme,
-    themes,
-    setTheme: context.setTheme,
-    setScheme: context.setScheme,
-    schemes: context.schemes,
-    isInitialized: context.isInitialized,
+    ...context,
   };
 };

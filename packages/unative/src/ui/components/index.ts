@@ -1,3 +1,3 @@
-export * from "./box";
-export * from "./text";
-export * from "./button";
+export * from "./box/box";
+export * from "./text/text";
+export * from "./button/button";

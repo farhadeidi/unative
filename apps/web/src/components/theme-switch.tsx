@@ -5,16 +5,16 @@ import { Button } from "unative/ui";
 
 export type ThemeSwitchProps = {};
 export const ThemeSwitch = ({}: ThemeSwitchProps) => {
-  const { theme, setScheme, schemes } = useTheme();
+  const { theme, setScheme, colorSchemes } = useTheme();
 
   return (
     <div>
-      {schemes.map((scheme) => {
-        const isActive = theme.appliedScheme === scheme;
+      {colorSchemes.map((scheme) => {
+        const isActive = theme.savedScheme === scheme;
         return (
           <Button
             variant={isActive ? "primary" : "secondary"}
-            key={scheme + theme.appliedScheme}
+            key={scheme + theme.savedScheme}
             onClick={() => {
               setScheme(scheme as "light" | "dark" | "system");
             }}

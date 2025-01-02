@@ -4,12 +4,12 @@ import {
   UnativeConfig,
   UnativeThemes,
   UnativeThemeVariables,
-} from "../types";
+} from "./types";
 
 export type ThemeState = {
   name: string;
   scheme: "light" | "dark";
-  appliedScheme: ColorSchemes;
+  savedScheme: ColorSchemes;
   values: UnativeThemeVariables;
 };
 
@@ -19,9 +19,15 @@ export type ProviderContextProps = {
   config: UnativeConfig;
   theme: ThemeState;
   rawThemeValues?: UnativeThemeVariables;
-  schemes: ColorSchemes[];
+
+  colorSchemes: ColorSchemes[];
+  savedColorScheme: ColorSchemes;
+  colorScheme: ColorSchemes;
+  isDarkMode: boolean;
+
   setScheme: (scheme: ColorSchemes) => void;
   setTheme: (themeName: string) => void;
+
   isInitialized: boolean;
 };
 

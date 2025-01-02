@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { DEFAULT_THEMES } from "../theme/common/default-themes";
+import { DEFAULT_THEMES } from "../core/default-themes";
 
 const getVariablesByPartialCssString = (
   content: string
@@ -139,7 +139,7 @@ const getThemesFileStringToWrite = ({
   // const themeNames = Object.keys(themeVariables);
 
   const fileContent = `/* eslint-disable prettier/prettier */
-import type { UnativeThemeVariables, UnativeThemes } from "unative/types";
+import type { UnativeThemeVariables, UnativeThemes } from "unative/core/types";
 
 /*
 ** Auto generated code. Don't modify manually.

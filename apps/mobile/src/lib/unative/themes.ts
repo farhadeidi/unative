@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import type { UnativeThemeVariables, UnativeThemes } from "unative/types";
+import type { UnativeThemeVariables, UnativeThemes } from "unative/core/types";
 
 /*
 ** Auto generated code. Don't modify manually.
@@ -69,4 +69,13 @@ export const THEMES: UnativeThemes = {
     "dark": DEFAULT_THEME_DARK,
   },
 
+  "rose": {
+    "light": {
+      ...DEFAULT_THEME_LIGHT,
+      "--primary": "340 100% 50%"
+    },
+    "dark": {
+      ...DEFAULT_THEME_DARK,
+    }
+  }
 }

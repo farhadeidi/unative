@@ -8,13 +8,10 @@ import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
-import { Provider as UnativeProvider } from "unative/core/";
+import { Provider as UnativeProvider, useTheme } from "unative/core";
 import "react-native-reanimated";
 import "../../global.css";
-import { Text, View } from "react-native";
 import { THEMES } from "@/lib/unative/themes";
-import { libraryEnvironment } from "unative";
-import { useColorScheme } from "unative/hooks";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -36,24 +33,13 @@ const RootLayout = () => {
 
   return (
     <UnativeProvider themes={THEMES} defaultTheme="default">
-      {/* <DemoApp /> */}
       <App />
     </UnativeProvider>
   );
 };
 
-const DemoApp = () => {
-  const { isDarkMode } = useColorScheme();
-  return (
-    <View>
-      <Text>Hello {libraryEnvironment === "native" ? "Native" : "Web"}</Text>
-    </View>
-  );
-};
-
 const App = () => {
-  const { isDarkMode } = useColorScheme();
-  // const { navigationThemes } = useTheme();
+  const { theme, themes, isDarkMode } = useTheme();
 
   return (
     <ThemeProvider
@@ -61,11 +47,27 @@ const App = () => {
         isDarkMode
           ? {
               ...DarkTheme,
-              // colors: { ...DarkTheme.colors, ...navigationThemes?.dark },
+              colors: {
+                ...DarkTheme.colors,
+                background: themes[theme.name].dark["--background"],
+                border: themes[theme.name].dark["--border"],
+                card: themes[theme.name].dark["--card"],
+                notification: themes[theme.name].dark["--destructive"],
+                primary: themes[theme.name].dark["--primary"],
+                text: themes[theme.name].dark["--foreground"],
+              },
             }
           : {
               ...DefaultTheme,
-              // colors: { ...DefaultTheme.colors, ...navigationThemes?.light },
+              colors: {
+                ...DefaultTheme.colors,
+                background: themes[theme.name].light["--background"],
+                border: themes[theme.name].light["--border"],
+                card: themes[theme.name].light["--card"],
+                notification: themes[theme.name].light["--destructive"],
+                primary: themes[theme.name].light["--primary"],
+                text: themes[theme.name].light["--foreground"],
+              },
             }
       }
     >
