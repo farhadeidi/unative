@@ -8,11 +8,13 @@ import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
-import { DEFAULT_THEMES, useColorScheme, useTheme, isWeb } from "unative";
-import { Provider as UnativeProvider } from "unative/theme/native";
+import { Provider as UnativeProvider } from "unative/core/";
 import "react-native-reanimated";
 import "../../global.css";
 import { Text, View } from "react-native";
+import { THEMES } from "@/lib/unative/themes";
+import { libraryEnvironment } from "unative";
+import { useColorScheme } from "unative/hooks";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -33,10 +35,7 @@ const RootLayout = () => {
   }
 
   return (
-    <UnativeProvider
-      themes={{ default: DEFAULT_THEMES }}
-      defaultTheme="default"
-    >
+    <UnativeProvider themes={THEMES} defaultTheme="default">
       {/* <DemoApp /> */}
       <App />
     </UnativeProvider>
@@ -47,14 +46,14 @@ const DemoApp = () => {
   const { isDarkMode } = useColorScheme();
   return (
     <View>
-      <Text>Hello {isWeb ? "Web" : "Native"}</Text>
+      <Text>Hello {libraryEnvironment === "native" ? "Native" : "Web"}</Text>
     </View>
   );
 };
 
 const App = () => {
   const { isDarkMode } = useColorScheme();
-  const { navigationThemes } = useTheme();
+  // const { navigationThemes } = useTheme();
 
   return (
     <ThemeProvider
@@ -62,11 +61,11 @@ const App = () => {
         isDarkMode
           ? {
               ...DarkTheme,
-              colors: { ...DarkTheme.colors, ...navigationThemes?.dark },
+              // colors: { ...DarkTheme.colors, ...navigationThemes?.dark },
             }
           : {
               ...DefaultTheme,
-              colors: { ...DefaultTheme.colors, ...navigationThemes?.light },
+              // colors: { ...DefaultTheme.colors, ...navigationThemes?.light },
             }
       }
     >

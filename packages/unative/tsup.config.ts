@@ -1,5 +1,6 @@
 import { defineConfig } from "tsup";
 import { exec } from "child_process";
+import reactUseClient from "esbuild-react18-useclient";
 
 function run(cmd: string) {
   return new Promise((resolve, reject) => {
@@ -11,19 +12,23 @@ function run(cmd: string) {
   });
 }
 
-export default defineConfig(() => {
+export default defineConfig((options) => {
   return {
     entry: ["src/**/*.{js,jsx,ts}"],
     format: ["esm", "cjs"],
     outDir: "dist",
-    splitting: true,
+    splitting: false,
     sourcemap: false,
     dts: true,
-    treeshake: true,
-    clean: false,
+    treeshake: false,
+    clean: !options.watch,
     publicDir: "public",
+    esbuildPlugins: [reactUseClient],
     esbuildOptions(options, context) {
       options.chunkNames = "chunks/[name]-[hash]";
+      // options.banner = {
+      //   js: '"use client"',
+      // };
     },
 
     external: [
@@ -32,6 +37,7 @@ export default defineConfig(() => {
       "@types/react",
       "react-native",
       "nativewind",
+      "react-native-css-interop",
       "tailwindcss",
       "clsx",
       "tailwind-merge",

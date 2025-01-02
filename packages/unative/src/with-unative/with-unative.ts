@@ -1,5 +1,5 @@
 import path from "path";
-import { metroUtils } from "./metro-utils";
+import { utils } from "./with-unative-utils";
 
 export type WithUnativeOptions = {
   css?: string;
@@ -15,16 +15,16 @@ const handlerFunction = async (options: WithUnativeOptions) => {
 
   const cssFilePath = path.join(projectRoot, config.css);
   const outputDir = path.join(projectRoot, config.outputDir);
-  const cssContent = await metroUtils.getFileDataAsString({
+  const cssContent = await utils.getFileDataAsString({
     filePath: cssFilePath,
   });
-  const themeVariables = metroUtils.getThemeVariablesJsonString({
+  const themeVariables = utils.getThemeVariablesJsonString({
     cssFileContent: cssContent,
   });
-  const themesFileString = metroUtils.getThemesFileStringToWrite({
+  const themesFileString = utils.getThemesFileStringToWrite({
     themeVariables,
   });
-  await metroUtils.writeFileContent({
+  await utils.writeFileContent({
     filePath: path.join(outputDir, "themes.ts"),
     content: themesFileString,
   });

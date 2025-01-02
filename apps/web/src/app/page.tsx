@@ -1,15 +1,18 @@
+import { ThemeSwitch } from "@/components/theme-switch";
 import React from "react";
-import { isNative, Box, Button } from "unative";
+import { libraryEnvironment } from "unative";
+
+console.log("dev => libraryEnvironment", libraryEnvironment);
 
 const Home = () => {
   return (
-    <Box className="min-h-screen flex flex-col justify-center items-center gap-2">
-      <h1 className="font-bold text-3xl uppercase">Unative</h1>
+    <div className="min-h-screen flex flex-col justify-center items-center gap-2">
       <h1 className="font-bold text-3xl uppercase">
-        {isNative ? "Native" : "Web"}
+        {libraryEnvironment === "web" ? "Web" : "Native"}
       </h1>
-      <Button>Button</Button>
-    </Box>
+      {/* <Button variant="primary">Button Component</Button> */}
+      <ThemeSwitch />
+    </div>
   );
 };
 

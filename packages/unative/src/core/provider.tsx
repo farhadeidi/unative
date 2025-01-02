@@ -1,15 +1,14 @@
-"use client";
-
 import React, { useEffect } from "react";
-import { ThemeContext } from "../common/theme-context";
 import useProviderHandler from "./use-provider-handler";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import {
+  ColorSchemes,
   UnativeConfig,
   UnativeThemes,
   UnativeThemeVariables,
-} from "../../types";
+} from "../types";
 import { useTheme as useNextTheme } from "next-themes";
+import { ProviderContext } from "./provider-context";
 
 const applyCssVars = (values: UnativeThemeVariables) => {
   Object.entries(values).forEach(([key, value]) => {
@@ -40,8 +39,10 @@ export const Provider = ({ children, ...props }: ProviderProps) => {
 
 const ContextProvider = ({ children, themes: rawThemes }: ProviderProps) => {
   const nextTheme = useNextTheme();
+
   const { isInitialized, theme, themes } = useProviderHandler({
     rawThemes,
+    appliedScheme: nextTheme.theme as ColorSchemes,
     isDarkMode:
       nextTheme.theme === "system"
         ? nextTheme.systemTheme === "dark"
@@ -59,22 +60,22 @@ const ContextProvider = ({ children, themes: rawThemes }: ProviderProps) => {
   }, [rawThemes, isInitialized, theme, nextTheme]);
 
   return (
-    <NextThemesProvider
-      attribute="class"
-      defaultTheme="system"
-      enableSystem={true}
-      disableTransitionOnChange
+    <ProviderContext.Provider
+      key={isInitialized ? "initialized" : "not-initialized"}
+      value={{
+        config: {},
+        rawThemes: rawThemes,
+        themes: themes,
+        theme: theme,
+        schemes: ["dark", "light", "system"] as ColorSchemes[],
+        setScheme: (scheme) => {
+          nextTheme.setTheme(scheme);
+        },
+        setTheme: (value) => {},
+        isInitialized,
+      }}
     >
-      <ThemeContext.Provider
-        value={{
-          config: {},
-          rawThemes: rawThemes,
-          themes: themes,
-          theme: theme,
-        }}
-      >
-        {children}
-      </ThemeContext.Provider>
-    </NextThemesProvider>
+      {children}
+    </ProviderContext.Provider>
   );
 };

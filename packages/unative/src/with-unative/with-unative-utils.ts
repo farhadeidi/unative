@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { DEFAULT_THEMES } from "../../theme/common/default-themes";
+import { DEFAULT_THEMES } from "../theme/common/default-themes";
 
 const getVariablesByPartialCssString = (
   content: string
@@ -192,7 +192,7 @@ const writeFileContent = async ({
   });
 };
 
-export const metroUtils = {
+export const utils = {
   getThemeVariablesJsonString,
   getFileDataAsString,
   getThemesFileStringToWrite,

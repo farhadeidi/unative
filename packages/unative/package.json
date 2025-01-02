@@ -24,10 +24,16 @@
   "homepage": "https://unative.dev",
   "exports": {
     ".": {
+      "types": "./index.d.ts",
+      "node": {
+        "types": "./index.d.ts",
+        "require": "./index.cjs",
+        "default": "./index.js"
+      },
       "browser": {
-        "types": "./index.native.d.ts",
-        "require": "./index.native.cjs",
-        "default": "./index.native.js"
+        "types": "./index.d.ts",
+        "require": "./index.cjs",
+        "default": "./index.js"
       },
       "react-native": {
         "types": "./index.native.d.ts",
@@ -47,49 +53,36 @@
         "default": "./index.js"
       }
     },
+    "./core": {
+      "types": "./core/index.d.ts",
+      "require": "./core/index.cjs",
+      "import": "./core/index.js"
+    },
+    "./styles.css": "./styles.css",
     "./ui": {
-      "browser": {
-        "types": "./ui/index.native.d.ts",
-        "require": "./ui/index.native.cjs",
-        "import": "./ui/index.native.js"
-      },
-      "react-native": {
-        "types": "./ui/index.native.d.ts",
-        "require": "./ui/index.native.cjs",
-        "import": "./ui/index.native.js"
-      },
-      "default": {
-        "types": "./ui/index.d.ts",
-        "require": "./ui/index.cjs",
-        "import": "./ui/index.js"
-      }
+      "types": "./ui/index.d.ts",
+      "require": "./ui/index.cjs",
+      "import": "./ui/index.js"
     },
     "./hooks": {
-      "browser": {
-        "types": "./hooks/index.native.d.ts",
-        "require": "./hooks/index.native.cjs",
-        "import": "./hooks/index.native.js"
-      },
+      "types": "./hooks/index.d.ts",
       "react-native": {
         "types": "./hooks/index.native.d.ts",
         "require": "./hooks/index.native.cjs",
         "import": "./hooks/index.native.js"
       },
-      "default": {
-        "types": "./hooks/index.d.ts",
-        "require": "./hooks/index.cjs",
-        "import": "./hooks/index.js"
-      }
+      "require": "./hooks/index.cjs",
+      "import": "./hooks/index.js"
     },
     "./native": {
       "types": "./native/index.d.ts",
       "require": "./native/index.cjs",
       "import": "./native/index.js"
     },
-    "./native/metro": {
-      "types": "./native/metro/index.d.ts",
-      "require": "./native/metro/index.cjs",
-      "import": "./native/metro/index.js"
+    "./with-unative": {
+      "types": "./with-unative/index.d.ts",
+      "require": "./with-unative/index.cjs",
+      "import": "./with-unative/index.js"
     },
     "./types": "./types.d.cts"
   },
@@ -97,7 +90,9 @@
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "~18.3.12",
+    "esbuild-react18-useclient": "^1.0.7",
     "nativewind": "*",
+    "next-themes": "^0.4.4",
     "react": "18.3.1",
     "react-native": "0.76.5",
     "react-native-safe-area-context": "4.12.0",

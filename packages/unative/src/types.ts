@@ -3,12 +3,7 @@ import type { DefaultThemeVariables } from "./theme/common/default-themes";
 export type UnativeConfig = {};
 
 export type UnativeThemeVariables = DefaultThemeVariables &
-  (
-    | {
-        [K: string]: Record<string, string>;
-      }
-    | {}
-  );
+  (Record<string, string> | {});
 
 export type UnativeThemes = {
   [K: string]: {
@@ -16,3 +11,5 @@ export type UnativeThemes = {
     dark: UnativeThemeVariables;
   };
 };
+
+export type ColorSchemes = "light" | "dark" | "system";

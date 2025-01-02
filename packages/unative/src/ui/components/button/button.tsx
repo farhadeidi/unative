@@ -1,4 +1,3 @@
-"use client";
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { type ButtonVariants, buttonVariants } from "./button-variants";
@@ -20,14 +19,15 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ) => {
     const Comp = asChild ? Slot : "button";
 
-    const { base } = buttonVariants({
+    const { base, text } = buttonVariants({
       variant,
       size: variant === "unstyled" ? "unstyled" : size,
     });
 
     return (
       <Comp
-        className={cn(base())}
+        suppressHydrationWarning
+        className={cn(base(), text())}
         ref={ref}
         onClick={onClick || onPress}
         {...props}
