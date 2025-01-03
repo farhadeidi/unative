@@ -96,7 +96,7 @@ export const ThemeSwitch = ({}: ThemeSwitchProps) => {
               }}
             >
               <Box
-                className="w-7 h-7 bg-background border rounded-full"
+                className="w-7 h-7 bg-background border border-border rounded-full"
                 style={{
                   borderColor: isActive
                     ? activeTheme["--primary"]

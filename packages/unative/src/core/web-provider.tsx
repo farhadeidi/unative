@@ -1,11 +1,21 @@
-"use client";
-
 import React, { useEffect, useState } from "react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { ColorSchemes, ProviderProps, UnativeThemeVariables } from "./types";
 import { useTheme as useNextTheme } from "next-themes";
 import { CommonProvider } from "./common-provider";
 import { useTheme } from "./use-theme";
+import { configureThemeScript } from "./theme-script";
+
+const getTheme = (key: string, fallback?: string) => {
+  if (typeof window === "undefined") return undefined;
+  let theme;
+  try {
+    theme = localStorage.getItem(key) || undefined;
+  } catch (e) {
+    // Unsupported
+  }
+  return theme || fallback;
+};
 
 const applyCssVars = (values: UnativeThemeVariables) => {
   Object.entries(values).forEach(([key, value]) => {
@@ -15,21 +25,31 @@ const applyCssVars = (values: UnativeThemeVariables) => {
 
 export const Provider = ({ children, ...props }: ProviderProps) => {
   return (
-    <NextThemesProvider
-      attribute="class"
-      defaultTheme="system"
-      enableSystem
-      disableTransitionOnChange
-    >
-      <InnerProvider {...props}>{children}</InnerProvider>
-    </NextThemesProvider>
+    <React.Fragment>
+      <script
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: `(${configureThemeScript.toString()})(${JSON.stringify(Object.keys(props.themes))})`,
+        }}
+      />
+      <NextThemesProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
+        enableColorScheme
+      >
+        <InnerProvider {...props}>{children}</InnerProvider>
+      </NextThemesProvider>
+    </React.Fragment>
   );
 };
 
 const InnerProvider = ({ children, ...props }: ProviderProps) => {
   const [activeTheme, setActiveTheme] = useState(
-    localStorage.getItem("unative-theme-name") || "default"
+    getTheme("theme-brown", "default")
   );
+
   const [isInitialized, setIsInitialized] = useState(false);
 
   const {
@@ -47,6 +67,8 @@ const InnerProvider = ({ children, ...props }: ProviderProps) => {
       setActiveTheme("default");
       localStorage.setItem("unative-theme-name", "default");
     }
+
+    configureThemeScript(Object.keys(props.themes), themeName);
   };
 
   const onColorSchemeChange = async (value: ColorSchemes) => {
@@ -103,5 +125,6 @@ const ThemeVariablesHandler = ({ children }: { children: React.ReactNode }) => {
       applyCssVars(rawThemes[theme.name][isDarkMode ? "dark" : "light"]);
     }
   }, [rawThemes, isInitialized, theme, nextTheme]);
+
   return <React.Fragment>{children}</React.Fragment>;
 };
