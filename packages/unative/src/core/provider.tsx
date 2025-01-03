@@ -58,22 +58,26 @@ export const Provider = ({ children, ...props }: ProviderProps) => {
   }, []);
 
   return (
-    <CommonProvider
-      {...props}
-      isDarkMode={isDarkMode}
-      savedScheme={activeColorScheme}
-      onColorSchemeChange={onColorSchemeChange}
-      onThemeChange={onThemeChange}
-      isParentInitialized={isInitialized}
-      savedTheme={activeTheme}
-    >
-      <ThemeHandler>{children}</ThemeHandler>
-    </CommonProvider>
+    <View className={`flex-1 theme-${activeTheme}`}>
+      <CommonProvider
+        {...props}
+        isDarkMode={isDarkMode}
+        savedScheme={activeColorScheme}
+        onColorSchemeChange={onColorSchemeChange}
+        onThemeChange={onThemeChange}
+        isParentInitialized={isInitialized}
+        savedTheme={activeTheme}
+      >
+        <ThemeHandler>{children}</ThemeHandler>
+      </CommonProvider>
+    </View>
   );
 };
 
 const ThemeHandler = ({ children }: { children: React.ReactNode }) => {
   const { theme, rawThemes, isInitialized } = useTheme();
+  console.log("dev => theme", theme.name);
+
   if (!isInitialized) return null;
   return (
     <View

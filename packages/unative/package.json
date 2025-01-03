@@ -24,10 +24,6 @@
   "homepage": "https://unative.dev",
   "exports": {
     ".": {
-      "browser": {
-        "types": "./index.web.d.ts",
-        "default": "./index.web.js"
-      },
       "react-native": {
         "types": "./index.d.ts",
         "default": "./index.js"
@@ -49,10 +45,6 @@
       "react-native": {
         "types": "./core/index.d.ts",
         "default": "./core/index.js"
-      },
-      "browser": {
-        "types": "./core/index.rsc.d.ts",
-        "default": "./core/index.rsc.js"
       },
       "react-server": {
         "types": "./core/index.rsc.d.ts",

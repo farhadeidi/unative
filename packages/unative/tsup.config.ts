@@ -24,6 +24,7 @@ export default defineConfig((options) => {
       // // Core Components`
       // "./src/core/index.ts",
       // "./src/core/index.rsc.ts",
+      "./src/core/provider.tsx",
       "./src/core/common-provider.tsx",
       "./src/core/default-themes.ts",
       "./src/core/web-provider.tsx",

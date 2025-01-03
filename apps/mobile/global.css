@@ -61,5 +61,17 @@
 
   .theme-rose {
     --primary: 340 100% 50%;
+
+    &.dark {
+      --primary: 340 100% 50%;
+    }
+  }
+
+  .theme-brown {
+    --primary: 30 100% 50%;
+
+    &.dark {
+      --primary: 30 100% 50%;
+    }
   }
 }

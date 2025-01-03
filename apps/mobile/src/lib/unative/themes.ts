@@ -76,6 +76,20 @@ export const THEMES: UnativeThemes = {
     },
     "dark": {
       ...DEFAULT_THEME_DARK,
+      "--primary": "340 100% 50%"
+        
+    }
+  },
+
+  "brown": {
+    "light": {
+      ...DEFAULT_THEME_LIGHT,
+      "--primary": "30 100% 50%"
+    },
+    "dark": {
+      ...DEFAULT_THEME_DARK,
+      "--primary": "30 100% 50%"
+        
     }
   }
 }
