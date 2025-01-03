@@ -1,6 +1,6 @@
 {
   "name": "unative",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "One UI Library for Web and Mobile",
   "type": "module",
   "scripts": {
@@ -24,72 +24,98 @@
   "homepage": "https://unative.dev",
   "exports": {
     ".": {
-      "types": "./index.d.ts",
-      "node": {
-        "types": "./index.d.ts",
-        "require": "./index.cjs",
-        "default": "./index.js"
-      },
       "browser": {
-        "types": "./index.d.ts",
-        "require": "./index.cjs",
-        "default": "./index.js"
+        "types": "./index.web.d.ts",
+        "default": "./index.web.js"
       },
       "react-native": {
-        "types": "./index.native.d.ts",
-        "require": "./index.native.cjs",
-        "default": "./index.native.js"
+        "types": "./index.d.ts",
+        "default": "./index.js"
       },
-      "require": {
-        "types": "./index.d.cts",
-        "default": "./index.cjs"
+      "react-server": {
+        "types": "./index.rsc.d.ts",
+        "default": "./index.rsc.js"
       },
       "import": {
-        "types": "./index.d.ts",
-        "default": "./index.js"
+        "types": "./index.rsc.d.ts",
+        "default": "./index.rsc.js"
       },
       "default": {
-        "types": "./index.d.ts",
-        "default": "./index.js"
+        "types": "./index.rsc.d.ts",
+        "default": "./index.rsc.js"
       }
     },
     "./core": {
-      "types": "./core/index.d.ts",
-      "require": "./core/index.cjs",
-      "import": "./core/index.js"
+      "react-native": {
+        "types": "./core/index.d.ts",
+        "default": "./core/index.js"
+      },
+      "browser": {
+        "types": "./core/index.rsc.d.ts",
+        "default": "./core/index.rsc.js"
+      },
+      "react-server": {
+        "types": "./core/index.rsc.d.ts",
+        "default": "./core/index.rsc.js"
+      },
+      "import": {
+        "types": "./core/index.rsc.d.ts",
+        "default": "./core/index.rsc.js"
+      },
+      "default": {
+        "types": "./core/index.rsc.d.ts",
+        "default": "./core/index.rsc.js"
+      }
     },
-    "./core/web-provider": {
-      "types": "./core/web-provider.d.ts",
-      "require": "./core/web-provider.cjs",
-      "import": "./core/web-provider.js"
+    "./ui/m/theme-switch": {
+      "react-native": {
+        "types": "./ui/m/theme-switch/index.d.ts",
+        "default": "./ui/m/theme-switch/index.js"
+      },
+      "browser": {
+        "types": "./ui/m/theme-switch/index.web.d.ts",
+        "default": "./ui/m/theme-switch/index.web.js"
+      },
+      "react-server": {
+        "types": "./ui/m/theme-switch/index.rsc.d.ts",
+        "default": "./ui/m/theme-switch/index.rsc.js"
+      },
+      "import": {
+        "types": "./ui/m/theme-switch/index.rsc.d.ts",
+        "default": "./ui/m/theme-switch/index.rsc.js"
+      },
+      "default": {
+        "types": "./ui/m/theme-switch/index.rsc.d.ts",
+        "default": "./ui/m/theme-switch/index.rsc.js"
+      }
     },
-    "./core/use-theme": {
-      "types": "./core/use-theme.d.ts",
-      "require": "./core/use-theme.cjs",
-      "import": "./core/use-theme.js"
-    },
-    "./styles.css": "./styles.css",
-    "./ui": {
-      "types": "./ui/index.d.ts",
-      "require": "./ui/index.cjs",
-      "import": "./ui/index.js"
-    },
-    "./native": {
-      "types": "./native/index.d.ts",
-      "require": "./native/index.cjs",
-      "import": "./native/index.js"
+    "./ui/m/platform-demo": {
+      "react-native": {
+        "types": "./ui/m/platform-demo/index.d.ts",
+        "default": "./ui/m/platform-demo/index.js"
+      },
+      "import": {
+        "types": "./ui/m/platform-demo/index.web.d.ts",
+        "default": "./ui/m/platform-demo/index.web.js"
+      },
+      "default": {
+        "types": "./ui/m/platform-demo/index.web.d.ts",
+        "require": "./ui/m/platform-demo/index.web.cjs",
+        "import": "./ui/m/platform-demo/index.web.mjs",
+        "default": "./ui/m/platform-demo/index.web.js"
+      }
     },
     "./with-unative": {
       "types": "./with-unative/index.d.ts",
       "require": "./with-unative/index.cjs",
-      "import": "./with-unative/index.js"
-    },
-    "./types": "./types.d.cts"
+      "default": "./with-unative/index.js"
+    }
   },
   "keywords": [],
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "~18.3.12",
+    "esbuild-plugin-preserve-directives": "^0.0.11",
     "esbuild-react18-useclient": "^1.0.7",
     "nativewind": "*",
     "next-themes": "^0.4.4",

@@ -1,10 +1,13 @@
 {
   "compilerOptions": {
     "jsx": "react-jsx",
-    "declarationMap": false,
+    "declaration": true,
+    "declarationMap": true,
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "types": ["nativewind/types", "@types/node"]
+    "types": ["nativewind/types", "@types/node"],
+    "resolveJsonModule": true,
+    "isolatedModules": true
   },
   "include": ["src"]
 }

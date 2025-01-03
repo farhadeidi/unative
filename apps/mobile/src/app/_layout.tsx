@@ -39,7 +39,8 @@ const RootLayout = () => {
 };
 
 const App = () => {
-  const { theme, themes, isDarkMode } = useTheme();
+  const { theme, themes, isDarkMode, isInitialized } = useTheme();
+  if (!isInitialized) return null;
 
   return (
     <ThemeProvider

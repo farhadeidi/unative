@@ -1,5 +1,7 @@
-import { useTheme } from "unative/core";
-import { Box, Button, Text } from "unative/ui";
+"use client";
+
+import { useTheme } from "../../../core/use-theme";
+import { Box, Button, Text } from "../../core/index.web";
 
 export type ThemeSwitchProps = {};
 export const ThemeSwitch = ({}: ThemeSwitchProps) => {

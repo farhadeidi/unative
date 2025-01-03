@@ -1,11 +1,10 @@
-import { ThemeSwitch } from "@/components/theme-switch";
 import { ScrollView } from "react-native";
 import { libraryEnvironment } from "unative";
-import { Box, Text, Button } from "unative/ui";
+import { Box, Text, Button } from "unative/ui/core";
+import { ThemeSwitch } from "unative/ui/m/theme-switch";
+import { PlatformDemo } from "unative/ui/m/platform-demo";
 
 export default function HomeScreen() {
-  // const { theme } = useTheme();
-
   return (
     <ScrollView>
       <Box className="flex-1 flex flex-col gap-4 p-4">
@@ -20,7 +19,7 @@ export default function HomeScreen() {
           <Text>Press Me</Text>
         </Button>
         <ThemeSwitch />
-        {/* <Text>{JSON.stringify(theme, null, 2)}</Text> */}
+        <PlatformDemo />
       </Box>
     </ScrollView>
   );

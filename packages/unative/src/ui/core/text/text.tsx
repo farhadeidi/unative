@@ -2,10 +2,7 @@
 
 import * as React from "react";
 import { Text as RNText } from "react-native";
-import {
-  SharedPrimitiveTypes,
-  SharedPrimitivesSlot,
-} from "../../../native/shared-primitives";
+import { SharedPrimitiveTypes, SharedPrimitivesSlot } from "../../primitives";
 import { cn } from "../../../utils";
 
 const TextClassContext = React.createContext<string | undefined>(undefined);

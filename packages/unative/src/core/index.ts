@@ -1,2 +1,2 @@
-export * from "./web-provider";
+export * from "./provider";
 export * from "./use-theme";
