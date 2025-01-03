@@ -3,7 +3,7 @@ import { cn } from "../../../utils";
 
 export type BoxProps = React.HtmlHTMLAttributes<HTMLDivElement>;
 export const Box = ({ ...props }: BoxProps) => {
-  return <div {...props} />;
+  return <div suppressHydrationWarning {...props} />;
 };
 
 export const HStack = ({ className, ...props }: BoxProps) => {

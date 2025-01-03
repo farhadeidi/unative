@@ -58,4 +58,20 @@
     --warning-foreground: 39.6 100% 50.2%;
     --link: 216.89 100% 59.61%;
   }
+
+  .theme-rose {
+    --primary: 340 100% 50%;
+
+    &.dark {
+      --primary: 340 100% 50%;
+    }
+  }
+
+  .theme-brown {
+    --primary: 30 100% 50%;
+
+    &.dark {
+      --primary: 30 100% 50%;
+    }
+  }
 }

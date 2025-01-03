@@ -54,7 +54,7 @@ export default defineConfig((options) => {
     dts: true,
     treeshake: false,
     metafile: true,
-    clean: !!options.watch ? true : true,
+    clean: !!options.watch ? false : true,
     publicDir: "public",
     esbuildPlugins: [reactUseClient],
     esbuildOptions(options, context) {

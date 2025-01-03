@@ -27,7 +27,9 @@ export const Provider = ({ children, ...props }: ProviderProps) => {
 };
 
 const InnerProvider = ({ children, ...props }: ProviderProps) => {
-  const [activeTheme, setActiveTheme] = useState("default");
+  const [activeTheme, setActiveTheme] = useState(
+    localStorage.getItem("unative-theme-name") || "default"
+  );
   const [isInitialized, setIsInitialized] = useState(false);
 
   const {
