@@ -140,7 +140,7 @@ const getThemesFileStringToWrite = ({
   // const themeNames = Object.keys(themeVariables);
 
   const fileContent = `/* eslint-disable prettier/prettier */
-import type { UnativeThemeVariables, UnativeThemes } from "unative/core/types";
+import type { UnativeThemeVariables, UnativeThemes } from "unative/core";
 
 /*
 ** Auto generated code. Don't modify manually.

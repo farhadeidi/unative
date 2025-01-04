@@ -1,7 +1,7 @@
 export const configureThemeScript = (
   themes: string[],
   newTheme: string | undefined = undefined,
-  defaultTheme = "default"
+  defaultTheme = "default",
 ) => {
   const el = document.documentElement;
   el.classList.remove(...themes.map((el) => `theme-${el}`));

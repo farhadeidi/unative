@@ -93,7 +93,7 @@ const ThemeHandler = ({ children }: { children: React.ReactNode }) => {
         { flex: 1 },
         vars(rawThemes[theme.name][theme.scheme === "dark" ? "dark" : "light"]),
       ]}
-      className=''
+      className=""
     >
       {children}
     </View>

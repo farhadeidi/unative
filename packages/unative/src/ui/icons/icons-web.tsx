@@ -9,6 +9,7 @@ export type IconProps = React.HtmlHTMLAttributes<HTMLOrSVGElement> & {
 export const SystemIcon = ({ size = 16, className, ...props }: IconProps) => {
   return (
     <svg
+      suppressHydrationWarning
       width={size}
       height={size}
       viewBox="0 0 24 24"
@@ -31,6 +32,7 @@ export const SystemIcon = ({ size = 16, className, ...props }: IconProps) => {
 export const SunIcon = ({ size = 16, className, ...props }: IconProps) => {
   return (
     <svg
+      suppressHydrationWarning
       width={size}
       height={size}
       viewBox="0 0 24 24"
@@ -58,6 +60,7 @@ export const SunIcon = ({ size = 16, className, ...props }: IconProps) => {
 export const MoonIcon = ({ size = 16, className, ...props }: IconProps) => {
   return (
     <svg
+      suppressHydrationWarning
       width={size}
       height={size}
       viewBox="0 0 24 24"

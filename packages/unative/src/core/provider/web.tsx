@@ -1,17 +1,21 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
-import { ColorSchemes, ProviderProps, UnativeThemeVariables } from "../types";
 import { useTheme as useNextTheme } from "next-themes";
-import { CommonProvider } from "./common";
+
 import { useTheme } from "../hooks/use-theme";
+import { ColorSchemes, ProviderProps, UnativeThemeVariables } from "../types";
 import { configureThemeScript } from "../utils/theme-script";
+
+import { CommonProvider } from "./common";
 
 const getTheme = (key: string, fallback?: string) => {
   if (typeof window === "undefined") return undefined;
   let theme;
   try {
     theme = localStorage.getItem(key) || undefined;
-  } catch (e) {
+  } catch {
     // Unsupported
   }
   return theme || fallback;
@@ -47,7 +51,7 @@ export const Provider = ({ children, ...props }: ProviderProps) => {
 
 const InnerProvider = ({ children, ...props }: ProviderProps) => {
   const [activeTheme, setActiveTheme] = useState(
-    getTheme("theme-brown", "default")
+    getTheme("theme-brown", "default"),
   );
 
   const [isInitialized, setIsInitialized] = useState(false);
@@ -121,9 +125,7 @@ const ThemeVariablesHandler = ({ children }: { children: React.ReactNode }) => {
   const { theme, isInitialized, rawThemes, isDarkMode } = useTheme();
 
   useEffect(() => {
-    if (isInitialized) {
-      applyCssVars(rawThemes[theme.name][isDarkMode ? "dark" : "light"]);
-    }
+    applyCssVars(rawThemes[theme.name][isDarkMode ? "dark" : "light"]);
   }, [rawThemes, isInitialized, theme, nextTheme]);
 
   return <React.Fragment>{children}</React.Fragment>;
