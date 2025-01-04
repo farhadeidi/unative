@@ -1,43 +1,93 @@
+/** @jsxImportSource nativewind */
+
+import React from "react";
 import { useTheme } from "../../../core";
+import { ColorSchemes } from "../../../core/types";
 import { Box, Button, Text } from "../../core";
+import { IconProps, MoonIcon, SunIcon, SystemIcon } from "../../icons";
+
+const schemes: {
+  id: ColorSchemes;
+  label: string;
+  IconComponent: React.FC<IconProps>;
+}[] = [
+  {
+    id: "system",
+    label: "System",
+    IconComponent: SystemIcon,
+  },
+  {
+    id: "light",
+    label: "Light",
+    IconComponent: SunIcon,
+  },
+  {
+    id: "dark",
+    label: "Dark",
+    IconComponent: MoonIcon,
+  },
+];
 
 export type ThemeSwitchProps = {};
 export const ThemeSwitch = ({}: ThemeSwitchProps) => {
-  const { theme, themes, setScheme, colorSchemes, setTheme } = useTheme();
+  const { theme, themes, setScheme, colorSchemes, setTheme, isDarkMode } =
+    useTheme();
 
   return (
-    <Box className="gap-4">
+    <Box className="gap-2 flex flex-row">
       <Box className="flex flex-row items-center gap-2">
-        {colorSchemes.map((scheme) => {
-          const isActive = theme.savedScheme === scheme;
+        {Object.keys(themes).map((themeName) => {
+          const isActive = theme.name === themeName;
+          const activeTheme = themes[themeName][isDarkMode ? "dark" : "light"];
           return (
             <Button
-              variant={isActive ? "primary" : "outline"}
-              key={scheme + theme.savedScheme}
-              className="flex-1"
+              variant="unstyled"
+              size="icon"
+              key={themeName}
+              className="rounded-full"
               onPress={() => {
-                setScheme(scheme as "light" | "dark" | "system");
+                setTheme(themeName);
               }}
             >
-              <Text>{scheme}</Text>
+              <Box
+                className="w-7 h-7 bg-background border border-border rounded-full"
+                style={{
+                  borderColor: isActive
+                    ? activeTheme["--primary"]
+                    : theme.values["--border"],
+                  padding: isActive ? 4 : 8,
+                }}
+              >
+                <Box
+                  className="w-full h-full rounded-full"
+                  style={{
+                    backgroundColor: activeTheme["--primary"],
+                  }}
+                />
+              </Box>
             </Button>
           );
         })}
       </Box>
 
       <Box className="flex flex-row items-center gap-2">
-        {Object.keys(themes).map((themeName) => {
-          const isActive = theme.name === themeName;
+        {schemes.map((item) => {
+          const isActive = theme.savedScheme === item.id;
           return (
             <Button
+              size="icon"
               variant={isActive ? "primary" : "outline"}
-              key={themeName}
-              className="flex-1"
+              key={item.id}
               onPress={() => {
-                setTheme(themeName);
+                setScheme(item.id);
               }}
             >
-              <Text>{themeName}</Text>
+              <item.IconComponent
+                size={16}
+                className={
+                  isActive ? "text-primary-foreground" : "text-foreground"
+                }
+              />
             </Button>
           );
         })}

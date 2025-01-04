@@ -74,7 +74,10 @@ const App = () => {
       }
     >
       <Stack>
-        <Stack.Screen name="index" options={{ headerShown: true }} />
+        <Stack.Screen
+          name="index"
+          options={{ headerShown: true, title: "Unative" }}
+        />
         <Stack.Screen name="+not-found" />
       </Stack>
       <StatusBar style="auto" />

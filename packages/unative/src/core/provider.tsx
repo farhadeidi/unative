@@ -4,12 +4,13 @@ import React, { useEffect, useState } from "react";
 import { ColorSchemes, ProviderProps } from "./types";
 import { CommonProvider } from "./common-provider";
 import { useColorScheme, vars } from "nativewind";
-import { View } from "react-native";
+import { Platform, View } from "react-native";
 import { useTheme } from "./use-theme";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { cn } from "../utils";
 
 export const Provider = ({ children, ...props }: ProviderProps) => {
-  const [activeTheme, setActiveTheme] = useState("default");
+  const [activeTheme, setActiveTheme] = useState("");
   const [activeColorScheme, setActiveColorScheme] =
     useState<ColorSchemes>("system");
   const [isInitialized, setIsInitialized] = useState(false);
@@ -44,10 +45,10 @@ export const Provider = ({ children, ...props }: ProviderProps) => {
     const init = async () => {
       try {
         const savedThemeName = await AsyncStorage.getItem("unative-theme-name");
-        onThemeChange(savedThemeName || "default");
+        await onThemeChange(savedThemeName || "default");
 
         const savedScheme = await AsyncStorage.getItem("unative-theme-scheme");
-        onColorSchemeChange((savedScheme || "system") as ColorSchemes);
+        await onColorSchemeChange((savedScheme || "system") as ColorSchemes);
       } catch (err) {
         console.error(err);
       } finally {
@@ -58,7 +59,12 @@ export const Provider = ({ children, ...props }: ProviderProps) => {
   }, []);
 
   return (
-    <View className={`flex-1 theme-${activeTheme}`}>
+    <View
+      className={cn(
+        "flex-1",
+        !!activeTheme && Platform.OS === "web" ? `theme-${activeTheme}` : ""
+      )}
+    >
       <CommonProvider
         {...props}
         isDarkMode={isDarkMode}
@@ -76,9 +82,9 @@ export const Provider = ({ children, ...props }: ProviderProps) => {
 
 const ThemeHandler = ({ children }: { children: React.ReactNode }) => {
   const { theme, rawThemes, isInitialized } = useTheme();
-  console.log("dev => theme", theme.name);
 
-  if (!isInitialized) return null;
+  if (!isInitialized || !theme.name) return null;
+
   return (
     <View
       style={[
