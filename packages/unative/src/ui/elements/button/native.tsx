@@ -1,10 +1,12 @@
 /** @jsxImportSource nativewind */
 
-import { ActivityIndicator, Pressable } from "react-native";
-import { ButtonVariants, buttonVariants } from "./variants";
 import React from "react";
-import { TextClassContext } from "../text/native";
+import { ActivityIndicator, Pressable } from "react-native";
+
 import { cn } from "../../../utils";
+import { TextClassContext } from "../text/native";
+
+import { ButtonVariants, buttonVariants } from "./variants";
 
 export type ButtonProps = React.ComponentPropsWithoutRef<typeof Pressable> &
   ButtonVariants & {
@@ -24,9 +26,9 @@ export const Button = React.forwardRef<
     <TextClassContext.Provider value={text()}>
       <Pressable
         className={cn(
-          props.disabled && "opacity-50 web:pointer-events-none",
+          props.disabled && "web:pointer-events-none opacity-50",
           base(),
-          className
+          className,
         )}
         ref={ref}
         role="button"

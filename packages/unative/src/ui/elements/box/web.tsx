@@ -1,4 +1,5 @@
 import React from "react";
+
 import { cn } from "../../../utils";
 
 export type BoxProps = React.HtmlHTMLAttributes<HTMLDivElement>;
@@ -19,7 +20,7 @@ export const Center = ({ className, ...props }: BoxProps) => {
     <Box
       className={cn(
         "flex flex-col items-center justify-center gap-1",
-        className
+        className,
       )}
       {...props}
     />

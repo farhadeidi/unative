@@ -1,8 +1,9 @@
 /** @jsxImportSource nativewind */
 
-import Svg, { Circle, Path, SvgProps } from "react-native-svg";
-import { cssInterop } from "nativewind";
 import React from "react";
+import { cssInterop } from "nativewind";
+import Svg, { Circle, Path, SvgProps } from "react-native-svg";
+
 import { cn } from "../../utils";
 
 export type IconProps = SvgProps & {
@@ -93,4 +94,4 @@ iconWithClassName(SystemIcon);
 iconWithClassName(MoonIcon);
 iconWithClassName(SunIcon);
 
-export { SystemIcon, MoonIcon, SunIcon };
+export { MoonIcon, SunIcon, SystemIcon };

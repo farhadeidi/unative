@@ -1,4 +1,5 @@
 import path from "path";
+
 import { utils } from "./with-unative-utils";
 
 export type WithUnativeOptions = {
@@ -32,7 +33,7 @@ const handlerFunction = async (options: WithUnativeOptions) => {
 
 export async function withUnative(
   config: any,
-  options: WithUnativeOptions = {} as WithUnativeOptions
+  options: WithUnativeOptions = {} as WithUnativeOptions,
 ): Promise<any> {
   await handlerFunction(options);
 

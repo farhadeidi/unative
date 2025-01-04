@@ -1,8 +1,8 @@
-import { defineConfig } from "tsup";
 import { exec } from "child_process";
 import reactUseClient from "esbuild-react18-useclient";
-import glob from "glob";
 import * as fs from "fs";
+import glob from "glob";
+import { defineConfig } from "tsup";
 
 function run(cmd: string) {
   return new Promise((resolve, reject) => {
@@ -35,7 +35,7 @@ export default defineConfig((options) => {
     publicDir: "public",
     silent: false,
     esbuildPlugins: [reactUseClient],
-    esbuildOptions(options, context) {
+    esbuildOptions(options) {
       options.chunkNames = "chunks/[name]-[hash]";
     },
     external: [

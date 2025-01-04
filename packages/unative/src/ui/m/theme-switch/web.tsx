@@ -1,7 +1,7 @@
 "use client";
 
-import { ColorSchemes } from "../../../core/types";
 import { useTheme } from "../../../core/hooks/use-theme";
+import { ColorSchemes } from "../../../core/types";
 import { Box, Button } from "../../elements/web";
 import {
   IconProps,
@@ -9,6 +9,7 @@ import {
   SunIcon,
   SystemIcon,
 } from "../../icons/icons-web";
+
 const schemes: {
   id: ColorSchemes;
   label: string;
@@ -36,7 +37,7 @@ export const ThemeSwitch = ({}: ThemeSwitchProps) => {
   const { theme, themes, setScheme, setTheme, isDarkMode } = useTheme();
 
   return (
-    <Box className="gap-2 flex flex-row">
+    <Box className="flex flex-row gap-2">
       <Box className="flex flex-row items-center gap-2">
         {Object.keys(themes).map((themeName) => {
           const isActive = theme.name === themeName;
@@ -52,7 +53,7 @@ export const ThemeSwitch = ({}: ThemeSwitchProps) => {
               }}
             >
               <Box
-                className="w-7 h-7 bg-background border border-border rounded-full"
+                className="h-7 w-7 rounded-full border border-border bg-background"
                 style={{
                   borderColor: isActive
                     ? activeTheme["--primary"]
@@ -61,7 +62,7 @@ export const ThemeSwitch = ({}: ThemeSwitchProps) => {
                 }}
               >
                 <Box
-                  className="w-full h-full rounded-full"
+                  className="h-full w-full rounded-full"
                   style={{
                     backgroundColor: activeTheme["--primary"],
                   }}

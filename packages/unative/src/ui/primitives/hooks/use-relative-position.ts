@@ -117,7 +117,7 @@ function getSidePosition({
     return {
       top: Math.min(
         Math.max(insetTop, positionTop),
-        dimensions.height - insetBottom - contentLayout.height
+        dimensions.height - insetBottom - contentLayout.height,
       ),
     };
   }
@@ -125,7 +125,7 @@ function getSidePosition({
   return {
     top: Math.min(
       dimensions.height - insetBottom - contentLayout.height,
-      positionBottom
+      positionBottom,
     ),
   };
 }
@@ -158,7 +158,7 @@ function getAlignPosition({
     alignOffset,
     insetLeft,
     insetRight,
-    dimensions
+    dimensions,
   );
 
   if (avoidCollisions) {
@@ -175,7 +175,7 @@ function getAlignPosition({
       } else {
         const centeredPosition = Math.max(
           insetLeft,
-          (dimensions.width - contentWidth - insetRight) / 2
+          (dimensions.width - contentWidth - insetRight) / 2,
         );
         left = centeredPosition;
       }
@@ -193,7 +193,7 @@ function getLeftPosition(
   alignOffset: number,
   insetLeft: number,
   insetRight: number,
-  dimensions: ScaledSize
+  dimensions: ScaledSize,
 ) {
   let left = 0;
   if (align === "start") {
@@ -207,7 +207,7 @@ function getLeftPosition(
   }
   return Math.max(
     insetLeft,
-    Math.min(left + alignOffset, dimensions.width - contentWidth - insetRight)
+    Math.min(left + alignOffset, dimensions.width - contentWidth - insetRight),
   );
 }
 
@@ -245,6 +245,6 @@ function getContentStyle({
       alignOffset,
       insets,
       dimensions,
-    })
+    }),
   );
 }

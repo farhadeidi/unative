@@ -12,7 +12,7 @@ const ToggleGroupUtils = {
   },
   getNewSingleValue(
     originalValue: string | string[] | undefined,
-    itemValue: string
+    itemValue: string,
   ) {
     if (originalValue === itemValue) {
       return undefined;
@@ -21,7 +21,7 @@ const ToggleGroupUtils = {
   },
   getNewMultipleValue(
     originalValue: string | string[] | undefined,
-    itemValue: string
+    itemValue: string,
   ) {
     if (originalValue === undefined) {
       return [itemValue];
@@ -64,4 +64,4 @@ const EmptyGestureResponderEvent: GestureResponderEvent = {
   type: "",
 };
 
-export { ToggleGroupUtils, EmptyGestureResponderEvent };
+export { EmptyGestureResponderEvent, ToggleGroupUtils };

@@ -1,13 +1,15 @@
 /** @jsxImportSource nativewind */
 
 import React, { useEffect, useState } from "react";
-import { ColorSchemes, ProviderProps } from "../types";
-import { CommonProvider } from "./common";
 import { useColorScheme, vars } from "nativewind";
 import { Platform, View } from "react-native";
-import { useTheme } from "../hooks/use-theme";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+
 import { cn } from "../../utils";
+import { useTheme } from "../hooks/use-theme";
+import { ColorSchemes, ProviderProps } from "../types";
+
+import { CommonProvider } from "./common";
 
 export const Provider = ({ children, ...props }: ProviderProps) => {
   const [activeTheme, setActiveTheme] = useState("");
@@ -62,7 +64,7 @@ export const Provider = ({ children, ...props }: ProviderProps) => {
     <View
       className={cn(
         "flex-1",
-        !!activeTheme && Platform.OS === "web" ? `theme-${activeTheme}` : ""
+        !!activeTheme && Platform.OS === "web" ? `theme-${activeTheme}` : "",
       )}
     >
       <CommonProvider
@@ -91,6 +93,7 @@ const ThemeHandler = ({ children }: { children: React.ReactNode }) => {
         { flex: 1 },
         vars(rawThemes[theme.name][theme.scheme === "dark" ? "dark" : "light"]),
       ]}
+      className=''
     >
       {children}
     </View>

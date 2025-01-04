@@ -1,9 +1,10 @@
 /** @jsxImportSource nativewind */
 
 import React from "react";
-import { useTheme } from "../../../core";
+
+import { useTheme } from "../../../core/hooks/use-theme";
 import { ColorSchemes } from "../../../core/types";
-import { Box, Button, Text } from "../../elements";
+import { Box, Button } from "../../elements";
 import {
   IconProps,
   MoonIcon,
@@ -35,11 +36,10 @@ const schemes: {
 
 export type ThemeSwitchProps = {};
 export const ThemeSwitch = ({}: ThemeSwitchProps) => {
-  const { theme, themes, setScheme, colorSchemes, setTheme, isDarkMode } =
-    useTheme();
+  const { theme, themes, setScheme, setTheme, isDarkMode } = useTheme();
 
   return (
-    <Box className="gap-2 flex flex-row">
+    <Box className="flex flex-row gap-2">
       <Box className="flex flex-row items-center gap-2">
         {Object.keys(themes).map((themeName) => {
           const isActive = theme.name === themeName;
@@ -55,7 +55,7 @@ export const ThemeSwitch = ({}: ThemeSwitchProps) => {
               }}
             >
               <Box
-                className="w-7 h-7 bg-background border border-border rounded-full"
+                className="h-7 w-7 rounded-full border border-border bg-background"
                 style={{
                   borderColor: isActive
                     ? activeTheme["--primary"]
@@ -64,7 +64,7 @@ export const ThemeSwitch = ({}: ThemeSwitchProps) => {
                 }}
               >
                 <Box
-                  className="w-full h-full rounded-full"
+                  className="h-full w-full rounded-full"
                   style={{
                     backgroundColor: activeTheme["--primary"],
                   }}

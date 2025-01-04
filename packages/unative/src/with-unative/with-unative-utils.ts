@@ -1,9 +1,10 @@
 import fs from "fs";
 import path from "path";
+
 import { DEFAULT_THEMES } from "../core/default-themes";
 
 const getVariablesByPartialCssString = (
-  content: string
+  content: string,
 ): { [key: string]: string } => {
   const variables: { [key: string]: string } = {};
   const variableRegex = /([^:]+):\s*([^;]+);/g;
@@ -27,7 +28,7 @@ interface ExtractedThemeVariables {
 }
 
 const getThemesByCssContentString = (
-  cssContent: string
+  cssContent: string,
 ): ExtractedThemeVariables => {
   const themeVariables: ExtractedThemeVariables = {};
   const themeRegex = /\.theme-([a-zA-Z-]+)\s*{([^}]*)}/g;
@@ -67,7 +68,7 @@ const getThemesByCssContentString = (
     const themeContent = themeMatch[2];
 
     const lightVariables = getVariablesByPartialCssString(
-      themeContent?.split("&.dark")[0]!
+      themeContent?.split("&.dark")[0]!,
     );
     let darkVariables: { [key: string]: string } = {};
 

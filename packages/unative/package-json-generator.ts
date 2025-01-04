@@ -134,7 +134,7 @@ function generateExports(dirPath: string): Record<string, any> {
 function updatePackageJson(
   srcDir: string,
   packageJsonPath: string,
-  outputPath: string
+  outputPath: string,
 ) {
   // Generate the new exports
   const newExports = generateExports(srcDir);

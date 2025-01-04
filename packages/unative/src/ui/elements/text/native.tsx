@@ -2,8 +2,9 @@
 
 import * as React from "react";
 import { Text as RNText } from "react-native";
-import { SharedPrimitiveTypes, SharedPrimitivesSlot } from "../../primitives";
+
 import { cn } from "../../../utils";
+import { SharedPrimitivesSlot, SharedPrimitiveTypes } from "../../primitives";
 
 const TextClassContext = React.createContext<string | undefined>(undefined);
 export type TextProps = SharedPrimitiveTypes.SlottableTextProps;
@@ -18,9 +19,9 @@ const Text = React.forwardRef<
   return (
     <Component
       className={cn(
-        "text-base font-normal text-foreground web:select-text",
+        "web:select-text text-base font-normal text-foreground",
         textClass,
-        className
+        className,
       )}
       ref={ref}
       {...props}
