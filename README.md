@@ -46,44 +46,25 @@ npx expo install unative
 npx expo install clsx tailwind-merge class-variance-authority @react-native-async-storage/async-storage
 ```
 
-#### tsconfig.json
-
-```json
-{
-  "compilerOptions": {
-    "moduleSuffixes": [".native", ""],
-    "customConditions": ["react-native"]
-  }
-}
-```
-
 #### Metro
 
 ```js
 // metro.config.js
+// Learn more https://docs.expo.io/guides/customizing-metro
 const { getDefaultConfig } = require("expo/metro-config");
 const { withNativeWind } = require("nativewind/metro");
-const { withUnative } = require("unative/native/metro");
+const { withUnative } = require("unative/with-unative");
 
 /** @type {import('expo/metro-config').MetroConfig} */
 const config = getDefaultConfig(__dirname);
-config.resolver.unstable_enablePackageExports = true;
 
-module.exports = withUnative(withNativeWind(config, { input: "./global.css" }));
-```
-
-#### Unative Config
-
-```ts
-// unative.config.ts
-import type { UnativeConfig } from "unative/types";
-
-const config: UnativeConfig = {
-  cssFilePath: "./global.css",
-  outputDir: "src/lib/unative",
-};
-
-export default config;
+module.exports = withUnative(
+  withNativeWind(config, { input: "./global.css" }),
+  {
+    css: "./global.css",
+    outputDir: "./src/lib/unative",
+  }
+);
 ```
 
 #### Tailwind Config
