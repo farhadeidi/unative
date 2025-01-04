@@ -1,1 +1,1 @@
-export const libraryEnvironment = "native";
+export const renderEnvironment = "Native";

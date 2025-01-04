@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ColorSchemes, ProviderProps, UnativeThemes } from "./types";
-import { ProviderContext, ThemeState } from "./provider-context";
-import { DEFAULT_THEMES } from "./default-themes";
-import { themeUtils } from "./utils/theme-utils";
+import { ColorSchemes, ProviderProps, UnativeThemes } from "../types";
+import { ProviderContext, ThemeState } from "../context/provider-context";
+import { DEFAULT_THEMES } from "../default-themes";
+import { themeUtils } from "../utils/theme-utils";
 
 export type CommonProviderProps = ProviderProps & {
   savedScheme: ColorSchemes;

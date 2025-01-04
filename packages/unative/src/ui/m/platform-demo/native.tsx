@@ -1,10 +1,10 @@
-import { Box, Text } from "../../core/index.web";
+import { Box, Text } from "../../elements";
 
 export type PlatformDemoProps = {};
 export const PlatformDemo = ({}: PlatformDemoProps) => {
   return (
     <Box>
-      <Text>Hello From Web</Text>
+      <Text>Hello from Native</Text>
     </Box>
   );
 };

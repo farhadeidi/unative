@@ -1,11 +1,14 @@
-/** @jsxImportSource nativewind */
+"use client";
 
-import React from "react";
-import { useTheme } from "../../../core";
 import { ColorSchemes } from "../../../core/types";
-import { Box, Button, Text } from "../../core";
-import { IconProps, MoonIcon, SunIcon, SystemIcon } from "../../icons";
-
+import { useTheme } from "../../../core/hooks/use-theme";
+import { Box, Button } from "../../elements/web";
+import {
+  IconProps,
+  MoonIcon,
+  SunIcon,
+  SystemIcon,
+} from "../../icons/icons-web";
 const schemes: {
   id: ColorSchemes;
   label: string;
@@ -30,8 +33,7 @@ const schemes: {
 
 export type ThemeSwitchProps = {};
 export const ThemeSwitch = ({}: ThemeSwitchProps) => {
-  const { theme, themes, setScheme, colorSchemes, setTheme, isDarkMode } =
-    useTheme();
+  const { theme, themes, setScheme, setTheme, isDarkMode } = useTheme();
 
   return (
     <Box className="gap-2 flex flex-row">

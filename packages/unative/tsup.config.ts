@@ -16,7 +16,7 @@ function run(cmd: string) {
 export default defineConfig((options) => {
   return {
     entry: [
-      ...glob.sync("./src/**/*.ts"),
+      ...glob.sync("./src/**/*.ts", "./src/**/*.tsx"),
       // "./src/index.ts",
       // "./src/index.web.ts",
       // "./src/index.rsc.ts",

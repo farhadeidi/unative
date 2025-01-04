@@ -4,7 +4,7 @@ import {
   UnativeConfig,
   UnativeThemes,
   UnativeThemeVariables,
-} from "./types";
+} from "../types";
 
 export type ThemeState = {
   name: string;

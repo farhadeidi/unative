@@ -1,13 +1,13 @@
 /** @jsxImportSource nativewind */
 
 import React, { useEffect, useState } from "react";
-import { ColorSchemes, ProviderProps } from "./types";
-import { CommonProvider } from "./common-provider";
+import { ColorSchemes, ProviderProps } from "../types";
+import { CommonProvider } from "./common";
 import { useColorScheme, vars } from "nativewind";
 import { Platform, View } from "react-native";
-import { useTheme } from "./use-theme";
+import { useTheme } from "../hooks/use-theme";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { cn } from "../utils";
+import { cn } from "../../utils";
 
 export const Provider = ({ children, ...props }: ProviderProps) => {
   const [activeTheme, setActiveTheme] = useState("");

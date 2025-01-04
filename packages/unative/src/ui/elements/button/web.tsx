@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
-import { type ButtonVariants, buttonVariants } from "./button-variants";
+import { type ButtonVariants, buttonVariants } from "./variants";
 import { cn } from "../../../utils";
 
 export interface ButtonProps

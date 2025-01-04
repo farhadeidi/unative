@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
-import { ColorSchemes, ProviderProps, UnativeThemeVariables } from "./types";
+import { ColorSchemes, ProviderProps, UnativeThemeVariables } from "../types";
 import { useTheme as useNextTheme } from "next-themes";
-import { CommonProvider } from "./common-provider";
-import { useTheme } from "./use-theme";
-import { configureThemeScript } from "./theme-script";
+import { CommonProvider } from "./common";
+import { useTheme } from "../hooks/use-theme";
+import { configureThemeScript } from "../utils/theme-script";
 
 const getTheme = (key: string, fallback?: string) => {
   if (typeof window === "undefined") return undefined;

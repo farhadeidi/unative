@@ -1,7 +1,7 @@
 /** @jsxImportSource nativewind */
 
 import { ActivityIndicator, Pressable } from "react-native";
-import { ButtonVariants, buttonVariants } from "./button-variants";
+import { ButtonVariants, buttonVariants } from "./variants";
 import React from "react";
 import { TextClassContext } from "../text";
 import { cn } from "../../../utils";
