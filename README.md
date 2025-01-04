@@ -1,6 +1,6 @@
 # Unative: One UI Library for Web and Mobile
 
-**Note:** This library is currently under development and is not recommended for use in production environments.
+**<span style="color: red;">⚠️ Important: This project is still under development. Do not use this library in your production projects. You can start using it once the first stable version is launched.</span>**
 
 ## The Story Behind
 

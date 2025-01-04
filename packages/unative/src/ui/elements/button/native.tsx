@@ -3,7 +3,7 @@
 import { ActivityIndicator, Pressable } from "react-native";
 import { ButtonVariants, buttonVariants } from "./variants";
 import React from "react";
-import { TextClassContext } from "../text";
+import { TextClassContext } from "../text/native";
 import { cn } from "../../../utils";
 
 export type ButtonProps = React.ComponentPropsWithoutRef<typeof Pressable> &
