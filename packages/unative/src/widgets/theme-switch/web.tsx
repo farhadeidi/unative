@@ -1,14 +1,14 @@
 "use client";
 
-import { useTheme } from "../../../core/hooks/use-theme";
-import { ColorSchemes } from "../../../core/types";
-import { Box, Button } from "../../elements/web";
 import {
   IconProps,
   MoonIcon,
   SunIcon,
   SystemIcon,
-} from "../../icons/icons-web";
+} from "../../components//icons/icons-web";
+import { Box, Button } from "../../components/ui/web";
+import { useTheme } from "../../core/hooks/use-theme";
+import { ColorSchemes } from "../../core/types";
 
 const schemes: {
   id: ColorSchemes;

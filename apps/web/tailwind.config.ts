@@ -6,11 +6,6 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
     "./node_modules/unative/**/*.{js,jsx,ts,tsx}",
   ],
-  safelist: [
-    {
-      pattern: /^theme-/,
-    }
-  ],
   theme: {
     extend: {
       colors: {

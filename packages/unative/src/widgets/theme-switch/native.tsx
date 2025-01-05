@@ -2,15 +2,15 @@
 
 import React from "react";
 
-import { useTheme } from "../../../core/hooks/use-theme";
-import { ColorSchemes } from "../../../core/types";
-import { Box, Button } from "../../elements";
 import {
   IconProps,
   MoonIcon,
   SunIcon,
   SystemIcon,
-} from "../../icons/icons-native";
+} from "../../components/icons/icons-native";
+import { Box, Button } from "../../components/ui";
+import { useTheme } from "../../core/hooks/use-theme";
+import { ColorSchemes } from "../../core/types";
 
 const schemes: {
   id: ColorSchemes;

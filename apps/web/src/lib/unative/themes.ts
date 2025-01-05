@@ -72,47 +72,31 @@ export const THEMES: UnativeThemes = {
   "brown": {
     "light": {
       ...DEFAULT_THEME_LIGHT,
-      "--primary": "30 100% 50%"
+      "--background": "31 57% 93%",
+      "--primary": "30 100% 50%",
+      "--primary-foreground": "0 0% 100%"
     },
     "dark": {
       ...DEFAULT_THEME_DARK,
-      "--primary": "30 100% 50%"
+      "--background": "0 0% 0%",
+      "--primary": "30 100% 50%",
+      "--primary-foreground": "0 0% 100%"
         
     }
   },
 
-  "positive": {
+  "third": {
     "light": {
       ...DEFAULT_THEME_LIGHT,
-      "--primary": "142 72% 29%"
+      "--background": "0 0% 100%",
+      "--primary": "16 65% 40%",
+      "--primary-foreground": "0 0% 100%"
     },
     "dark": {
       ...DEFAULT_THEME_DARK,
-      "--primary": "142 72% 29%"
-        
-    }
-  },
-
-  "rose": {
-    "light": {
-      ...DEFAULT_THEME_LIGHT,
-      "--primary": "340 100% 50%"
-    },
-    "dark": {
-      ...DEFAULT_THEME_DARK,
-      "--primary": "340 100% 50%"
-        
-    }
-  },
-
-  "retro": {
-    "light": {
-      ...DEFAULT_THEME_LIGHT,
-      "--primary": "30 100% 50%"
-    },
-    "dark": {
-      ...DEFAULT_THEME_DARK,
-      "--primary": "30 100% 50%"
+      "--background": "0 0% 0%",
+      "--primary": "16 65% 40%",
+      "--primary-foreground": "0 0% 100%"
         
     }
   }

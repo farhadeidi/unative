@@ -61,29 +61,23 @@
 }
 
 .theme-brown {
+  --background: 31 57% 93%;
   --primary: 30 100% 50%;
+  --primary-foreground: 0 0% 100%;
   &.dark {
+    --background: 0 0% 0%;
     --primary: 30 100% 50%;
+    --primary-foreground: 0 0% 100%;
   }
 }
 
-.theme-positive {
-  --primary: 142 72% 29%;
+.theme-third {
+  --background: 0 0% 100%;
+  --primary: 16 65% 40%;
+  --primary-foreground: 0 0% 100%;
   &.dark {
-    --primary: 142 72% 29%;
-  }
-}
-
-.theme-rose {
-  --primary: 340 100% 50%;
-  &.dark {
-    --primary: 340 100% 50%;
-  }
-}
-
-.theme-retro {
-  --primary: 30 100% 50%;
-  &.dark {
-    --primary: 30 100% 50%;
+    --background: 0 0% 0%;
+    --primary: 16 65% 40%;
+    --primary-foreground: 0 0% 100%;
   }
 }

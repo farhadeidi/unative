@@ -1,7 +1,7 @@
 import { ScrollView } from "react-native";
-import { Box, Text, Button } from "unative/ui/elements";
-import { ThemeSwitch } from "unative/ui/m/theme-switch";
-import { PlatformDemo } from "unative/ui/m/platform-demo";
+import { Box, Text, Button } from "unative/components/ui";
+import { ThemeSwitch } from "unative/widgets/theme-switch";
+import { PlatformDemo } from "unative/widgets/platform-demo";
 
 export default function HomeScreen() {
   return (

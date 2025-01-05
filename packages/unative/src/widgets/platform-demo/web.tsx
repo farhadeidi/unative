@@ -1,4 +1,4 @@
-import { Box, Text } from "../../elements/web";
+import { Box, Text } from "../../components/ui/web";
 
 export type PlatformDemoProps = {};
 export const PlatformDemo = ({}: PlatformDemoProps) => {
