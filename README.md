@@ -6,7 +6,61 @@
 
 Unative makes it easy to create great-looking and consistent user interfaces for both React Native and web apps. Powered by Tailwind CSS and Nativewind, it gives you a fast and simple way to handle styling across platforms. With full support for React Server Components, Unative helps you use modern tools to build amazing projects effortlessly.
 
-# Installation Guide for Mobile
+## ToDo's
+
+### Infrastructure
+
+- [x] Theming
+- [x] Separate native and web files with same folder structure
+- [x] Auto generate css theme variables by adding HOC to metro.config.js and next.config.js
+
+### Core Elements
+
+- [x] Box
+- [x] Text
+- [x] Button
+- [ ] Typography
+- [ ] Separator
+- [ ] Avatar
+- [ ] Badge
+- [ ] Card
+
+### Components
+
+- [ ] Accordion
+- [ ] Alert Dialog
+- [ ] Carousel
+- [ ] Skeleton
+- [ ] Dialog
+- [ ] DropdownMenu
+- [ ] ActionSheet
+- [ ] Progress
+- [ ] Slider
+- [ ] Toast
+- [ ] BottomSheet
+
+### Forms & Inputs
+
+- [ ] Form
+- [ ] Label
+- [ ] TextInput
+- [ ] Checkbox
+- [ ] Radio
+- [ ] Date Input
+- [ ] Select
+- [ ] Select Async
+- [ ] OTP Input
+- [ ] Switch
+- [ ] SegmentedControl
+
+### Widgets
+
+- [x] Theme Switch
+- [ ] Auth (Login/Register)
+- [ ] Onboarding
+- [ ] Calendar
+
+## Installation Guide for Mobile
 
 ### 1. Create Your App with Expo
 

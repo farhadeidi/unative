@@ -1,13 +1,13 @@
 import { ScrollView } from "react-native";
-import { Box, Text, Button } from "unative/components/ui";
-import { ThemeSwitch } from "unative/widgets/theme-switch";
+import { Box, Button, Text } from "unative/components/ui";
 import { PlatformDemo } from "unative/widgets/platform-demo";
+import { ThemeSwitch } from "unative/widgets/theme-switch";
 
 export default function HomeScreen() {
   return (
     <ScrollView>
-      <Box className="flex-1 flex flex-col gap-4 p-4">
-        <Text className="text-destructive text-3xl">Unative</Text>
+      <Box className="flex flex-1 flex-col gap-4 p-4">
+        <Text className="text-3xl text-destructive">Unative</Text>
         <Button
           variant="primary"
           onPress={() => {

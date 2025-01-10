@@ -1,18 +1,22 @@
+import "../../global.css";
+import "react-native-reanimated";
+
+import { useEffect } from "react";
+import { useFonts } from "expo-font";
+import { Stack } from "expo-router";
+import * as SplashScreen from "expo-splash-screen";
+import { StatusBar } from "expo-status-bar";
+import { Platform } from "react-native";
+import { useTheme } from "unative/core";
+import { Provider as UnativeProvider } from "unative/core/provider/native";
 import {
   DarkTheme,
   DefaultTheme,
   ThemeProvider,
 } from "@react-navigation/native";
-import { useFonts } from "expo-font";
-import { Stack } from "expo-router";
-import * as SplashScreen from "expo-splash-screen";
-import { StatusBar } from "expo-status-bar";
-import { useEffect } from "react";
-import { Provider as UnativeProvider } from "unative/core/provider/native";
-import { useTheme } from "unative/core";
-import "react-native-reanimated";
-import "../../global.css";
+
 import { THEMES } from "@/lib/unative/themes";
+import { Shell } from "@/components/shell";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -73,14 +77,13 @@ const App = () => {
             }
       }
     >
-      <Stack>
-        <Stack.Screen
-          name="index"
-          options={{ headerShown: true, title: "Unative" }}
-        />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <StatusBar style="auto" />
+      <Shell>
+        <Stack screenOptions={{ headerShown: Platform.OS !== "web" }}>
+          <Stack.Screen name="index" options={{ title: "Unative" }} />
+          <Stack.Screen name="+not-found" />
+        </Stack>
+        <StatusBar style="auto" />
+      </Shell>
     </ThemeProvider>
   );
 };

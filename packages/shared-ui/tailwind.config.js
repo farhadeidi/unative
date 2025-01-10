@@ -2,12 +2,7 @@
 module.exports = {
   // NOTE: Update this to include the paths to all of your component files.
   darkMode: "class",
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-    "./node_modules/unative/**/*.{js,jsx,mjs,ts,tsx}",
-    "./node_modules/@repo/shared-ui/**/*.{js,jsx,mjs,ts,tsx}",
-  ],
-  presets: [require("nativewind/preset")],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
       colors: {
