@@ -17,6 +17,7 @@
     "clean": "npx ts-node cleaner"
   },
   "devDependencies": {
+    "@turbo/gen": "^2.3.3",
     "clean-package": "^2.2.0",
     "cosmiconfig": "^9.0.0",
     "eslint-config-expo": "^8.0.1",
