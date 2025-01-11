@@ -1,41 +1,10 @@
 import React from "react";
-import { Href, Link } from "expo-router";
+import { Link } from "expo-router";
 import { Box, BoxProps, Button, Text } from "unative/components/ui";
 import { cn } from "unative/utils";
 import { LogoType } from "@repo/shared-ui";
 
-type LinkItem = {
-  label: string;
-  href: Href;
-  items?: LinkItem[];
-};
-
-const links: LinkItem[] = [
-  {
-    label: "Core Components",
-    href: "/components",
-    items: [
-      {
-        label: "Buttons",
-        href: "/components/buttons-demo",
-      },
-      {
-        label: "Text",
-        href: "/components/text-demo",
-      },
-    ],
-  },
-  {
-    label: "Widgets",
-    href: "/widgets",
-    items: [
-      {
-        label: "Theme Switch",
-        href: "/widgets/theme-switch-demo",
-      },
-    ],
-  },
-];
+import { navigationLinks } from "@/navigation-links";
 
 export type ShellSidebarProps = BoxProps & {};
 export const ShellSidebar = ({ className, ...props }: ShellSidebarProps) => {
@@ -49,7 +18,7 @@ export const ShellSidebar = ({ className, ...props }: ShellSidebarProps) => {
       </Box>
 
       <Box className="flex flex-col gap-4 p-4">
-        {links.map((parent) => {
+        {navigationLinks.map((parent) => {
           return (
             <Box key={parent.label}>
               <Text className="mb-1 text-sm font-bold text-muted-foreground">
@@ -67,7 +36,6 @@ export const ShellSidebar = ({ className, ...props }: ShellSidebarProps) => {
                           <Text className="text-sm">{item.label}</Text>
                         </Button>
                       </Link>
-                      {/* <Box className="h-[1px] bg-border" /> */}
                     </React.Fragment>
                   );
                 })}

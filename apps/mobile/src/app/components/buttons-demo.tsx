@@ -1,3 +1,4 @@
+import { ScrollView } from "react-native";
 import { capitalize } from "remeda";
 import { Box, Button, ButtonProps, Text } from "unative/components/ui";
 
@@ -58,24 +59,26 @@ const buttons: { label: string; items: ButtonProps[] }[] = [
 const ButtonsDemoPage = () => {
   return (
     <PageWrapper title="Button">
-      <Box className="flex flex-col items-start gap-2">
-        {buttons.map((parent) => (
-          <Box key={parent.label} className="flex flex-col gap-1">
-            <Box>
-              <Text>{parent.label}</Text>
+      <ScrollView>
+        <Box className="flex flex-col items-start gap-2 p-4">
+          {buttons.map((parent) => (
+            <Box key={parent.label} className="flex flex-col gap-1">
+              <Box>
+                <Text>{parent.label}</Text>
+              </Box>
+              <Box className="flex flex-col flex-wrap items-start gap-2">
+                {parent.items.map((item, index) => {
+                  return (
+                    <Button key={index} {...item}>
+                      <Text>{capitalize(item.variant || "default")}</Text>
+                    </Button>
+                  );
+                })}
+              </Box>
             </Box>
-            <Box className="flex flex-col flex-wrap items-start gap-2">
-              {parent.items.map((item, index) => {
-                return (
-                  <Button key={index} {...item}>
-                    <Text>{capitalize(item.variant || "default")}</Text>
-                  </Button>
-                );
-              })}
-            </Box>
-          </Box>
-        ))}
-      </Box>
+          ))}
+        </Box>
+      </ScrollView>
     </PageWrapper>
   );
 };

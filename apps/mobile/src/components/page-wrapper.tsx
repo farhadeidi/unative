@@ -1,4 +1,6 @@
 import React from "react";
+import { Stack } from "expo-router";
+import { Platform } from "react-native";
 import { Box, Text } from "unative/components/ui";
 
 export type PageWrapperProps = {
@@ -6,14 +8,25 @@ export type PageWrapperProps = {
   title?: string;
 };
 export const PageWrapper = ({ children, title }: PageWrapperProps) => {
-  document.title = title || "React Native Demo";
+  if (Platform.OS === "web") {
+    document.title = title || "React Native Demo";
+  }
+
+  if (Platform.OS === "web") {
+    return (
+      <Box>
+        <Box className="pb-8">
+          <Text className="text-4xl font-bold">{title}</Text>
+        </Box>
+        <Box>{children}</Box>
+      </Box>
+    );
+  }
 
   return (
-    <Box>
-      <Box className="pb-8">
-        <Text className="text-4xl font-bold">{title}</Text>
-      </Box>
-      <Box>{children}</Box>
-    </Box>
+    <React.Fragment>
+      <Stack.Screen options={{ title }} />
+      {children}
+    </React.Fragment>
   );
 };
