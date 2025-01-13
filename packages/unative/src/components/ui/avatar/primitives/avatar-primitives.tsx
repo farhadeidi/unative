@@ -1,3 +1,5 @@
+/** @jsxImportSource nativewind */
+
 import * as React from "react";
 import {
   Image as RNImage,

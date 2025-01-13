@@ -1,19 +1,9 @@
 /** @type {import('tailwindcss').Config} */
-const plugin = require("tailwindcss/plugin");
-const { hairlineWidth } = require("nativewind/theme");
-const { cssFontFamilies } = require("./unative.config");
-
 module.exports = {
+  // NOTE: Update this to include the paths to all of your component files.
   darkMode: "class",
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-    "./node_modules/unative/**/*.{js,jsx,mjs,ts,tsx}",
-    "./node_modules/unative/components/ui/**/*.{js,jsx,mjs,ts,tsx}",
-    "./node_modules/@repo/shared-ui/**/*.{js,jsx,mjs,ts,tsx}",
-  ],
-  presets: [require("nativewind/preset")],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    fontWeight: {},
     extend: {
       colors: {
         background: "hsl(var(--background))",
@@ -59,44 +49,7 @@ module.exports = {
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
       },
-      borderWidth: {
-        hairline: hairlineWidth(),
-      },
-      keyframes: {
-        "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
-        },
-        "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
-        },
-      },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-      },
     },
   },
-  plugins: [
-    require("tailwindcss-animate"),
-    plugin(function ({ addUtilities, addComponents }) {
-      addUtilities({
-        ".absolute-fill": {
-          "@apply absolute top-0 right-0 bottom-0 left-0": {},
-        },
-      });
-      addComponents({
-        ...cssFontFamilies,
-      });
-    }),
-  ],
+  plugins: [],
 };
