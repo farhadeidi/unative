@@ -1,7 +1,7 @@
 import { Platform } from "react-native";
-import { Box } from "unative/components/ui";
 
 import { ShellSidebar } from "@/components/shell-sidebar";
+import { Box } from "@/components/ui/box";
 
 export type ShellProps = {
   children?: React.ReactNode;

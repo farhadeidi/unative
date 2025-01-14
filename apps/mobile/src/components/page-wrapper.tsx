@@ -1,7 +1,9 @@
 import React from "react";
 import { Stack } from "expo-router";
 import { Platform } from "react-native";
-import { Box, Text } from "unative/components/ui";
+
+import { Box } from "@/components/ui/box";
+import { Text } from "@/components/ui/text";
 
 export type PageWrapperProps = {
   children?: React.ReactNode;
@@ -16,7 +18,7 @@ export const PageWrapper = ({ children, title }: PageWrapperProps) => {
     return (
       <Box>
         <Box className="pb-8">
-          <Text className="text-4xl font-bold">{title}</Text>
+          <Text className="font-bold text-4xl">{title}</Text>
         </Box>
         <Box>{children}</Box>
       </Box>

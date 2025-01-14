@@ -1,8 +1,10 @@
 import { ScrollView } from "react-native";
 import { capitalize } from "remeda";
-import { Box, Button, ButtonProps, Text } from "unative/components/ui";
 
 import { PageWrapper } from "@/components/page-wrapper";
+import { Box } from "@/components/ui/box";
+import { Button, ButtonProps } from "@/components/ui/button";
+import { Text } from "@/components/ui/text";
 
 const buttonVariants: ButtonProps[] = [
   {

@@ -1,4 +1,5 @@
-import { Box, Text } from "unative/components/ui";
+import { Box } from "@/components/ui/box";
+import { Text } from "@/components/ui/text";
 
 const ThemeSwitchDemo = () => {
   return (

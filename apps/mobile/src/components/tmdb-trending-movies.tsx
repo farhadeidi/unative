@@ -1,17 +1,17 @@
 import React from "react";
 import { FlatList, Image } from "react-native";
-import { Card } from "unative/components/ui/card";
-import { FilterTabs } from "unative/components/ui/filter-tabs";
-import { Pill } from "unative/components/ui/pill";
-import { Skeleton } from "unative/components/ui/skeleton";
-import { H4, P } from "unative/components/ui/typography";
 import { api } from "@repo/shared-api";
 import { useQuery } from "@tanstack/react-query";
 
 import { CalendarDaysIcon, StarIcon } from "@/components/icons";
 import { Box, HStack } from "@/components/ui/box";
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { FilterTabs } from "@/components/ui/filter-tabs";
+import { Pill } from "@/components/ui/pill";
+import { Skeleton } from "@/components/ui/skeleton";
 import { Text } from "@/components/ui/text";
+import { H4, P } from "@/components/ui/typography";
 
 export const TmdbTrendingMovies = () => {
   const [value, setValue] = React.useState("all");

@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "expo-router";
-import { Box, BoxProps, Button, Text } from "unative/components/ui";
-import { cn } from "unative/utils";
 import { LogoType } from "@repo/shared-ui";
 
+import { cn } from "@/lib/utils";
+import { Box, BoxProps } from "@/components/ui/box";
+import { Button } from "@/components/ui/button";
+import { Text } from "@/components/ui/text";
 import { navigationLinks } from "@/navigation-links";
 
 export type ShellSidebarProps = BoxProps & {};
@@ -21,7 +23,7 @@ export const ShellSidebar = ({ className, ...props }: ShellSidebarProps) => {
         {navigationLinks.map((parent) => {
           return (
             <Box key={parent.label}>
-              <Text className="mb-1 text-sm font-bold text-muted-foreground">
+              <Text className="font-bold mb-1 text-sm text-muted-foreground">
                 {parent.label}
               </Text>
               <Box>

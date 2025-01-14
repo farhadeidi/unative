@@ -1,7 +1,7 @@
-import { MoonIcon, SunIcon, SystemIcon } from "unative/components";
 import { useTheme } from "@unative/theme";
 
 import { cn } from "@/lib/utils";
+import { MonitorCogIcon, MoonIcon, SunIcon } from "@/components/icons";
 import { Box, BoxProps } from "@/components/ui/box";
 import { Button } from "@/components/ui/button";
 
@@ -42,7 +42,7 @@ export const ThemeOptions = ({ className, ...props }: ThemeOptionsProps) => {
         >
           <Box className="h-12 w-12 items-center justify-center rounded-full border border-border bg-background">
             {savedColorScheme === "system" && (
-              <SystemIcon size={24} className="text-foreground" />
+              <MonitorCogIcon size={24} className="text-foreground" />
             )}
             {savedColorScheme === "dark" && (
               <MoonIcon size={24} className="text-foreground" />

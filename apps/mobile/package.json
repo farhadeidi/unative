@@ -57,7 +57,6 @@
     "tailwind-variants": "^0.3.0",
     "tailwindcss": "^3.4.1",
     "tailwindcss-animate": "^1.0.7",
-    "unative": "workspace:*",
     "@unative/theme": "workspace:*",
     "@unative/primitives": "workspace:*"
   },

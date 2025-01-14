@@ -4,7 +4,10 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
   ChevronUpIcon,
+  MonitorCogIcon,
+  MoonIcon,
   StarIcon,
+  SunIcon,
 } from "lucide-react-native";
 
 import { iconWithClassName } from "./iconWithClassName";
@@ -15,6 +18,9 @@ iconWithClassName(ChevronLeftIcon);
 iconWithClassName(ChevronRightIcon);
 iconWithClassName(StarIcon);
 iconWithClassName(CalendarDaysIcon);
+iconWithClassName(SunIcon);
+iconWithClassName(MoonIcon);
+iconWithClassName(MonitorCogIcon);
 
 export {
   CalendarDaysIcon,
@@ -22,5 +28,8 @@ export {
   ChevronLeftIcon,
   ChevronRightIcon,
   ChevronUpIcon,
+  MonitorCogIcon,
+  MoonIcon,
   StarIcon,
+  SunIcon,
 };
