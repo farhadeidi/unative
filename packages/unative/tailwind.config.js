@@ -5,6 +5,13 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      borderRadius: {
+        none: '0',
+        DEFAULT: 'var(--radius)',
+        button: 'var(--radius-button)',
+        card: 'var(--radius-card)',
+      },
+
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",

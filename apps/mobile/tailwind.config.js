@@ -15,6 +15,12 @@ module.exports = {
   theme: {
     fontWeight: {},
     extend: {
+      borderRadius: {
+        none: '0',
+        DEFAULT: 'var(--radius)',
+        button: 'var(--radius-button)',
+        card: 'var(--radius-card)',
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",

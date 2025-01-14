@@ -114,6 +114,7 @@ const InnerProvider = ({ children, ...props }: ProviderProps) => {
       onThemeChange={onThemeChange}
       isParentInitialized={isInitialized}
       savedTheme={activeTheme}
+      isWeb={true}
     >
       <ThemeVariablesHandler>{children}</ThemeVariablesHandler>
     </CommonProvider>

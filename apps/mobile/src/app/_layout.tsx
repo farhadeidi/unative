@@ -34,7 +34,7 @@ api.tmdb.client.interceptors.request.use((request) => {
 });
 
 const RootLayout = () => {
-  const [loaded, error] = useFonts(
+  const [loaded] = useFonts(
     Platform.select({
       web: {
         InterVariable: require("@/assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf"),
@@ -78,8 +78,6 @@ const RootLayout = () => {
     }) as Record<string, FontSource>,
   );
 
-  console.log("dev => error", error);
-
   useEffect(() => {
     if (loaded) {
       SplashScreen.hideAsync();
@@ -113,7 +111,7 @@ const App = () => {
                 ...DarkTheme.colors,
                 background: themes[theme.name].dark["--background"],
                 border: themes[theme.name].dark["--border"],
-                card: themes[theme.name].dark["--card"],
+                card: themes[theme.name].dark["--background"],
                 notification: themes[theme.name].dark["--destructive"],
                 primary: themes[theme.name].dark["--primary"],
                 text: themes[theme.name].dark["--foreground"],
@@ -124,6 +122,18 @@ const App = () => {
                   fontFamily: "Inter-Bold",
                   fontWeight: "bold",
                 },
+                heavy: {
+                  fontFamily: "Inter-Black",
+                  fontWeight: "800",
+                },
+                regular: {
+                  fontFamily: "Inter-Regular",
+                  fontWeight: "400",
+                },
+                medium: {
+                  fontFamily: "Inter-Medium",
+                  fontWeight: "500",
+                },
               },
             }
           : {
@@ -132,13 +142,29 @@ const App = () => {
                 ...DefaultTheme.colors,
                 background: themes[theme.name].light["--background"],
                 border: themes[theme.name].light["--border"],
-                card: themes[theme.name].light["--card"],
+                card: themes[theme.name].light["--background"],
                 notification: themes[theme.name].light["--destructive"],
                 primary: themes[theme.name].light["--primary"],
                 text: themes[theme.name].light["--foreground"],
               },
               fonts: {
                 ...DefaultTheme.fonts,
+                bold: {
+                  fontFamily: "Inter-Bold",
+                  fontWeight: "bold",
+                },
+                heavy: {
+                  fontFamily: "Inter-Black",
+                  fontWeight: "800",
+                },
+                regular: {
+                  fontFamily: "Inter-Regular",
+                  fontWeight: "400",
+                },
+                medium: {
+                  fontFamily: "Inter-Medium",
+                  fontWeight: "500",
+                },
               },
             }
       }

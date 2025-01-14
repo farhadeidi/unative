@@ -17,6 +17,7 @@ export type ThemeState = {
 export type ProviderContextProps = {
   themes: UnativeThemes;
   rawThemes: UnativeThemes;
+  cssVariables: UnativeThemes;
   config: UnativeConfig;
   theme: ThemeState;
   rawThemeValues?: UnativeThemeVariables;

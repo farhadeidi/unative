@@ -2,7 +2,7 @@
 
 export const DEFAULT_VARIANTS = {
   default: {
-    base: "bg-border web:hover:opacity-90 active:opacity-90",
+    base: "bg-accent web:hover:opacity-90 active:opacity-90",
     text: "text-accent-foreground",
   },
   primary: {

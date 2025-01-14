@@ -75,6 +75,7 @@ export const Provider = ({ children, ...props }: ProviderProps) => {
         onThemeChange={onThemeChange}
         isParentInitialized={isInitialized}
         savedTheme={activeTheme}
+        isWeb={Platform.OS === "web"}
       >
         <ThemeHandler>{children}</ThemeHandler>
       </CommonProvider>
@@ -83,19 +84,12 @@ export const Provider = ({ children, ...props }: ProviderProps) => {
 };
 
 const ThemeHandler = ({ children }: { children: React.ReactNode }) => {
-  const { theme, rawThemes, isInitialized } = useTheme();
+  const { theme, isInitialized, cssVariables } = useTheme();
 
   if (!isInitialized || !theme.name) return null;
 
-  return (
-    <View
-      style={[
-        { flex: 1 },
-        vars(rawThemes[theme.name][theme.scheme === "dark" ? "dark" : "light"]),
-      ]}
-      className=""
-    >
-      {children}
-    </View>
-  );
+  const currentTheme =
+    cssVariables[theme.name][theme.scheme === "dark" ? "dark" : "light"];
+
+  return <View style={[{ flex: 1 }, vars(currentTheme)]}>{children}</View>;
 };

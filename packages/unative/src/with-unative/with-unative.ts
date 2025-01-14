@@ -1,6 +1,10 @@
+import fs from "fs";
 import path from "path";
 
 import { utils } from "./with-unative-utils";
+
+const defaultCssPath = "./global.css";
+const defaultOutputDir = "./src/lib/unative";
 
 export type WithUnativeOptions = {
   css?: string;
@@ -10,8 +14,8 @@ export type WithUnativeOptions = {
 const handlerFunction = async (options: WithUnativeOptions) => {
   const projectRoot = process.cwd();
   const config = {
-    css: options.css || "./global.css",
-    outputDir: options.outputDir || "./src/lib/unative",
+    css: options.css || defaultCssPath,
+    outputDir: options.outputDir || defaultOutputDir,
   };
 
   const cssFilePath = path.join(projectRoot, config.css);
@@ -29,6 +33,7 @@ const handlerFunction = async (options: WithUnativeOptions) => {
     filePath: path.join(outputDir, "themes.ts"),
     content: themesFileString,
   });
+  console.log("Themes file generated successfully");
 };
 
 export async function withUnative(
@@ -36,6 +41,12 @@ export async function withUnative(
   options: WithUnativeOptions = {} as WithUnativeOptions,
 ): Promise<any> {
   await handlerFunction(options);
-
+  watchForChanges(options);
   return config;
 }
+
+const watchForChanges = (config: WithUnativeOptions) => {
+  fs.watch(config.css || defaultCssPath, () => {
+    handlerFunction(config);
+  });
+};

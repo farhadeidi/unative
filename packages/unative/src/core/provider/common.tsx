@@ -7,6 +7,8 @@ import { DEFAULT_THEMES } from "../default-themes";
 import { ColorSchemes, ProviderProps, UnativeThemes } from "../types";
 import { themeUtils } from "../utils/theme-utils";
 
+const isDev = process.env.NODE_ENV === "development";
+
 export type CommonProviderProps = ProviderProps & {
   savedScheme: ColorSchemes;
   savedTheme: string;
@@ -14,6 +16,7 @@ export type CommonProviderProps = ProviderProps & {
   onColorSchemeChange: (scheme: ColorSchemes) => void;
   onThemeChange: (value: string) => void;
   isParentInitialized: boolean;
+  isWeb: boolean;
 };
 
 export const CommonProvider = ({
@@ -25,9 +28,11 @@ export const CommonProvider = ({
   onColorSchemeChange,
   onThemeChange,
   isParentInitialized,
+  isWeb = false,
 }: CommonProviderProps) => {
   const [isInitialized, setIsInitialized] = useState(false);
   const [themes, setThemes] = useState<UnativeThemes>(rawThemes);
+  const [cssVariables, setCssVariables] = useState<UnativeThemes>(rawThemes);
   const [theme, setTheme] = useState<ThemeState>({
     name: "default",
     scheme: isDarkMode ? "dark" : "light",
@@ -38,11 +43,17 @@ export const CommonProvider = ({
   useEffect(() => {
     const init = async () => {
       let optimizedThemes = { ...themes };
-      if (!isInitialized) {
-        optimizedThemes = themeUtils.getOptimizedThemes({
+
+      if (isDev || !isInitialized) {
+        const optimizedValues = themeUtils.getOptimizedThemes({
           themes: rawThemes,
-        }).optimizedThemes;
+          isWeb: isWeb,
+          baseRemSize: 16,
+        });
+
+        optimizedThemes = optimizedValues.optimizedThemes;
         setThemes(optimizedThemes);
+        setCssVariables(optimizedValues.cssVars);
       }
       const themeName = savedTheme || "default";
       setTheme({
@@ -73,6 +84,7 @@ export const CommonProvider = ({
         rawThemes: rawThemes,
         themes: themes,
         theme: theme,
+        cssVariables: cssVariables,
 
         savedColorScheme: savedScheme,
         colorSchemes: ["dark", "light", "system"] as ColorSchemes[],

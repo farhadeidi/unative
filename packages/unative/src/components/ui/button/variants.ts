@@ -6,7 +6,7 @@ import { DEFAULT_VARIANTS } from "../../../core/default-variants";
 
 export const buttonVariants = tv({
   slots: {
-    base: "group flex items-center justify-center rounded-md web:ring-offset-background web:transition-colors web:focus-visible:outline-none web:focus-visible:ring-2 web:focus-visible:ring-ring web:focus-visible:ring-offset-2 flex-row gap-2",
+    base: "group flex items-center justify-center rounded-button web:ring-offset-background web:transition-colors web:focus-visible:outline-none web:focus-visible:ring-2 web:focus-visible:ring-ring web:focus-visible:ring-offset-2 flex-row gap-2",
     text: "web:whitespace-nowrap font-medium text-foreground web:transition-colors",
   },
   variants: {
@@ -19,15 +19,15 @@ export const buttonVariants = tv({
         text: "",
       },
       sm: {
-        base: "h-9 rounded-md px-3",
+        base: "h-9 px-3",
         text: "",
       },
       lg: {
-        base: "h-11 rounded-md px-8 native:h-14",
+        base: "h-11 px-8 native:h-14",
         text: "",
       },
       xl: {
-        base: "h-14 rounded-md px-8 native:h-16",
+        base: "h-14 px-8 native:h-16",
         text: "",
       },
       icon: {

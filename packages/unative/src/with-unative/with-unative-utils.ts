@@ -110,6 +110,8 @@ const getThemesFileStringToWrite = ({
     if (!theme || !theme.light) return "";
     const hasDarkKeys = !!theme.dark && Object.keys(theme.dark).length > 0;
 
+    const darkVars = { ...(theme.light || {}), ...(theme.dark || {}) };
+
     return `
   "${themeName}": {
     "light": {
@@ -122,7 +124,7 @@ const getThemesFileStringToWrite = ({
       ...DEFAULT_THEME_DARK,${
         hasDarkKeys
           ? `
-      ${Object.entries(theme.dark!)
+      ${Object.entries(darkVars)
         .map(([key, value]) => `"${key}": "${value}"`)
         .join(",\n      ")}
         `
@@ -140,7 +142,7 @@ const getThemesFileStringToWrite = ({
   // const themeNames = Object.keys(themeVariables);
 
   const fileContent = `/* eslint-disable prettier/prettier */
-import type { UnativeThemeVariables, UnativeThemes } from "unative/core";
+import type { UnativeThemes, UnativeThemeVariables } from "unative/core";
 
 /*
 ** Auto generated code. Don't modify manually.

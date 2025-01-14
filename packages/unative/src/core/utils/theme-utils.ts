@@ -55,13 +55,18 @@ const getUsableVariableValue = ({
   value,
   baseRemSize = 16,
   isWeb,
+  withConvertedColors = false,
 }: {
   value: string;
   baseRemSize?: number;
   isWeb?: boolean;
+  withConvertedColors?: boolean;
 }) => {
   if (isHslColor(value)) {
-    return `hsl(${value})`;
+    if (withConvertedColors) {
+      return `hsl(${value.replace(" ", ", ")})`;
+    }
+    return value;
   }
   if (value.match(/^([\d.]+)(rem|em|px)?$/)) {
     value = getPixelValue({ value, baseSize: baseRemSize, isWeb });
@@ -73,10 +78,12 @@ const getExtractedThemeValues = ({
   values,
   baseRemSize = 16,
   isWeb = false,
+  withConvertedColors = false,
 }: {
   values: UnativeThemeVariables;
   baseRemSize?: number;
   isWeb?: boolean;
+  withConvertedColors?: boolean;
 }): UnativeThemeVariables => {
   let result = { ...values };
 
@@ -85,6 +92,7 @@ const getExtractedThemeValues = ({
       value: values[property as keyof UnativeThemeVariables],
       baseRemSize,
       isWeb,
+      withConvertedColors,
     });
     result[property as keyof UnativeThemeVariables] = value;
   });
@@ -94,6 +102,8 @@ const getExtractedThemeValues = ({
 
 const getOptimizedThemes = (values: {
   themes: UnativeThemes;
+  isWeb: boolean;
+  baseRemSize: number;
 }): { optimizedThemes: UnativeThemes; cssVars: UnativeThemes } => {
   let optimizedThemes: UnativeThemes = {};
   let cssVars: UnativeThemes = {};
@@ -101,13 +111,15 @@ const getOptimizedThemes = (values: {
   Object.keys(values.themes).forEach((el) => {
     const lightVars = getExtractedThemeValues({
       values: values.themes[el].light,
-      baseRemSize: 16,
-      isWeb: true,
+      baseRemSize: values.baseRemSize,
+      isWeb: values.isWeb,
+      withConvertedColors: true,
     });
     const darkVars = getExtractedThemeValues({
       values: values.themes[el].dark,
-      baseRemSize: 16,
-      isWeb: true,
+      baseRemSize: values.baseRemSize,
+      isWeb: values.isWeb,
+      withConvertedColors: true,
     });
 
     optimizedThemes[el as string] = {
@@ -115,9 +127,22 @@ const getOptimizedThemes = (values: {
       dark: darkVars as UnativeThemeVariables,
     };
 
+    const cssLightVars = getExtractedThemeValues({
+      values: values.themes[el].light,
+      baseRemSize: values.baseRemSize,
+      isWeb: values.isWeb,
+      withConvertedColors: false,
+    });
+    const cssDarkVars = getExtractedThemeValues({
+      values: values.themes[el].dark,
+      baseRemSize: values.baseRemSize,
+      isWeb: values.isWeb,
+      withConvertedColors: false,
+    });
+
     cssVars[el as string] = {
-      light: lightVars as UnativeThemeVariables,
-      dark: darkVars as UnativeThemeVariables,
+      light: cssLightVars as UnativeThemeVariables,
+      dark: cssDarkVars as UnativeThemeVariables,
     };
   });
 

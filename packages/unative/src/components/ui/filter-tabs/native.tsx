@@ -31,7 +31,7 @@ export const FilterTabs = <T,>({
   flatListProps,
   activeViewPosition = 0.5,
   defaultPillVariant = "ghost",
-  activePillVariant = "primary",
+  activePillVariant = "secondary",
 }: FilterTabsProps<T>) => {
   const [isReady, setIsReady] = useState(false);
   const ref = useRef<FlatList | null>(null);

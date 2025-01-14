@@ -1,15 +1,32 @@
 import React from "react";
-import { Box } from "unative/components/ui";
+import { Box, Button, Text } from "unative/components/ui";
 
-import { TmdbTopics } from "@/components/tmdb-topics";
-import { TypographyPreview } from "@/components/typography-preview";
+import { ThemeOptions } from "@/components/theme-options";
+import { TmdbTrendingMovies } from "@/components/tmdb-trending-movies";
 
 export default function HomeScreen() {
   return (
     <React.Fragment>
-      <Box>
-        <TmdbTopics />
-        <TypographyPreview />
+      <Box className="flex-1">
+        <Box className="gap-2 p-4">
+          <Button variant="default">
+            <Text>Details</Text>
+          </Button>
+          <Button variant="primary">
+            <Text>Details</Text>
+          </Button>
+          <Button variant="secondary">
+            <Text>Details</Text>
+          </Button>
+          <Button variant="destructive">
+            <Text>Details</Text>
+          </Button>
+          <Button variant="positive">
+            <Text>Details</Text>
+          </Button>
+        </Box>
+        <TmdbTrendingMovies />
+        <ThemeOptions />
       </Box>
     </React.Fragment>
   );
