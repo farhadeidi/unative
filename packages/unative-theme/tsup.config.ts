@@ -54,7 +54,7 @@ export default defineConfig(() => {
     ],
     async onSuccess() {
       console.log("dev => success");
-      await run("cp ../../README.md ./dist/README.md");
+      await run("cp ./README.md ./dist/README.md");
       await run("npx tsx package-json-generator.ts");
     },
   };

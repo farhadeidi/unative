@@ -27,12 +27,6 @@ function generateExports(_: string): Record<string, any> {
       import: "./provider/web.js",
       default: "./provider/web.js",
     },
-    "./native/primitives": {
-      types: "./native/primitives/index.d.ts",
-      require: "./native/primitives/index.cjs",
-      import: "./native/primitives/index.js",
-      default: "./native/primitives/index.js",
-    },
   };
 }
 

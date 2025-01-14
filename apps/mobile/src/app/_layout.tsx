@@ -97,6 +97,25 @@ const RootLayout = () => {
   );
 };
 
+const navigationFonts: (typeof DefaultTheme)["fonts"] = {
+  bold: {
+    fontFamily: "Inter-Bold",
+    fontWeight: "bold",
+  },
+  heavy: {
+    fontFamily: "Inter-Black",
+    fontWeight: "800",
+  },
+  regular: {
+    fontFamily: "Inter-Regular",
+    fontWeight: "400",
+  },
+  medium: {
+    fontFamily: "Inter-Medium",
+    fontWeight: "500",
+  },
+};
+
 const App = () => {
   const { theme, themes, isDarkMode, isInitialized } = useTheme();
   if (!isInitialized) return null;
@@ -118,22 +137,7 @@ const App = () => {
               },
               fonts: {
                 ...DarkTheme.fonts,
-                bold: {
-                  fontFamily: "Inter-Bold",
-                  fontWeight: "bold",
-                },
-                heavy: {
-                  fontFamily: "Inter-Black",
-                  fontWeight: "800",
-                },
-                regular: {
-                  fontFamily: "Inter-Regular",
-                  fontWeight: "400",
-                },
-                medium: {
-                  fontFamily: "Inter-Medium",
-                  fontWeight: "500",
-                },
+                ...navigationFonts,
               },
             }
           : {
@@ -149,22 +153,7 @@ const App = () => {
               },
               fonts: {
                 ...DefaultTheme.fonts,
-                bold: {
-                  fontFamily: "Inter-Bold",
-                  fontWeight: "bold",
-                },
-                heavy: {
-                  fontFamily: "Inter-Black",
-                  fontWeight: "800",
-                },
-                regular: {
-                  fontFamily: "Inter-Regular",
-                  fontWeight: "400",
-                },
-                medium: {
-                  fontFamily: "Inter-Medium",
-                  fontWeight: "500",
-                },
+                ...navigationFonts,
               },
             }
       }
