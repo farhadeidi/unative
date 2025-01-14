@@ -64,7 +64,7 @@ const getUsableVariableValue = ({
 }) => {
   if (isHslColor(value)) {
     if (withConvertedColors) {
-      return `hsl(${value.replace(" ", ", ")})`;
+      return `hsl(${value.replace(/ /g, ", ")})`;
     }
     return value;
   }

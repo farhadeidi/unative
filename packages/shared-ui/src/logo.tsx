@@ -12,7 +12,7 @@ export const Logo = ({ className, size = 48 }: LogoProps) => {
       viewBox="0 0 500 500"
       width={size}
       height={size}
-      className={cn("text-foreground fill-foreground", className)}
+      className={cn("fill-foreground text-foreground", className)}
     >
       <G>
         <Path d="m250 0c-138.071 0-250 111.929-250 250s111.929 250 250 250 250-111.929 250-250-111.929-250-250-250zm99.768 261c0 56.663-39.84 93.571-99.657 93.571s-99.879-36.909-99.879-93.571v-115.57h69.751v112.535c0 21.376 11.49 33.946 30.128 33.946s29.906-12.784 29.906-33.946v-112.535h69.751z"></Path>
@@ -43,7 +43,7 @@ export const LogoType = ({
           Unative
         </Text>
         {!!description && (
-          <Text className={cn("text-muted-foreground text-sm leading-3")}>
+          <Text className={cn("text-sm leading-3 text-muted-foreground")}>
             {description}
           </Text>
         )}

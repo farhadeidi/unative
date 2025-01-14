@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Provider as UnativeProvider } from "unative/core";
+import { Provider as UnativeProvider } from "@unative/theme/provider";
 
 import { THEMES } from "@/lib/unative/themes";
 

@@ -1,6 +1,9 @@
 import React from "react";
 import { capitalize } from "remeda";
-import { Box, Button, ButtonProps, Text } from "unative/components/ui";
+
+import { Box } from "@/components/ui/box";
+import { Button, ButtonProps } from "@/components/ui/button";
+import { Text } from "@/components/ui/text";
 
 const buttonVariants: ButtonProps[] = [
   {

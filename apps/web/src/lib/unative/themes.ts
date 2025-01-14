@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import type { UnativeThemes,UnativeThemeVariables } from "unative/core";
+import type { UnativeThemes, UnativeThemeVariables } from "@unative/theme";
 
 /*
 ** Auto generated code. Don't modify manually.
@@ -9,30 +9,33 @@ import type { UnativeThemes,UnativeThemeVariables } from "unative/core";
 
 export const DEFAULT_THEME_LIGHT: UnativeThemeVariables = {
   "--background": "0 0% 100%",
-  "--foreground": "222.2 84% 4.9%",
-  "--card": "0 0% 100%",
-  "--card-foreground": "222.2 84% 4.9%",
+  "--foreground": "0 0% 0%",
+  "--card": "0 0% 95%",
+  "--card-foreground": "0 0% 0%",
   "--popover": "0 0% 100%",
-  "--popover-foreground": "222.2 84% 4.9%",
-  "--primary": "221.2 83.2% 53.3%",
+  "--popover-foreground": "0 0% 0%",
+  "--primary": "220 80% 50%",
   "--primary-foreground": "0 0% 100%",
-  "--secondary": "210 40% 96.1%",
-  "--secondary-foreground": "222.2 47.4% 11.2%",
-  "--muted": "210 40% 96.1%",
-  "--muted-foreground": "215.4 16.3% 46.9%",
-  "--accent": "210 40% 96.1%",
+  "--secondary": "0 0% 0%",
+  "--secondary-foreground": "0 0% 100%",
+  "--muted": "0 0% 90%",
+  "--muted-foreground": "0 0% 30%",
+  "--accent": "220 80% 90%",
   "--accent-foreground": "222.2 47.4% 11.2%",
-  "--destructive": "0 84% 60%",
+  "--destructive": "0 80% 60%",
   "--destructive-foreground": "0 0% 100%",
-  "--border": "214.3 31.8% 91.4%",
+  "--border": "0 0% 90%",
   "--input": "214.3 31.8% 91.4%",
   "--ring": "221.2 83.2% 53.3%",
-  "--radius": "1rem",
-  "--positive": "142 72% 29%",
+  "--radius": "0.5rem",
+  "--radius-lg": "2rem",
+  "--radius-button": "6px",
+  "--radius-card": "6px",
+  "--positive": "142 60% 40%",
   "--positive-foreground": "0 0% 100%",
-  "--warning": "39.6 100% 50.2%",
+  "--warning": "40 100% 50%",
   "--warning-foreground": "39.6 100% 50.2%",
-  "--link": "216.89 100% 59.61%"
+  "--link": "216 100% 60%"
 };
 
 export const DEFAULT_THEME_DARK: UnativeThemeVariables = {
@@ -55,7 +58,10 @@ export const DEFAULT_THEME_DARK: UnativeThemeVariables = {
   "--border": "217.2 32.6% 17.5%",
   "--input": "217.2 32.6% 17.5%",
   "--ring": "224.3 76.3% 48%",
-  "--radius": "1rem",
+  "--radius": "3rem",
+  "--radius-lg": "2rem",
+  "--radius-button": "6px",
+  "--radius-card": "6px",
   "--positive": "142 72% 29%",
   "--positive-foreground": "0 0% 100%",
   "--warning": "39.6 100% 50.2%",
@@ -74,13 +80,25 @@ export const THEMES: UnativeThemes = {
       ...DEFAULT_THEME_LIGHT,
       "--background": "31 57% 93%",
       "--primary": "30 100% 50%",
-      "--primary-foreground": "0 0% 100%"
+      "--primary-foreground": "0 0% 100%",
+      "--card": "31 57% 85%",
+      "--accent": "30 100% 80%",
+      "--radius": "0.5rem",
+      "--radius-lg": "2rem",
+      "--radius-button": "24px",
+      "--radius-card": "0.5rem"
     },
     "dark": {
       ...DEFAULT_THEME_DARK,
       "--background": "0 0% 0%",
       "--primary": "30 100% 50%",
-      "--primary-foreground": "0 0% 100%"
+      "--primary-foreground": "0 0% 100%",
+      "--card": "31 57% 8%",
+      "--accent": "30 100% 30%",
+      "--radius": "0.5rem",
+      "--radius-lg": "2rem",
+      "--radius-button": "24px",
+      "--radius-card": "0.5rem"
         
     }
   },

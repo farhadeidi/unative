@@ -17,24 +17,22 @@ function run(cmd: string) {
 const extractPeerDependencies = () => {
   const packageJson = JSON.parse(fs.readFileSync("./package.json", "utf-8"));
   const peerDependencies = packageJson.peerDependencies || {};
-  const dependencies = packageJson.peerDependencies || {};
-  return Object.keys({ ...dependencies, ...peerDependencies });
+  return Object.keys(peerDependencies);
 };
 const externalDependencies = extractPeerDependencies();
 
-export default defineConfig(() => {
+export default defineConfig((options) => {
   return {
     entry: [...glob.sync("./src/**/*.{ts,tsx}")],
     format: ["esm", "cjs"],
     outDir: "dist",
-    splitting: false,
+    splitting: true,
     sourcemap: false,
     dts: true,
     treeshake: false,
-    metafile: false,
-    clean: true,
+    metafile: true,
+    clean: !!options.watch ? false : true,
     publicDir: "public",
-    minify: true,
     silent: false,
     esbuildPlugins: [reactUseClient],
     esbuildOptions(options) {
@@ -44,12 +42,10 @@ export default defineConfig(() => {
       ...externalDependencies,
       "@types/react",
       "react-native-css-interop",
-      "fs",
-      "path",
     ],
     async onSuccess() {
       console.log("dev => success");
-      await run("cp ./README.md ./dist/README.md");
+      await run("cp ../../README.md ./dist/README.md");
       await run("npx tsx package-json-generator.ts");
     },
   };

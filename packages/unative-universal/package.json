@@ -1,12 +1,12 @@
 {
-  "name": "@unative/primitives",
-  "version": "0.0.2",
+  "name": "@unative/universal",
+  "version": "0.0.8",
   "description": "One UI Library for Web and Mobile",
   "type": "module",
   "scripts": {
-    "watch": "tsup --watch",
-    "build": "tsup",
-    "prepare": "tsup",
+    "watch": "NODE_OPTIONS='--max-old-space-size=16384' tsup --watch",
+    "build": "NODE_OPTIONS='--max-old-space-size=16384' tsup",
+    "prepare": "",
     "generate-package": "npx tsx ./package-json-generator.ts"
   },
   "publishConfig": {
@@ -27,24 +27,17 @@
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "~18.3.12",
+    "esbuild-plugin-preserve-directives": "^0.0.11",
+    "esbuild-react18-useclient": "^1.0.7",
     "nativewind": "*",
+    "next-themes": "^0.4.4",
     "react": "18.3.1",
     "react-native": "0.76.5",
+    "react-native-safe-area-context": "4.12.0",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.7.2",
-    "next-themes": "^0.4.4"
-  },
-  "peerDependencies": {
-    "react": "*",
-    "react-dom": "*",
-    "react-native": "*",
-    "react-native-web": "*",
-    "tailwindcss": "*",
-    "nativewind": "*",
-    "next-themes": "*"
-  },
-  "peerDependenciesMeta": {},
-  "dependencies": {
+    "zustand": "^5.0.2",
+    "react-native-svg": "15.8.0",
     "@radix-ui/react-accessible-icon": "^1.1.1",
     "@radix-ui/react-accordion": "^1.2.2",
     "@radix-ui/react-alert-dialog": "^1.1.4",
@@ -77,6 +70,51 @@
     "@radix-ui/react-toggle-group": "^1.1.1",
     "@radix-ui/react-toolbar": "^1.1.1",
     "@radix-ui/react-tooltip": "^1.1.6",
-    "@radix-ui/react-visually-hidden": "^1.1.1"
+    "@radix-ui/react-visually-hidden": "^1.1.1",
+    "@gorhom/bottom-sheet": "^5.0.6"
+  },
+  "peerDependencies": {
+    "@react-native-async-storage/async-storage": "*",
+    "clsx": "*",
+    "nativewind": "*",
+    "react": "*",
+    "react-dom": "*",
+    "react-native": "*",
+    "react-native-safe-area-context": "*",
+    "react-native-web": "*",
+    "tailwind-merge": "*",
+    "tailwind-variants": "*",
+    "tailwindcss": "*",
+    "react-native-svg": "*",
+    "@gorhom/bottom-sheet": "*"
+  },
+  "peerDependenciesMeta": {
+    "react-native": {
+      "optional": true
+    },
+    "react-native-web": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    },
+    "tailwindcss": {
+      "optional": true
+    },
+    "react-native-safe-area-context": {
+      "optional": true
+    },
+    "@react-native-async-storage/async-storage": {
+      "optional": true
+    },
+    "react-native-svg": {
+      "optional": true
+    },
+    "@gorhom/bottom-sheet": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "zustand": "^5.0.2"
   }
 }

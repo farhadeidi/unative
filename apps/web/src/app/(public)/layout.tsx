@@ -1,4 +1,4 @@
-import { ThemeSwitch } from "unative/widgets/theme-switch";
+import { ThemeSwitch } from "@/components/theme-switch";
 
 export default function PublicLayout({
   children,

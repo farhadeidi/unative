@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "expo-router";
-import { LogoType } from "@repo/shared-ui";
 
 import { cn } from "@/lib/utils";
 import { Box, BoxProps } from "@/components/ui/box";
@@ -16,7 +15,7 @@ export const ShellSidebar = ({ className, ...props }: ShellSidebarProps) => {
       {...props}
     >
       <Box className="p-4">
-        <LogoType description="React Native Demo" />
+        {/* <LogoType description="React Native Demo" /> */}
       </Box>
 
       <Box className="flex flex-col gap-4 p-4">
