@@ -14,7 +14,11 @@ Box.displayName = "Box";
 export const HStack = React.forwardRef<View, BoxProps>(
   ({ className, ...props }, ref) => {
     return (
-      <Box ref={ref} className={cn("flex flex-row", className)} {...props} />
+      <Box
+        ref={ref}
+        className={cn("flex flex-row flex-wrap gap-1", className)}
+        {...props}
+      />
     );
   },
 );

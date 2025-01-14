@@ -7,8 +7,6 @@ import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import { Platform } from "react-native";
-import { useTheme } from "unative/core";
-import { Provider as UnativeProvider } from "unative/core/provider/native";
 import {
   DarkTheme,
   DefaultTheme,
@@ -16,6 +14,8 @@ import {
 } from "@react-navigation/native";
 import { api } from "@repo/shared-api";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { useTheme } from "@unative/theme";
+import { Provider as UnativeProvider } from "@unative/theme/provider/native";
 
 import { THEMES } from "@/lib/unative/themes";
 import { Shell } from "@/components/shell";

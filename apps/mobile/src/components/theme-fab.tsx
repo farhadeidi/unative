@@ -17,8 +17,8 @@ import {
   SunIcon,
   SystemIcon,
 } from "unative/components";
-import { ColorSchemes, useTheme } from "unative/core";
 import { cn } from "unative/utils";
+import { ColorSchemes, useTheme } from "@unative/theme";
 
 const schemes: {
   id: ColorSchemes;

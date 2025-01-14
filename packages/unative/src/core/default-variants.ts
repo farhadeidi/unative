@@ -2,19 +2,19 @@
 
 export const DEFAULT_VARIANTS = {
   default: {
-    base: "bg-accent web:hover:opacity-90 active:opacity-90",
+    base: "bg-accent web:hover:opacity-70 active:opacity-70",
     text: "text-accent-foreground",
   },
   primary: {
-    base: "bg-primary web:hover:opacity-90 active:opacity-90",
+    base: "bg-primary web:hover:opacity-70 active:opacity-70",
     text: "text-primary-foreground",
   },
   positive: {
-    base: "bg-positive web:hover:opacity-90 active:opacity-90",
+    base: "bg-positive web:hover:opacity-70 active:opacity-70",
     text: "text-positive-foreground",
   },
   destructive: {
-    base: "bg-destructive web:hover:opacity-90 active:opacity-90",
+    base: "bg-destructive web:hover:opacity-70 active:opacity-70",
     text: "text-destructive-foreground",
   },
   outline: {

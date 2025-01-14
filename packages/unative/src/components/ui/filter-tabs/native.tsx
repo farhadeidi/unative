@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { FlatList, FlatListProps } from "react-native";
 
-import { Pill, PillVariantProps } from "../pill";
+import { Pill, PillProps, PillVariantProps } from "../pill";
 import { Text } from "../text";
 
 import { FilterTabsVariantProps } from "./variants";
@@ -22,6 +22,7 @@ export type FilterTabsProps<T> = FilterTabsVariantProps & {
   activeViewPosition?: number;
   defaultPillVariant?: PillVariantProps["variant"];
   activePillVariant?: PillVariantProps["variant"];
+  pillProps?: PillProps;
 };
 
 export const FilterTabs = <T,>({
@@ -32,6 +33,7 @@ export const FilterTabs = <T,>({
   activeViewPosition = 0.5,
   defaultPillVariant = "ghost",
   activePillVariant = "secondary",
+  pillProps,
 }: FilterTabsProps<T>) => {
   const [isReady, setIsReady] = useState(false);
   const ref = useRef<FlatList | null>(null);
@@ -73,6 +75,7 @@ export const FilterTabs = <T,>({
             onPress={() => {
               onChange(item.value);
             }}
+            {...pillProps}
           >
             <Text>{item.label}</Text>
           </Pill>

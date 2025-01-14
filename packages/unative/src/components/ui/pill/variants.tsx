@@ -6,7 +6,7 @@ import { DEFAULT_VARIANTS } from "../../../core/default-variants";
 
 export const pillVariants = tv({
   slots: {
-    base: "",
+    base: "rounded-button",
     text: "",
   },
   variants: {
@@ -15,8 +15,12 @@ export const pillVariants = tv({
     },
     size: {
       default: {
-        base: "px-2 py-1.5 rounded-lg",
-        text: "",
+        base: "px-3 py-1.5",
+        text: "text-sm",
+      },
+      lg: {
+        base: "px-2 py-1.5 rounded",
+        text: "text-base",
       },
     },
   },

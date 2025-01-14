@@ -1,7 +1,9 @@
 import { MoonIcon, SunIcon, SystemIcon } from "unative/components";
-import { Box, BoxProps, Button } from "unative/components/ui";
-import { useTheme } from "unative/core";
-import { cn } from "unative/utils";
+import { useTheme } from "@unative/theme";
+
+import { cn } from "@/lib/utils";
+import { Box, BoxProps } from "@/components/ui/box";
+import { Button } from "@/components/ui/button";
 
 export type ThemeOptionsProps = BoxProps & {};
 export const ThemeOptions = ({ className, ...props }: ThemeOptionsProps) => {

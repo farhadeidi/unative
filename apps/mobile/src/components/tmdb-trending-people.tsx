@@ -1,13 +1,11 @@
 import React from "react";
 import { FlatList } from "react-native";
-import { Box, Center, Text } from "unative/components/ui";
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "unative/components/ui/avatar";
 import { api } from "@repo/shared-api";
 import { useQuery } from "@tanstack/react-query";
+
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Box, Center } from "@/components/ui/box";
+import { Text } from "@/components/ui/text";
 
 export const TmdbTrendingPeople = () => {
   const { data } = useQuery({
@@ -43,7 +41,7 @@ export const TmdbTrendingPeople = () => {
                   </AvatarFallback>
                 </Avatar>
               </Center>
-              <Text numberOfLines={2} className="text-center font-medium">
+              <Text numberOfLines={2} className="font-medium text-center">
                 {item.name}
               </Text>
             </Box>

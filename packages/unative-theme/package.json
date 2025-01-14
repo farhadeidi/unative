@@ -1,0 +1,49 @@
+{
+  "name": "@unative/theme",
+  "version": "0.0.1",
+  "description": "One UI Library for Web and Mobile",
+  "type": "module",
+  "scripts": {
+    "watch": "tsup --watch",
+    "build": "tsup",
+    "prepare": "tsup",
+    "generate-package": "npx tsx ./package-json-generator.ts"
+  },
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/farhadeidi/unative.git"
+  },
+  "author": "Farhad Eidi <farcom7@gmail.com> (https://github.com/farhadeidi)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/farhadeidi/unative/issues"
+  },
+  "homepage": "https://unative.dev",
+  "keywords": [],
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "~18.3.12",
+    "nativewind": "*",
+    "react": "18.3.1",
+    "react-native": "0.76.5",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.7.2",
+    "next-themes": "^0.4.4"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*",
+    "react-native": "*",
+    "react-native-web": "*",
+    "tailwindcss": "*",
+    "nativewind": "*",
+    "next-themes": "*",
+    "@react-native-async-storage/async-storage": "*"
+  },
+  "peerDependenciesMeta": {},
+  "dependencies": {}
+}
