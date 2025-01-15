@@ -6,7 +6,12 @@
     "module": "Preserve",
     "moduleResolution": "bundler",
     "types": ["nativewind/types", "@types/node"],
-    "isolatedModules": true
+    "isolatedModules": true,
+    "baseUrl": ".", 
+    "paths": {
+      "@unative/universal": ["./src"],
+      "@unative/universal/*": ["./src/*"] 
+    }
   },
-  "include": ["src"]
+  "include": ["src"],
 }

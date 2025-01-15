@@ -117,18 +117,20 @@ const InnerProvider = ({ children, ...props }: ProviderProps) => {
       savedTheme={activeTheme}
       isWeb={true}
     >
-      <ThemeVariablesHandler>{children}</ThemeVariablesHandler>
+      <React.Fragment key={isInitialized ? "initialized" : "not-initialized"}>
+        {children}
+      </React.Fragment>
     </CommonProvider>
   );
 };
 
-const ThemeVariablesHandler = ({ children }: { children: React.ReactNode }) => {
-  // const nextTheme = useNextTheme();
-  // const { theme, isInitialized, rawThemes, isDarkMode } = useTheme();
+// const ThemeVariablesHandler = ({ children }: { children: React.ReactNode }) => {
+//   // const nextTheme = useNextTheme();
+//   // const { theme, isInitialized, rawThemes, isDarkMode } = useTheme();
 
-  // useEffect(() => {
-  //   applyCssVars(rawThemes[theme.name][isDarkMode ? "dark" : "light"]);
-  // }, [rawThemes, isInitialized, theme, nextTheme]);
+//   // useEffect(() => {
+//   //   applyCssVars(rawThemes[theme.name][isDarkMode ? "dark" : "light"]);
+//   // }, [rawThemes, isInitialized, theme, nextTheme]);
 
-  return <React.Fragment>{children}</React.Fragment>;
-};
+//   return <React.Fragment>{children}</React.Fragment>;
+// };

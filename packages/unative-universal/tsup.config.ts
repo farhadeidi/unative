@@ -42,6 +42,7 @@ export default defineConfig((options) => {
       ...externalDependencies,
       "@types/react",
       "react-native-css-interop",
+      "@unative/universal",
     ],
     async onSuccess() {
       console.log("dev => success");

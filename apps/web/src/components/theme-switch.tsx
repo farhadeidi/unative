@@ -1,10 +1,9 @@
 "use client";
 
+import React from "react";
 import { LucideProps, MonitorCogIcon, MoonIcon, SunIcon } from "lucide-react";
 import { ColorSchemes, useTheme } from "@unative/theme";
-
-import { Box } from "@/components/ui/box";
-import { Button } from "@/components/ui/button";
+import { Box, Button } from "@unative/universal";
 
 const schemes: {
   id: ColorSchemes;
@@ -74,6 +73,7 @@ export const ThemeSwitch = ({}: ThemeSwitchProps) => {
       <Box className="flex flex-row items-center gap-2">
         {schemes.map((item) => {
           const isActive = theme.savedScheme === item.id;
+
           return (
             <Button
               size="icon"

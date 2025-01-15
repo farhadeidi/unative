@@ -79,7 +79,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <Comp
         suppressHydrationWarning
-        className={cn(base(), text())}
+        className={cn(base(), text(), className)}
         ref={ref}
         onClick={onClick || onPress}
         {...props}
