@@ -1,2 +1,2 @@
-export * from "./avatar-primitives";
-export * from "./avatar-primitives.types";
+export * from "./avatar";
+export * from "./types";

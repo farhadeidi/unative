@@ -55,7 +55,7 @@ export const DEFAULT_THEME_DARK: UnativeThemeVariables = {
   "--accent-foreground": "0 0% 100%",
   "--destructive": "0 72% 51%",
   "--destructive-foreground": "0 0% 100%",
-  "--border": "217.2 32.6% 17.5%",
+  "--border": "0 0% 15%",
   "--input": "217.2 32.6% 17.5%",
   "--ring": "224.3 76.3% 48%",
   "--radius": "3rem",

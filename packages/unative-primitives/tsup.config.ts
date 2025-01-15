@@ -25,7 +25,7 @@ const externalDependencies = extractPeerDependencies();
 export default defineConfig(() => {
   return {
     entry: [...glob.sync("./src/**/*.{ts,tsx}")],
-    format: ["esm", "cjs"],
+    format: ["esm"],
     outDir: "dist",
     splitting: false,
     sourcemap: false,

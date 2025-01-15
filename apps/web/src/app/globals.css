@@ -53,7 +53,7 @@
     --accent-foreground: 0 0% 100%;
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
-    --border: 217.2 32.6% 17.5%;
+    --border: 0 0% 15%;
     --input: 217.2 32.6% 17.5%;
     --ring: 224.3 76.3% 48%;
     --radius: 3rem;
@@ -93,5 +93,14 @@
     --background: 0 0% 0%;
     --primary: 16 65% 40%;
     --primary-foreground: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
   }
 }

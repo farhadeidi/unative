@@ -20,7 +20,7 @@ import type {
   ImageRef,
   RootProps,
   RootRef,
-} from "./avatar-primitives.types";
+} from "./types";
 
 type AvatarState = "loading" | "error" | "loaded";
 
