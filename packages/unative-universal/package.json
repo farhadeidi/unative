@@ -5,7 +5,6 @@
   "type": "module",
   "scripts": {
     "watch": "tsup --watch",
-    "dev": "tsup --watch",
     "build": "tsup",
     "prepare": "",
     "generate-package": "npx tsx ./package-json-generator.ts"
@@ -56,7 +55,9 @@
     "react-native-web": "*",
     "tailwind-merge": "*",
     "tailwind-variants": "*",
-    "tailwindcss": "*"
+    "tailwindcss": "*",
+    "lucide-react-native": "*",
+    "lucide-react": "*"
   },
   "peerDependenciesMeta": {
     "react-native": {

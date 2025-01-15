@@ -1,93 +1,93 @@
-/** @jsxImportSource nativewind */
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { Pressable } from "react-native";
 
-import React from "react";
-import { ActivityIndicator, Pressable } from "react-native";
-import { tv, VariantProps } from "tailwind-variants";
-
-import { DEFAULT_VARIANTS } from "../../lib/default-variants";
 import { cn } from "../../lib/utils";
-import { TextClassContext } from "../text/native";
+import { TextClassContext } from "../text";
 
-const buttonVariants = tv({
-  slots: {
-    base: "group flex items-center justify-center rounded-button web:ring-offset-background web:transition-colors web:focus-visible:outline-none web:focus-visible:ring-2 web:focus-visible:ring-ring web:focus-visible:ring-offset-2 flex-row gap-2",
-    text: "web:whitespace-nowrap font-medium text-foreground web:transition-colors",
-  },
-  variants: {
-    variant: {
-      ...DEFAULT_VARIANTS,
-    },
-    size: {
-      default: {
-        base: "h-10 px-4 py-2 native:h-12 native:px-5 native:py-3",
-        text: "",
+const buttonVariants = cva(
+  "group flex items-center justify-center rounded-md web:ring-offset-background web:transition-colors web:focus-visible:outline-none web:focus-visible:ring-2 web:focus-visible:ring-ring web:focus-visible:ring-offset-2",
+  {
+    variants: {
+      variant: {
+        default: "bg-primary web:hover:opacity-90 active:opacity-90",
+        destructive: "bg-destructive web:hover:opacity-90 active:opacity-90",
+        outline:
+          "border border-input bg-background web:hover:bg-accent web:hover:text-accent-foreground active:bg-accent",
+        secondary: "bg-secondary web:hover:opacity-80 active:opacity-80",
+        ghost:
+          "web:hover:bg-accent web:hover:text-accent-foreground active:bg-accent",
+        link: "web:underline-offset-4 web:hover:underline web:focus:underline",
       },
-      sm: {
-        base: "h-9 px-3",
-        text: "",
-      },
-      lg: {
-        base: "h-11 px-8 native:h-14",
-        text: "",
-      },
-      xl: {
-        base: "h-14 px-8 native:h-16",
-        text: "",
-      },
-      icon: {
-        base: "h-10 w-10",
-        text: "",
-      },
-      iconLg: {
-        base: "h-14 w-14",
-        text: "",
-      },
-      iconXl: {
-        base: "h-16 w-16",
-        text: "",
-      },
-      unstyled: {
-        base: "",
-        text: "",
+      size: {
+        default: "h-10 px-4 py-2 native:h-12 native:px-5 native:py-3",
+        sm: "h-9 rounded-md px-3",
+        lg: "h-11 rounded-md px-8 native:h-14",
+        icon: "h-10 w-10",
       },
     },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
   },
-  defaultVariants: {
-    variant: "default",
-    size: "default",
+);
+
+const buttonTextVariants = cva(
+  "web:whitespace-nowrap text-sm native:text-base font-medium text-foreground web:transition-colors",
+  {
+    variants: {
+      variant: {
+        default: "text-primary-foreground",
+        destructive: "text-destructive-foreground",
+        outline: "group-active:text-accent-foreground",
+        secondary:
+          "text-secondary-foreground group-active:text-secondary-foreground",
+        ghost: "group-active:text-accent-foreground",
+        link: "text-primary group-active:underline",
+      },
+      size: {
+        default: "",
+        sm: "",
+        lg: "native:text-lg",
+        icon: "",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
   },
-});
+);
 
-export type ButtonProps = React.ComponentPropsWithoutRef<typeof Pressable> &
-  VariantProps<typeof buttonVariants> & {
-    isLoading?: boolean;
-  };
+type ButtonProps = React.ComponentPropsWithoutRef<typeof Pressable> &
+  VariantProps<typeof buttonVariants>;
 
-export const Button = React.forwardRef<
+const Button = React.forwardRef<
   React.ElementRef<typeof Pressable>,
   ButtonProps
->(({ className, variant, size, isLoading, ...props }, ref) => {
-  const { base, text } = buttonVariants({
-    variant,
-    size: variant === "unstyled" ? "unstyled" : size,
-  });
-
+>(({ className, variant, size, ...props }, ref) => {
   return (
-    <TextClassContext.Provider value={text()}>
+    <TextClassContext.Provider
+      value={buttonTextVariants({
+        variant,
+        size,
+        className: "web:pointer-events-none",
+      })}
+    >
       <Pressable
         className={cn(
           props.disabled && "web:pointer-events-none opacity-50",
-          base(),
-          className,
+          buttonVariants({ variant, size, className }),
         )}
         ref={ref}
         role="button"
         {...props}
       />
-      {isLoading && (
-        <ActivityIndicator className="absolute left-1/2 top-1/2 z-10 -ml-3 -mt-3 text-foreground" />
-      )}
     </TextClassContext.Provider>
   );
 });
 Button.displayName = "Button";
+
+export { Button, buttonTextVariants, buttonVariants };
+export type { ButtonProps };

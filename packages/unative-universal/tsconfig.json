@@ -6,7 +6,8 @@
     "module": "Preserve",
     "moduleResolution": "bundler",
     "types": ["nativewind/types", "@types/node"],
-    "isolatedModules": true,
+    "isolatedModules": false,
+    "isolatedDeclarations": false,
     "baseUrl": ".", 
     "paths": {
       "@unative/universal": ["./src"],
@@ -14,4 +15,5 @@
     }
   },
   "include": ["src"],
+  "exclude": ["node_modules"]
 }

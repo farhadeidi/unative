@@ -41,11 +41,11 @@ export const ThemeSwitch = ({}: ThemeSwitchProps) => {
 
           return (
             <Button
-              variant="unstyled"
+              // variant="unstyled"
               size="icon"
               key={themeName}
               className="rounded-full"
-              onPress={() => {
+              onClick={() => {
                 setTheme(themeName);
               }}
             >
@@ -77,9 +77,9 @@ export const ThemeSwitch = ({}: ThemeSwitchProps) => {
           return (
             <Button
               size="icon"
-              variant={isActive ? "primary" : "outline"}
+              variant={isActive ? "default" : "outline"}
               key={item.id}
-              onPress={() => {
+              onClick={() => {
                 setScheme(item.id);
               }}
             >

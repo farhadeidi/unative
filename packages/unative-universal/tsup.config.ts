@@ -1,4 +1,5 @@
 import { exec } from "child_process";
+import { spawnSync } from "child_process";
 import reactUseClient from "esbuild-react18-useclient";
 import * as fs from "fs";
 import glob from "glob";
@@ -28,9 +29,10 @@ export default defineConfig((options) => {
     outDir: "dist",
     splitting: true,
     sourcemap: false,
-    dts: true,
-    treeshake: false,
-    metafile: true,
+    dts: false,
+    experimentalDts: false,
+    treeshake: true,
+    metafile: false,
     clean: !!options.watch ? false : true,
     publicDir: "public",
     silent: false,
@@ -43,8 +45,11 @@ export default defineConfig((options) => {
       "@types/react",
       "react-native-css-interop",
       "@unative/universal",
+      "@unative/primitives",
+      "@unative/theme",
     ],
     async onSuccess() {
+      spawnSync("tsc", ["--emitDeclarationOnly", "--declaration"]);
       console.log("dev => success");
       await run("cp ../../README.md ./dist/README.md");
       await run("cp ./nativewind-env.d.ts ./dist/nativewind-env.d.ts");

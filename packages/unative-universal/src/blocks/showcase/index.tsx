@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import {
   Box,
@@ -9,6 +11,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
+  Checkbox,
   Text,
 } from "@unative/universal";
 
@@ -30,9 +33,10 @@ export const Showcase = ({ className, children, ...props }: ShowcaseProps) => {
             tempore reprehenderit molestias excepturi quibusdam doloribus optio
             ea. Quo blanditiis quis laudantium nulla?
           </Text>
+          <Checkbox checked={true} onCheckedChange={() => {}} />
         </CardContent>
         <CardFooter>
-          <Button variant="primary">
+          <Button variant="default">
             <Text>Save Changes</Text>
           </Button>
         </CardFooter>

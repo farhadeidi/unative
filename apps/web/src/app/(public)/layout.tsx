@@ -9,7 +9,10 @@ export default function PublicLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex min-h-screen flex-col bg-background">
+    <div
+      className="flex min-h-screen flex-col bg-background"
+      suppressHydrationWarning
+    >
       <header className="flex min-h-16 w-full flex-row items-center px-4">
         <Link href="/">
           <LogoType />
