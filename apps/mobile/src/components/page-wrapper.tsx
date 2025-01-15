@@ -1,9 +1,7 @@
 import React from "react";
 import { Stack } from "expo-router";
 import { Platform } from "react-native";
-
-import { Box } from "@/components/ui/box";
-import { Text } from "@/components/ui/text";
+import { Box, Text } from "@unative/universal";
 
 export type PageWrapperProps = {
   children?: React.ReactNode;

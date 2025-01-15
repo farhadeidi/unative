@@ -109,6 +109,8 @@ function generateExports(dirPath: string): Record<string, any> {
     if (hasNativeFile) {
       exports[`${relativePath}/native`] = {
         types: `${relativePath}/native.d.ts`,
+        require: `${relativePath}/native.cjs`,
+        import: `${relativePath}/native.js`,
         default: `${relativePath}/native.js`,
       };
     }
@@ -116,6 +118,8 @@ function generateExports(dirPath: string): Record<string, any> {
     if (hasWebFile) {
       exports[`${relativePath}/web`] = {
         types: `${relativePath}/web.d.ts`,
+        require: `${relativePath}/web.cjs`,
+        import: `${relativePath}/web.js`,
         default: `${relativePath}/web.js`,
       };
     }
@@ -156,6 +160,8 @@ function updatePackageJson(
     "clsx",
     "tailwind-merge",
     "tailwind-variants",
+    "@unative/theme",
+    "@unative/primitives",
   ];
   Object.keys(peerDependencies).forEach((dep) => {
     if (!requiredPeerDependencies.includes(dep)) {

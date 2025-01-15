@@ -1,5 +1,4 @@
-import { Box } from "@/components/ui/box";
-import { Text } from "@/components/ui/text";
+import { Box, Text } from "@unative/universal";
 
 const WidgetsDemo = () => {
   return (

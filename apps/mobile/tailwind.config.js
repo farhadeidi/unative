@@ -7,7 +7,7 @@ module.exports = {
   darkMode: "class",
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
-    "./node_modules/unative/**/*.{js,jsx,mjs,ts,tsx}",
+    "./node_modules/@unative/**/*.{js,jsx,mjs,ts,tsx}",
     "./node_modules/unative/components/ui/**/*.{js,jsx,mjs,ts,tsx}",
     "./node_modules/@repo/shared-ui/**/*.{js,jsx,mjs,ts,tsx}",
   ],

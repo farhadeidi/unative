@@ -1,9 +1,10 @@
+import React from "react";
 import { useEffect, useRef, useState } from "react";
 import { FlatList, FlatListProps } from "react-native";
 import { tv, VariantProps } from "tailwind-variants";
 
-import { Pill, PillProps, PillVariantProps } from "./pill";
-import { Text } from "./text";
+import { Pill, PillProps, PillVariantProps } from "../pill/native";
+import { Text } from "../text/native";
 
 export const filterTabsVariants = tv({
   slots: {

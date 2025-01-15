@@ -1,11 +1,12 @@
+/** @jsxImportSource nativewind */
+
 import React from "react";
 import { ActivityIndicator, Pressable } from "react-native";
 import { tv, VariantProps } from "tailwind-variants";
 
-import { DEFAULT_VARIANTS } from "@/lib/unative/default-variants";
-import { cn } from "@/lib/utils";
-
-import { TextClassContext } from "./text";
+import { DEFAULT_VARIANTS } from "../../lib/default-variants";
+import { cn } from "../../lib/utils";
+import { TextClassContext } from "../text/native";
 
 const buttonVariants = tv({
   slots: {
@@ -75,7 +76,7 @@ export const Button = React.forwardRef<
     <TextClassContext.Provider value={text()}>
       <Pressable
         className={cn(
-          props.disabled && "opacity-50 web:pointer-events-none",
+          props.disabled && "web:pointer-events-none opacity-50",
           base(),
           className,
         )}

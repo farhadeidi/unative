@@ -46,6 +46,7 @@ export default defineConfig((options) => {
     async onSuccess() {
       console.log("dev => success");
       await run("cp ../../README.md ./dist/README.md");
+      await run("cp ./nativewind-env.d.ts ./dist/nativewind-env.d.ts");
       await run("npx tsx package-json-generator.ts");
     },
   };

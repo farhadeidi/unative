@@ -1,15 +1,11 @@
 import * as React from "react";
 import { Platform } from "react-native";
-import * as Slot from "@unative/primitives/native/shared/slot";
-import type {
-  SlottableTextProps,
-  TextRef,
-} from "@unative/primitives/native/shared/types";
+import { Slot, Types } from "@unative/primitives/native/shared";
 
-import { cn } from "@/lib/utils";
-import { Text } from "@/components/ui/text";
+import { cn } from "../../lib/utils";
+import { Text } from "../text";
 
-const H1 = React.forwardRef<TextRef, SlottableTextProps>(
+const H1 = React.forwardRef<Types.TextRef, Types.SlottableTextProps>(
   ({ className, asChild = false, ...props }, ref) => {
     const Component = asChild ? Slot.Text : Text;
     return (
@@ -17,7 +13,7 @@ const H1 = React.forwardRef<TextRef, SlottableTextProps>(
         role="heading"
         aria-level="1"
         className={cn(
-          "font-extrabold text-4xl tracking-tight text-foreground web:select-text web:scroll-m-20 lg:text-5xl",
+          "web:select-text web:scroll-m-20 text-4xl font-extrabold tracking-tight text-foreground lg:text-5xl",
           className,
         )}
         ref={ref}
@@ -29,7 +25,7 @@ const H1 = React.forwardRef<TextRef, SlottableTextProps>(
 
 H1.displayName = "H1";
 
-const H2 = React.forwardRef<TextRef, SlottableTextProps>(
+const H2 = React.forwardRef<Types.TextRef, Types.SlottableTextProps>(
   ({ className, asChild = false, ...props }, ref) => {
     const Component = asChild ? Slot.Text : Text;
     return (
@@ -37,7 +33,7 @@ const H2 = React.forwardRef<TextRef, SlottableTextProps>(
         role="heading"
         aria-level="2"
         className={cn(
-          "font-semibold border-b border-border pb-2 text-3xl tracking-tight text-foreground first:mt-0 web:select-text web:scroll-m-20",
+          "web:select-text web:scroll-m-20 border-b border-border pb-2 text-3xl font-semibold tracking-tight text-foreground first:mt-0",
           className,
         )}
         ref={ref}
@@ -49,7 +45,7 @@ const H2 = React.forwardRef<TextRef, SlottableTextProps>(
 
 H2.displayName = "H2";
 
-const H3 = React.forwardRef<TextRef, SlottableTextProps>(
+const H3 = React.forwardRef<Types.TextRef, Types.SlottableTextProps>(
   ({ className, asChild = false, ...props }, ref) => {
     const Component = asChild ? Slot.Text : Text;
     return (
@@ -57,7 +53,7 @@ const H3 = React.forwardRef<TextRef, SlottableTextProps>(
         role="heading"
         aria-level="3"
         className={cn(
-          "font-semibold text-2xl tracking-tight text-foreground web:select-text web:scroll-m-20",
+          "web:select-text web:scroll-m-20 text-2xl font-semibold tracking-tight text-foreground",
           className,
         )}
         ref={ref}
@@ -69,7 +65,7 @@ const H3 = React.forwardRef<TextRef, SlottableTextProps>(
 
 H3.displayName = "H3";
 
-const H4 = React.forwardRef<TextRef, SlottableTextProps>(
+const H4 = React.forwardRef<Types.TextRef, Types.SlottableTextProps>(
   ({ className, asChild = false, ...props }, ref) => {
     const Component = asChild ? Slot.Text : Text;
     return (
@@ -77,7 +73,7 @@ const H4 = React.forwardRef<TextRef, SlottableTextProps>(
         role="heading"
         aria-level="4"
         className={cn(
-          "font-semibold text-xl tracking-tight text-foreground web:select-text web:scroll-m-20",
+          "web:select-text web:scroll-m-20 text-xl font-semibold tracking-tight text-foreground",
           className,
         )}
         ref={ref}
@@ -89,12 +85,12 @@ const H4 = React.forwardRef<TextRef, SlottableTextProps>(
 
 H4.displayName = "H4";
 
-const P = React.forwardRef<TextRef, SlottableTextProps>(
+const P = React.forwardRef<Types.TextRef, Types.SlottableTextProps>(
   ({ className, asChild = false, ...props }, ref) => {
     const Component = asChild ? Slot.Text : Text;
     return (
       <Component
-        className={cn("text-base text-foreground web:select-text", className)}
+        className={cn("web:select-text text-base text-foreground", className)}
         ref={ref}
         {...props}
       />
@@ -104,7 +100,7 @@ const P = React.forwardRef<TextRef, SlottableTextProps>(
 
 P.displayName = "P";
 
-const BlockQuote = React.forwardRef<TextRef, SlottableTextProps>(
+const BlockQuote = React.forwardRef<Types.TextRef, Types.SlottableTextProps>(
   ({ className, asChild = false, ...props }, ref) => {
     const Component = asChild ? Slot.Text : Text;
     return (
@@ -112,7 +108,7 @@ const BlockQuote = React.forwardRef<TextRef, SlottableTextProps>(
         // @ts-ignore - role of blockquote renders blockquote element on the web
         role={Platform.OS === "web" ? "blockquote" : undefined}
         className={cn(
-          "native:mt-4 native:pl-3 mt-6 border-l-2 border-border pl-6 text-base italic text-foreground web:select-text",
+          "native:mt-4 native:pl-3 web:select-text mt-6 border-l-2 border-border pl-6 text-base italic text-foreground",
           className,
         )}
         ref={ref}
@@ -124,7 +120,7 @@ const BlockQuote = React.forwardRef<TextRef, SlottableTextProps>(
 
 BlockQuote.displayName = "BlockQuote";
 
-const Code = React.forwardRef<TextRef, SlottableTextProps>(
+const Code = React.forwardRef<Types.TextRef, Types.SlottableTextProps>(
   ({ className, asChild = false, ...props }, ref) => {
     const Component = asChild ? Slot.Text : Text;
     return (
@@ -132,7 +128,7 @@ const Code = React.forwardRef<TextRef, SlottableTextProps>(
         // @ts-ignore - role of code renders code element on the web
         role={Platform.OS === "web" ? "code" : undefined}
         className={cn(
-          "font-semibold relative rounded-md bg-muted px-[0.3rem] py-[0.2rem] text-sm text-foreground web:select-text",
+          "web:select-text relative rounded-md bg-muted px-[0.3rem] py-[0.2rem] text-sm font-semibold text-foreground",
           className,
         )}
         ref={ref}
@@ -144,13 +140,13 @@ const Code = React.forwardRef<TextRef, SlottableTextProps>(
 
 Code.displayName = "Code";
 
-const Lead = React.forwardRef<TextRef, SlottableTextProps>(
+const Lead = React.forwardRef<Types.TextRef, Types.SlottableTextProps>(
   ({ className, asChild = false, ...props }, ref) => {
     const Component = asChild ? Slot.Text : Text;
     return (
       <Component
         className={cn(
-          "text-xl text-muted-foreground web:select-text",
+          "web:select-text text-xl text-muted-foreground",
           className,
         )}
         ref={ref}
@@ -162,13 +158,13 @@ const Lead = React.forwardRef<TextRef, SlottableTextProps>(
 
 Lead.displayName = "Lead";
 
-const Large = React.forwardRef<TextRef, SlottableTextProps>(
+const Large = React.forwardRef<Types.TextRef, Types.SlottableTextProps>(
   ({ className, asChild = false, ...props }, ref) => {
     const Component = asChild ? Slot.Text : Text;
     return (
       <Component
         className={cn(
-          "font-semibold text-xl text-foreground web:select-text",
+          "web:select-text text-xl font-semibold text-foreground",
           className,
         )}
         ref={ref}
@@ -180,13 +176,13 @@ const Large = React.forwardRef<TextRef, SlottableTextProps>(
 
 Large.displayName = "Large";
 
-const Small = React.forwardRef<TextRef, SlottableTextProps>(
+const Small = React.forwardRef<Types.TextRef, Types.SlottableTextProps>(
   ({ className, asChild = false, ...props }, ref) => {
     const Component = asChild ? Slot.Text : Text;
     return (
       <Component
         className={cn(
-          "font-medium text-sm leading-none text-foreground web:select-text",
+          "web:select-text text-sm font-medium leading-none text-foreground",
           className,
         )}
         ref={ref}
@@ -198,13 +194,13 @@ const Small = React.forwardRef<TextRef, SlottableTextProps>(
 
 Small.displayName = "Small";
 
-const Muted = React.forwardRef<TextRef, SlottableTextProps>(
+const Muted = React.forwardRef<Types.TextRef, Types.SlottableTextProps>(
   ({ className, asChild = false, ...props }, ref) => {
     const Component = asChild ? Slot.Text : Text;
     return (
       <Component
         className={cn(
-          "text-sm text-muted-foreground web:select-text",
+          "web:select-text text-sm text-muted-foreground",
           className,
         )}
         ref={ref}

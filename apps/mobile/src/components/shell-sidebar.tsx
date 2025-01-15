@@ -1,10 +1,8 @@
 import React from "react";
 import { Link } from "expo-router";
+import { Box, BoxProps, Button, Text } from "@unative/universal";
 
 import { cn } from "@/lib/utils";
-import { Box, BoxProps } from "@/components/ui/box";
-import { Button } from "@/components/ui/button";
-import { Text } from "@/components/ui/text";
 import { navigationLinks } from "@/navigation-links";
 
 export type ShellSidebarProps = BoxProps & {};

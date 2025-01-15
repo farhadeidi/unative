@@ -1,8 +1,7 @@
 import React from "react";
+import { Box, BoxProps, Text } from "@unative/universal";
 
 import { cn } from "@/lib/utils";
-import { Box, BoxProps } from "@/components/ui/box";
-import { Text } from "@/components/ui/text";
 
 export const TypographyPreview = ({
   className,

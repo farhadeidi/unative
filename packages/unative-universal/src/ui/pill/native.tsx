@@ -2,9 +2,9 @@ import React from "react";
 import { Pressable, View } from "react-native";
 import { tv, VariantProps } from "tailwind-variants";
 
-import { DEFAULT_VARIANTS } from "@/lib/unative/default-variants";
-import { cn } from "@/lib/utils";
-import { TextClassContext } from "@/components/ui/text";
+import { DEFAULT_VARIANTS } from "../../lib/default-variants";
+import { cn } from "../../lib/utils";
+import { TextClassContext } from "../text/native";
 
 export const pillVariants = tv({
   slots: {
@@ -47,7 +47,7 @@ export const Pill = React.forwardRef<View, PillProps>(
       <TextClassContext.Provider value={text()}>
         <Pressable
           className={cn(
-            disabled && "opacity-50 web:pointer-events-none",
+            disabled && "web:pointer-events-none opacity-50",
             base(),
             className,
           )}

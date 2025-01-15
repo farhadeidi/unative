@@ -78,7 +78,7 @@ export const CommonProvider = ({
 
   return (
     <ProviderContext.Provider
-      key={isInitialized ? "initialized" : "not-initialized"}
+      // key={isInitialized ? "initialized" : "not-initialized"}
       value={{
         config: {},
         rawThemes: rawThemes,

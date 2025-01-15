@@ -1,9 +1,9 @@
 import React from "react";
+import { Box } from "@unative/universal";
 
 import { ThemeOptions } from "@/components/theme-options";
 import { TmdbTrendingMovies } from "@/components/tmdb-trending-movies";
 import { TmdbTrendingPeople } from "@/components/tmdb-trending-people";
-import { Box } from "@/components/ui/box";
 
 export default function HomeScreen() {
   return (

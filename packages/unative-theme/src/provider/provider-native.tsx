@@ -1,11 +1,11 @@
 /** @jsxImportSource nativewind */
 
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useColorScheme, vars } from "nativewind";
 import { Platform, View } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-import { useTheme } from "../hooks/use-theme";
+// import { useTheme } from "../hooks/use-theme";
 import { ColorSchemes, ProviderProps } from "../types";
 
 import { CommonProvider } from "./provider-common";
@@ -59,12 +59,17 @@ export const Provider = ({ children, ...props }: ProviderProps) => {
     init();
   }, []);
 
+  const getCssVariables = useCallback(() => {
+    return props.themes[activeTheme]?.[isDarkMode ? "dark" : "light"] || {};
+  }, [isDarkMode, activeTheme]);
+
   return (
     <View
       className={[
         "flex-1",
         !!activeTheme && Platform.OS === "web" ? `theme-${activeTheme}` : "",
       ].join(" ")}
+      style={vars(getCssVariables())}
     >
       <CommonProvider
         {...props}
@@ -76,19 +81,24 @@ export const Provider = ({ children, ...props }: ProviderProps) => {
         savedTheme={activeTheme}
         isWeb={Platform.OS === "web"}
       >
-        <ThemeHandler>{children}</ThemeHandler>
+        <React.Fragment>{children}</React.Fragment>
       </CommonProvider>
     </View>
   );
 };
 
-const ThemeHandler = ({ children }: { children: React.ReactNode }) => {
-  const { theme, isInitialized, cssVariables } = useTheme();
+// const ThemeHandler = ({ children }: { children: React.ReactNode }) => {
+//   const { theme, isInitialized, cssVariables } = useTheme();
 
-  if (!isInitialized || !theme.name) return null;
+//   if (!isInitialized || !theme.name) return null;
 
-  const currentTheme =
-    cssVariables[theme.name][theme.scheme === "dark" ? "dark" : "light"];
+//   const currentTheme =
+//     cssVariables[theme.name][theme.scheme === "dark" ? "dark" : "light"];
 
-  return <View style={[{ flex: 1 }, vars(currentTheme)]}>{children}</View>;
-};
+//   useEffect(() => {
+//     console.log("dev => theme.scheme", theme.scheme);
+//   }, [theme.scheme]);
+
+//   return <React.Fragment>{children}</React.Fragment>;
+//   // return <View style={[{ flex: 1 }, vars(currentTheme)]}>{children}</View>;
+// };

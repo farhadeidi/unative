@@ -1,7 +1,7 @@
 import React from "react";
 import { View, ViewProps } from "react-native";
 
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 
 export type BoxProps = ViewProps;
 export const Box = React.forwardRef<View, BoxProps>((props, ref) => {

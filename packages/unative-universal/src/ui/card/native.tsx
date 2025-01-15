@@ -1,10 +1,12 @@
+/** @jsxImportSource nativewind */
+
 import React from "react";
 import { View } from "react-native";
 import { tv, VariantProps } from "tailwind-variants";
 
-import { cn } from "@/lib/utils";
-import { Box, BoxProps } from "@/components/ui/box";
-import { TextClassContext } from "@/components/ui/text";
+import { cn } from "../../lib/utils";
+import { Box, BoxProps } from "../box";
+import { TextClassContext } from "../text";
 
 export const cardVariants = tv({
   slots: {

@@ -160,6 +160,8 @@ function updatePackageJson(
     "clsx",
     "tailwind-merge",
     "tailwind-variants",
+    "@unative/theme",
+    "@unative/primitives",
   ];
   Object.keys(peerDependencies).forEach((dep) => {
     if (!requiredPeerDependencies.includes(dep)) {

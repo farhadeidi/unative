@@ -1,9 +1,8 @@
 import { useTheme } from "@unative/theme";
+import { Box, BoxProps, Button } from "@unative/universal";
 
 import { cn } from "@/lib/utils";
 import { MonitorCogIcon, MoonIcon, SunIcon } from "@/components/icons";
-import { Box, BoxProps } from "@/components/ui/box";
-import { Button } from "@/components/ui/button";
 
 export type ThemeOptionsProps = BoxProps & {};
 export const ThemeOptions = ({ className, ...props }: ThemeOptionsProps) => {

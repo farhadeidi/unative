@@ -1,7 +1,7 @@
-import * as SharedPrimitivesSlot from "./slot";
-import * as SharedPrimitiveTypes from "./types";
-import * as SharedPrimitivesUtils from "./utils";
+import * as Slot from "./slot";
+import * as Types from "./types";
+import * as Utils from "./utils";
 
 export * from "./hooks";
 
-export { SharedPrimitivesSlot, SharedPrimitivesUtils, SharedPrimitiveTypes };
+export { Slot, Types, Utils };
