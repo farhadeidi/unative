@@ -1,3 +1,11 @@
+/** @jsxImportSource nativewind */
+
+/**
+ * Source code copied and adapted from:
+ * https://github.com/roninoss/rn-primitives
+ * License: MIT (c) 2024 RoninOSS
+ */
+
 import * as React from "react";
 import { Pressable, View } from "react-native";
 import * as Tabs from "@radix-ui/react-tabs";
@@ -13,7 +21,7 @@ import type {
   RootRef,
   TriggerProps,
   TriggerRef,
-} from "./tabs.types";
+} from "./types";
 
 const TabsContext = React.createContext<RootProps | null>(null);
 const Root = React.forwardRef<RootRef, RootProps>(

@@ -5,9 +5,7 @@
   "type": "module",
   "scripts": {
     "watch": "tsup --watch",
-    "dev": "tsup --watch",
     "build": "tsup",
-    "prepare": "tsup",
     "generate-package": "npx tsx ./package-json-generator.ts"
   },
   "publishConfig": {

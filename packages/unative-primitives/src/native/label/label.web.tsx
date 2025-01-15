@@ -1,3 +1,11 @@
+/** @jsxImportSource nativewind */
+
+/**
+ * Source code copied and adapted from:
+ * https://github.com/roninoss/rn-primitives
+ * License: MIT (c) 2024 RoninOSS
+ */
+
 import * as React from "react";
 import { Pressable, Text as RNText } from "react-native";
 import * as Label from "@radix-ui/react-label";

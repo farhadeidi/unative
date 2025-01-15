@@ -1,3 +1,11 @@
+/** @jsxImportSource nativewind */
+
+/**
+ * Source code copied and adapted from:
+ * https://github.com/roninoss/rn-primitives
+ * License: MIT (c) 2024 RoninOSS
+ */
+
 import * as React from "react";
 import { GestureResponderEvent, Pressable, Text, View } from "react-native";
 import * as ContextMenu from "@radix-ui/react-context-menu";
