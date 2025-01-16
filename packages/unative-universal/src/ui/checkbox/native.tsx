@@ -8,7 +8,7 @@ import { cn } from "../../lib/utils";
 const Checkbox = React.forwardRef<
   CheckboxPrimitive.RootRef,
   CheckboxPrimitive.RootProps
->(({ className, ...props }, ref) => {
+>(({ className, nativeID, ...props }, ref) => {
   return (
     <CheckboxPrimitive.Root
       ref={ref}
@@ -17,6 +17,7 @@ const Checkbox = React.forwardRef<
         props.checked && "bg-primary",
         className,
       )}
+      nativeID={props.id || nativeID}
       {...props}
     >
       <CheckboxPrimitive.Indicator

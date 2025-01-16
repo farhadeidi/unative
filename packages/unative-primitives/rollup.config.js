@@ -3,8 +3,30 @@ import typescript from "@rollup/plugin-typescript";
 import glob from "glob";
 import path from "path";
 import { fileURLToPath } from "node:url";
+import { exec } from "child_process";
+
 import * as fs from "fs";
-import commonjs from "@rollup/plugin-commonjs";
+
+function run(cmd) {
+  return new Promise((resolve, reject) => {
+    exec(cmd, (error, stdout, stderr) => {
+      if (error) return reject(error);
+      if (stderr) return reject(stderr);
+      resolve(stdout);
+    });
+  });
+}
+
+function runOnSuccessPlugin() {
+  return {
+    name: "run-on-success",
+    async writeBundle() {
+      console.log("Build process completed!");
+      await run("cp ../../README.md ./dist/README.md");
+      await run("npx tsx package-json-generator.ts");
+    },
+  };
+}
 
 const extractPeerDependencies = () => {
   const packageJson = JSON.parse(fs.readFileSync("./package.json", "utf-8"));
@@ -13,6 +35,7 @@ const extractPeerDependencies = () => {
   return Object.keys({ ...dependencies, ...peerDependencies });
 };
 const externalDependencies = extractPeerDependencies();
+console.log("dev => externalDependencies", externalDependencies);
 
 /** @type {import('rollup').RollupOptions} */
 const options = {
@@ -28,14 +51,21 @@ const options = {
       ]),
   ),
   jsx: "preserve",
+  onwarn(warning, warn) {
+    if (warning.code === "MODULE_LEVEL_DIRECTIVE") {
+      return;
+    }
+    warn(warning);
+  },
   treeshake: true,
   output: {
     format: "es",
     dir: "dist",
     chunkFileNames: "chunks/[name]-[hash].js",
+    banner: "'use client';",
   },
-  plugins: [resolve(), commonjs(), typescript({ tsconfig: "./tsconfig.json" })],
-  external: [...externalDependencies],
+  plugins: [resolve(), typescript({}), runOnSuccessPlugin()],
+  external: [...externalDependencies, "@unative/universal", /node_modules/],
 };
 
 export default options;

@@ -11,7 +11,8 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-  Checkbox,
+  Label,
+  Switch,
   Text,
 } from "@unative/universal";
 
@@ -28,16 +29,27 @@ export const Showcase = ({ className, children, ...props }: ShowcaseProps) => {
           <CardDescription>Manage Settings</CardDescription>
         </CardHeader>
         <CardContent>
-          <Text>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
-            laboriosam soluta itaque, provident quos maiores sit pariatur
-            tempore reprehenderit molestias excepturi quibusdam doloribus optio
-            ea. Quo blanditiis quis laudantium nulla?
-          </Text>
-          <Checkbox checked={isChecked} onCheckedChange={setIsChecked} />
+          <Box>
+            <Text>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
+              laboriosam soluta itaque, provident quos maiores sit pariatur
+              tempore reprehenderit molestias excepturi quibusdam doloribus
+              optio ea. Quo blanditiis quis laudantium nulla?
+            </Text>
+            <Box className="my-4 flex flex-row gap-2 rounded-lg border border-border p-4">
+              <Box className="flex-1">
+                <Label htmlFor="my-checkbox">Mark as primary content</Label>
+              </Box>
+              <Switch
+                id="my-checkbox"
+                checked={isChecked}
+                onCheckedChange={setIsChecked}
+              />
+            </Box>
+          </Box>
         </CardContent>
         <CardFooter>
-          <Button variant="ghost">
+          <Button>
             <Text>Save Changes</Text>
           </Button>
         </CardFooter>

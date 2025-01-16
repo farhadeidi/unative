@@ -4,10 +4,10 @@
   "description": "One UI Library for Web and Mobile",
   "type": "module",
   "scripts": {
-    "watch": "NODE_OPTIONS='--max-old-space-size=16384' tsup --watch",
-    "build": "NODE_OPTIONS='--max-old-space-size=16384' tsup",
-    "b": "rm -rf dist && tsc && pnpm generate-package",
-    "r": "rm -rf dist && rollup -c && pnpm generate-package",
+    "watch-changes": "rollup -c --watch",
+    "watch": "rm -rf dist && pnpm watch-changes",
+    "build": "rm -rf dist && rollup -c",
+    "prepare": "",
     "generate-package": "npx tsx ./package-json-generator.ts"
   },
   "publishConfig": {
