@@ -10,7 +10,9 @@ export default function HomeScreen() {
   return (
     <React.Fragment>
       <Box className="flex-1">
-        <Showcase />
+        <Box className="p-4">
+          <Showcase />
+        </Box>
         <TmdbTrendingPeople />
         <TmdbTrendingMovies />
         <ThemeOptions />

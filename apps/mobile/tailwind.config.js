@@ -8,18 +8,16 @@ module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
     "./node_modules/@unative/**/*.{js,jsx,mjs,ts,tsx}",
-    "./node_modules/unative/components/ui/**/*.{js,jsx,mjs,ts,tsx}",
-    "./node_modules/@repo/shared-ui/**/*.{js,jsx,mjs,ts,tsx}",
   ],
   presets: [require("nativewind/preset")],
   theme: {
     fontWeight: {},
     extend: {
       borderRadius: {
-        none: '0',
-        DEFAULT: 'var(--radius)',
-        button: 'var(--radius-button)',
-        card: 'var(--radius-card)',
+        none: "0",
+        DEFAULT: "var(--radius)",
+        button: "var(--radius-button)",
+        card: "var(--radius-card)",
       },
       colors: {
         background: "hsl(var(--background))",

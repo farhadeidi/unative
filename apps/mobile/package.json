@@ -23,7 +23,6 @@
     "@react-navigation/bottom-tabs": "^7.2.0",
     "@react-navigation/native": "^7.0.14",
     "@repo/shared-api": "workspace:*",
-    "@repo/shared-ui": "workspace:*",
     "@tanstack/react-query": "^5.64.0",
     "@unative/primitives": "workspace:*",
     "@unative/theme": "workspace:*",

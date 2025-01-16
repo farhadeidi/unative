@@ -5,15 +5,23 @@ import { cn } from "../../lib/utils";
 
 const Label = React.forwardRef<
   LabelPrimitive.TextRef,
-  LabelPrimitive.TextProps
+  LabelPrimitive.TextProps & { onClick?: () => void }
 >(
   (
-    { className, onPress, onLongPress, onPressIn, onPressOut, ...props },
+    {
+      className,
+      onPress,
+      onClick,
+      onLongPress,
+      onPressIn,
+      onPressOut,
+      ...props
+    },
     ref,
   ) => (
     <LabelPrimitive.Root
       className="web:cursor-default"
-      onPress={onPress}
+      onPress={onPress || onClick}
       onLongPress={onLongPress}
       onPressIn={onPressIn}
       onPressOut={onPressOut}

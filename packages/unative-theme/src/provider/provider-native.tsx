@@ -69,6 +69,7 @@ export const Provider = ({ children, ...props }: ProviderProps) => {
         "flex-1",
         !!activeTheme && Platform.OS === "web" ? `theme-${activeTheme}` : "",
       ].join(" ")}
+      id={`unp-native-${Platform.OS}`}
       style={vars(getCssVariables())}
     >
       <CommonProvider

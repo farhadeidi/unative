@@ -8,4 +8,8 @@ export const configureThemeScript = (
   const theme =
     newTheme || localStorage.getItem("unative-theme-name") || defaultTheme;
   el.classList.add(`theme-${theme}`);
+
+  if (!el.classList.contains("unp-web")) {
+    el.classList.add("unp-web");
+  }
 };

@@ -63,12 +63,14 @@ const buttonTextVariants = cva(
 );
 
 type ButtonProps = React.ComponentPropsWithoutRef<typeof Pressable> &
-  VariantProps<typeof buttonVariants>;
+  VariantProps<typeof buttonVariants> & {
+    onClick?: () => void | Promise<void>;
+  };
 
 const Button = React.forwardRef<
   React.ElementRef<typeof Pressable>,
   ButtonProps
->(({ className, variant, size, ...props }, ref) => {
+>(({ className, variant, size, onPress, onClick, ...props }, ref) => {
   return (
     <TextClassContext.Provider
       value={buttonTextVariants({
@@ -84,6 +86,7 @@ const Button = React.forwardRef<
         )}
         ref={ref}
         role="button"
+        onPress={onPress || onClick}
         {...props}
       />
     </TextClassContext.Provider>

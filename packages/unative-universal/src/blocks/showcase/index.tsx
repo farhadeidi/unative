@@ -11,6 +11,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
+  getPlatformInfo,
   Label,
   Switch,
   Text,
@@ -38,7 +39,18 @@ export const Showcase = ({ className, children, ...props }: ShowcaseProps) => {
             </Text>
             <Box className="my-4 flex flex-row gap-2 rounded-lg border border-border p-4">
               <Box className="flex-1">
-                <Label htmlFor="my-checkbox">Mark as primary content</Label>
+                <Label
+                  htmlFor="my-checkbox"
+                  onPress={
+                    getPlatformInfo().isReactNative
+                      ? () => {
+                          setIsChecked((prev) => !prev);
+                        }
+                      : undefined
+                  }
+                >
+                  Mark as primary content
+                </Label>
               </Box>
               <Switch
                 id="my-checkbox"
