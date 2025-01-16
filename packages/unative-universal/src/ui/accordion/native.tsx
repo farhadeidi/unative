@@ -97,7 +97,10 @@ const AccordionTrigger = React.forwardRef<
 });
 AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName;
 
-const AccordionContent = React.forwardRef<
+const AccordionContent: React.ForwardRefExoticComponent<
+  AccordionPrimitive.ContentProps &
+    React.RefAttributes<AccordionPrimitive.ContentRef>
+> = React.forwardRef<
   AccordionPrimitive.ContentRef,
   AccordionPrimitive.ContentProps
 >(({ className, children, ...props }, ref) => {

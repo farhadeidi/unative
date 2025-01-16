@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   BoxProps,
@@ -19,6 +19,7 @@ import { cn } from "../../lib/utils";
 
 export type ShowcaseProps = BoxProps & {};
 export const Showcase = ({ className, children, ...props }: ShowcaseProps) => {
+  const [isChecked, setIsChecked] = useState(false);
   return (
     <Box className={cn("flex flex-row", className)} {...props}>
       <Card className="w-full max-w-lg">
@@ -33,10 +34,10 @@ export const Showcase = ({ className, children, ...props }: ShowcaseProps) => {
             tempore reprehenderit molestias excepturi quibusdam doloribus optio
             ea. Quo blanditiis quis laudantium nulla?
           </Text>
-          <Checkbox checked={true} onCheckedChange={() => {}} />
+          <Checkbox checked={isChecked} onCheckedChange={setIsChecked} />
         </CardContent>
         <CardFooter>
-          <Button variant="default">
+          <Button variant="ghost">
             <Text>Save Changes</Text>
           </Button>
         </CardFooter>

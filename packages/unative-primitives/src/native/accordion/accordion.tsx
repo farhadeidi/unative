@@ -175,7 +175,7 @@ const Trigger = React.forwardRef<TriggerRef, TriggerProps>(
           ? rootToArray.includes(value)
             ? rootToArray.filter((val) => val !== value)
             : rootToArray.concat(value)
-          : [...new Set(rootToArray.concat(value))];
+          : Array.from(new Set(rootToArray.concat(value)));
         // @ts-ignore - `newValue` is of type `string[]` which is OK
         onValueChange(newValue);
       }

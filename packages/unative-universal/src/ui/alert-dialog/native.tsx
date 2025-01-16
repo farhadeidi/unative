@@ -62,10 +62,11 @@ const AlertDialogOverlayNative = React.forwardRef<
 
 AlertDialogOverlayNative.displayName = "AlertDialogOverlayNative";
 
-const AlertDialogOverlay = Platform.select({
-  web: AlertDialogOverlayWeb,
-  default: AlertDialogOverlayNative,
-});
+const AlertDialogOverlay: React.ComponentType<AlertDialogPrimitive.OverlayProps> =
+  Platform.select({
+    web: AlertDialogOverlayWeb,
+    default: AlertDialogOverlayNative,
+  });
 
 const AlertDialogContent = React.forwardRef<
   AlertDialogPrimitive.ContentRef,

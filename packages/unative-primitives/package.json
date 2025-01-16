@@ -6,6 +6,8 @@
   "scripts": {
     "watch": "NODE_OPTIONS='--max-old-space-size=16384' tsup --watch",
     "build": "NODE_OPTIONS='--max-old-space-size=16384' tsup",
+    "b": "rm -rf dist && tsc && pnpm generate-package",
+    "r": "rm -rf dist && rollup -c && pnpm generate-package",
     "generate-package": "npx tsx ./package-json-generator.ts"
   },
   "publishConfig": {

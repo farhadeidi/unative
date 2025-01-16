@@ -1,6 +1,6 @@
 import React from "react";
-import { Box } from "@unative/universal";
 import { Showcase } from "@unative/universal/blocks";
+import { Box } from "@unative/universal/ui";
 
 import { ThemeOptions } from "@/components/theme-options";
 import { TmdbTrendingMovies } from "@/components/tmdb-trending-movies";

@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { AvatarPrimitive } from "@unative/primitives/web";
+import { AvatarPrimitive } from "@unative/primitives/web/avatar";
 
 import { cn } from "../../lib/utils";
 

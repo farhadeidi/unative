@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "jsx": "preserve",
+    "declaration": true,
+    "declarationMap": false,
+    "module": "CommonJS",
+    "types": ["nativewind/types", "@types/node", "react-native", "@types/react"],
+    "skipLibCheck": true,
+    "target": "ES2015",
+  },
+}

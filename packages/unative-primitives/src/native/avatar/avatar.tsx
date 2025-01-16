@@ -19,7 +19,7 @@ import {
 import { useIsomorphicLayoutEffect } from "../shared/hooks";
 import * as Slot from "../shared/slot";
 
-import type {
+import {
   FallbackProps,
   FallbackRef,
   ImageProps,

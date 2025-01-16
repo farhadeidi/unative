@@ -1,14 +1,13 @@
 {
   "compilerOptions": {
-    "jsx": "react-jsx",
-    "declaration": false,
-    "declarationMap": false,
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "types": ["nativewind/types", "@types/node"],
-    "resolveJsonModule": false,
-    "isolatedModules": false,
-    "target": "ESNext"
+    "jsx": "preserve",
+    "outDir": "dist",
+    "rootDir": "./src",
+    "declaration": true,
+    "paths": {
+      "@/*": ["./*"]
+    }
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["node_modules", "dist", "../node_modules", "../../node_modules"]
 }

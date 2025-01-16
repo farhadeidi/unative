@@ -6,26 +6,20 @@ import type {
   ViewRef,
 } from "../shared/types";
 
-type RootProps = SlottableViewProps & {
+export type RootProps = SlottableViewProps & {
   alt: string;
 };
 
-type ImageProps = Omit<ComponentPropsWithAsChild<typeof Image>, "alt"> & {
+export type ImageProps = Omit<
+  ComponentPropsWithAsChild<typeof Image>,
+  "alt"
+> & {
   children?: React.ReactNode;
   onLoadingStatusChange?: (status: "error" | "loaded") => void;
 };
 
-type FallbackProps = SlottableViewProps;
+export type FallbackProps = SlottableViewProps;
 
-type RootRef = ViewRef;
-type ImageRef = React.ElementRef<typeof Image>;
-type FallbackRef = ViewRef;
-
-export type {
-  FallbackProps,
-  FallbackRef,
-  ImageProps,
-  ImageRef,
-  RootProps,
-  RootRef,
-};
+export type RootRef = ViewRef;
+export type ImageRef = React.ElementRef<typeof Image>;
+export type FallbackRef = ViewRef;

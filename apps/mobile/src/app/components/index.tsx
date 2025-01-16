@@ -1,4 +1,5 @@
-import { Box, Text } from "@unative/universal";
+import React from "react";
+import { Box, Text } from "@unative/universal/ui";
 
 const Page = () => {
   return (

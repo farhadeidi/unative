@@ -4,8 +4,10 @@
   "description": "One UI Library for Web and Mobile",
   "type": "module",
   "scripts": {
-    "watch": "tsup --watch",
+    "watch": "rollup -c --watch --watch.onEnd=\"pnpm generate-package\"",
     "build": "tsup",
+    "b": "rm -rf dist && tsc && pnpm generate-package",
+    "r": "rm -rf dist && rollup -c && pnpm generate-package",
     "prepare": "",
     "generate-package": "npx tsx ./package-json-generator.ts"
   },
@@ -57,7 +59,8 @@
     "tailwind-variants": "*",
     "tailwindcss": "*",
     "lucide-react-native": "*",
-    "lucide-react": "*"
+    "lucide-react": "*",
+    "react-native-reanimated": "*"
   },
   "peerDependenciesMeta": {
     "react-native": {
