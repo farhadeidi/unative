@@ -1,6 +1,6 @@
 {
   "name": "@unative/primitives",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "One UI Library for Web and Mobile",
   "type": "module",
   "scripts": {
