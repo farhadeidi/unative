@@ -16,6 +16,10 @@
     "dev": {
       "cache": true,
       "persistent": true
+    },
+    "watch": {
+      "cache": true,
+      "persistent": true
     }
   }
 }

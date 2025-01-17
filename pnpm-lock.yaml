@@ -320,6 +320,13 @@ importers:
         specifier: ^7.5.2
         version: 7.5.2(typescript@5.7.2)
 
+  packages/unative-blocks:
+    devDependencies:
+      '@unative/universal':
+        specifier: workspace:*
+        version: link:../unative-universal/dist
+    publishDirectory: dist
+
   packages/unative-primitives:
     dependencies:
       '@radix-ui/react-accessible-icon':

@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "turbo dev",
-    "watch": "turbo watch --filter=\"{./packages}...\"",
+    "watch": "turbo run watch",
     "dev:mobile": "turbo dev --filter=\"{./apps/mobile}...\"",
     "dev:web": "turbo dev --filter=\"{./apps/web}...\"",
     "lint": "turbo lint",

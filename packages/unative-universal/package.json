@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "watch-changes": "rollup -c --watch",
-    "watch": "rm -rf dist && pnpm watch-changes",
+    "watch": "pnpm watch-changes",
     "build": "rm -rf dist && rollup -c",
     "prepare": "",
     "generate-package": "npx tsx ./package-json-generator.ts"
