@@ -18,11 +18,6 @@ const getExports = ({
     hasNativeFile: boolean;
   };
 }) => {
-  console.log(
-    "dev => hasWebFile",
-    advanceOptions.enabled && advanceOptions.hasWebFile,
-  );
-
   if (!advanceOptions.enabled) {
     return {
       types: `${filePath}/${fileName}.d.ts`,
@@ -39,10 +34,6 @@ const getExports = ({
     "react-native": {
       types: `${filePath}/${nativeFileName}.d.ts`,
       default: `${filePath}/${nativeFileName}.js`,
-    },
-    "react-server": {
-      types: `${filePath}/${webFileName}.d.ts`,
-      default: `${filePath}/${webFileName}.js`,
     },
     require: {
       types: `${filePath}/${webFileName}.d.ts`,
@@ -64,6 +55,18 @@ function generateExports(dirPath: string): Record<string, any> {
 
   function processDirectory(currentPath: string) {
     const items = fs.readdirSync(currentPath, { withFileTypes: true });
+
+    // sort items. if has index file, index file should be the first
+    items.sort((a, b) => {
+      if (a.name === "index.ts" || a.name === "index.tsx") {
+        return -1;
+      }
+      if (b.name === "index.ts" || b.name === "index.tsx") {
+        return 1;
+      }
+      return 0;
+    });
+
     let relativePath = path.relative("./src", currentPath).replace(/\\/g, "/");
     relativePath = relativePath === "" ? "." : `./${relativePath}`;
 
@@ -74,18 +77,35 @@ function generateExports(dirPath: string): Record<string, any> {
       (el) => removeFileExtension(el.name) === "native",
     );
 
+    const hasIndexFile = items.some(
+      (el) => removeFileExtension(el.name) === "index",
+    );
+
+    if (!hasIndexFile && hasWebFileInDir && hasNativeFileInDir) {
+      exports[`${relativePath}`] = getExports({
+        filePath: `${relativePath}`,
+        fileName: "index",
+        advanceOptions: {
+          enabled: true,
+          hasWebFile: hasWebFileInDir,
+          hasNativeFile: hasNativeFileInDir,
+        },
+      });
+    }
+
     items.forEach((item) => {
       if (item.isFile()) {
         const itemName = removeFileExtension(item.name);
+        const isAdvancedOptionEnabled =
+          itemName.endsWith("index") && (hasWebFileInDir || hasNativeFileInDir);
+
         exports[
           `${relativePath}${itemName === "index" ? "" : `/${itemName}`}`
         ] = getExports({
           filePath: `${relativePath}`,
           fileName: itemName,
           advanceOptions: {
-            enabled:
-              itemName.endsWith("index") &&
-              (hasWebFileInDir || hasNativeFileInDir),
+            enabled: isAdvancedOptionEnabled,
             hasWebFile: hasWebFileInDir,
             hasNativeFile: hasNativeFileInDir,
           },

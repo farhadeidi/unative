@@ -1,128 +1,117 @@
 import * as fs from "fs";
 import * as path from "path";
 
-const serverExports = ["./with-unative"];
+function removeFileExtension(filename): string {
+  return filename.replace(/^(.+?)(\.[^.]*$|$)/, "$1");
+}
+
+const getExports = ({
+  filePath,
+  fileName,
+  advanceOptions,
+}: {
+  filePath: string;
+  fileName: string;
+  advanceOptions: {
+    enabled: boolean;
+    hasWebFile: boolean;
+    hasNativeFile: boolean;
+  };
+}) => {
+  if (!advanceOptions.enabled) {
+    return {
+      types: `${filePath}/${fileName}.d.ts`,
+      require: `${filePath}/${fileName}.cjs`,
+      import: `${filePath}/${fileName}.js`,
+      default: `${filePath}/${fileName}.js`,
+    };
+  }
+
+  const nativeFileName = advanceOptions.hasNativeFile ? "native" : "index";
+  const webFileName = advanceOptions.hasWebFile ? "web" : "index";
+
+  return {
+    "react-native": {
+      types: `${filePath}/${nativeFileName}.d.ts`,
+      default: `${filePath}/${nativeFileName}.js`,
+    },
+    require: {
+      types: `${filePath}/${webFileName}.d.ts`,
+      default: `${filePath}/${webFileName}.cjs`,
+    },
+    import: {
+      types: `${filePath}/${webFileName}.d.ts`,
+      default: `${filePath}/${webFileName}.cjs`,
+    },
+    default: {
+      types: `${filePath}/${webFileName}.d.ts`,
+      default: `${filePath}/${webFileName}.cjs`,
+    },
+  };
+};
 
 function generateExports(dirPath: string): Record<string, any> {
   const exports: Record<string, any> = {};
 
   function processDirectory(currentPath: string) {
     const items = fs.readdirSync(currentPath, { withFileTypes: true });
-    let hasWebFile = false;
-    let hasIndexFile = false;
-    let hasNativeFile = false;
 
-    items.forEach((item) => {
-      if (item.isFile()) {
-        if (item.name === "web.ts" || item.name === "web.tsx") {
-          hasWebFile = true;
-        }
-        if (item.name === "index.ts" || item.name === "index.tsx") {
-          hasIndexFile = true;
-        }
-        if (item.name === "native.ts" || item.name === "native.tsx") {
-          hasNativeFile = true;
-        }
+    // sort items. if has index file, index file should be the first
+    items.sort((a, b) => {
+      if (a.name === "index.ts" || a.name === "index.tsx") {
+        return -1;
       }
+      if (b.name === "index.ts" || b.name === "index.tsx") {
+        return 1;
+      }
+      return 0;
     });
 
     let relativePath = path.relative("./src", currentPath).replace(/\\/g, "/");
-
     relativePath = relativePath === "" ? "." : `./${relativePath}`;
-    if (hasIndexFile) {
-      if (serverExports.includes(relativePath)) {
-        exports[relativePath] = {
-          types: `${relativePath}/index.d.ts`,
-          require: `${relativePath}/index.cjs`,
-          default: `${relativePath}/index.cjs`,
-        };
-      } else {
-        exports[relativePath] = {
-          "react-native": {
-            types: `${relativePath}/index.d.ts`,
-            default: `${relativePath}/index.js`,
+
+    const hasWebFileInDir = items.some(
+      (el) => removeFileExtension(el.name) === "web",
+    );
+    const hasNativeFileInDir = items.some(
+      (el) => removeFileExtension(el.name) === "native",
+    );
+
+    const hasIndexFile = items.some(
+      (el) => removeFileExtension(el.name) === "index",
+    );
+
+    if (!hasIndexFile && hasWebFileInDir && hasNativeFileInDir) {
+      exports[`${relativePath}`] = getExports({
+        filePath: `${relativePath}`,
+        fileName: "index",
+        advanceOptions: {
+          enabled: true,
+          hasWebFile: hasWebFileInDir,
+          hasNativeFile: hasNativeFileInDir,
+        },
+      });
+    }
+
+    items.forEach((item) => {
+      if (item.isFile()) {
+        const itemName = removeFileExtension(item.name);
+        const isAdvancedOptionEnabled =
+          itemName.endsWith("index") && (hasWebFileInDir || hasNativeFileInDir);
+
+        exports[
+          `${relativePath}${itemName === "index" ? "" : `/${itemName}`}`
+        ] = getExports({
+          filePath: `${relativePath}`,
+          fileName: itemName,
+          advanceOptions: {
+            enabled: isAdvancedOptionEnabled,
+            hasWebFile: hasWebFileInDir,
+            hasNativeFile: hasNativeFileInDir,
           },
-          "react-server": hasWebFile
-            ? {
-                types: `${relativePath}/web.d.ts`,
-                default: `${relativePath}/web.js`,
-              }
-            : {
-                types: `${relativePath}/index.d.ts`,
-                default: `${relativePath}/index.js`,
-              },
-          require: hasWebFile
-            ? {
-                types: `${relativePath}/web.d.ts`,
-                default: `${relativePath}/web.cjs`,
-              }
-            : {
-                types: `${relativePath}/index.d.ts`,
-                default: `${relativePath}/index.cjs`,
-              },
-          import: hasWebFile
-            ? {
-                types: `${relativePath}/web.d.ts`,
-                default: `${relativePath}/web.js`,
-              }
-            : {
-                types: `${relativePath}/index.d.ts`,
-                default: `${relativePath}/index.js`,
-              },
-          default: hasWebFile
-            ? {
-                types: `${relativePath}/web.d.ts`,
-                default: `${relativePath}/web.js`,
-              }
-            : {
-                types: `${relativePath}/index.d.ts`,
-                default: `${relativePath}/index.js`,
-              },
-        };
+        });
       }
-    }
-
-    if (hasWebFile && hasNativeFile) {
-      exports[relativePath] = {
-        "react-native": {
-          types: `${relativePath}/native.d.ts`,
-          default: `${relativePath}/native.js`,
-        },
-        "react-server": {
-          types: `${relativePath}/web.d.ts`,
-          default: `${relativePath}/web.js`,
-        },
-        require: {
-          types: `${relativePath}/web.d.ts`,
-          default: `${relativePath}/web.cjs`,
-        },
-        import: {
-          types: `${relativePath}/web.d.ts`,
-          default: `${relativePath}/web.js`,
-        },
-        default: {
-          types: `${relativePath}/web.d.ts`,
-          default: `${relativePath}/web.js`,
-        },
-      };
-    }
-    if (hasNativeFile) {
-      exports[`${relativePath}/native`] = {
-        types: `${relativePath}/native.d.ts`,
-        require: `${relativePath}/native.cjs`,
-        import: `${relativePath}/native.js`,
-        default: `${relativePath}/native.js`,
-      };
-    }
-
-    if (hasWebFile) {
-      exports[`${relativePath}/web`] = {
-        types: `${relativePath}/web.d.ts`,
-        require: `${relativePath}/web.cjs`,
-        import: `${relativePath}/web.js`,
-        default: `${relativePath}/web.js`,
-      };
-    }
+    });
     items.forEach((item) => {
       if (item.isDirectory()) {
         processDirectory(path.join(currentPath, item.name));
