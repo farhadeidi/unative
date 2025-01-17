@@ -39,7 +39,10 @@
     "react-native-svg": "15.8.0",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.7.2",
-    "zustand": "^5.0.2"
+    "zustand": "^5.0.2",
+    "lucide-react": "^0.471.1",
+    "lucide-react-native": "^0.471.0",
+    "react-native-reanimated": "~3.16.1"
   },
   "peerDependencies": {
     "@gorhom/bottom-sheet": "*",

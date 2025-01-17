@@ -16,6 +16,7 @@ import { api } from "@repo/shared-api";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useTheme } from "@unative/theme";
 import { Provider as UnativeProvider } from "@unative/theme/provider/native";
+import { PortalHost } from "@unative/universal";
 
 import { THEMES } from "@/lib/unative/themes";
 import { Shell } from "@/components/shell";
@@ -174,6 +175,7 @@ const App = () => {
           />
           <Stack.Screen name="+not-found" />
         </Stack>
+        <PortalHost />
         <StatusBar style="auto" />
       </Shell>
     </ThemeProvider>

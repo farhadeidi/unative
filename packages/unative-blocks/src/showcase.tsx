@@ -11,17 +11,17 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-  getPlatformInfo,
-  Label,
-  Switch,
+  cn,
   Text,
 } from "@unative/universal";
 
-import { cn } from "../lib/utils";
+import { StyledAlertDialog } from "./styled-alert-dialog";
+import { SwitchWithLabel } from "./switch-with-label";
 
 export type ShowcaseProps = BoxProps & {};
 export const Showcase = ({ className, children, ...props }: ShowcaseProps) => {
   const [isChecked, setIsChecked] = useState(false);
+
   return (
     <Box className={cn("flex flex-row", className)} {...props}>
       <Card className="w-full max-w-lg">
@@ -37,27 +37,11 @@ export const Showcase = ({ className, children, ...props }: ShowcaseProps) => {
               tempore reprehenderit molestias excepturi quibusdam doloribus
               optio ea. Quo blanditiis quis laudantium nulla?
             </Text>
-            <Box className="my-4 flex flex-row gap-2 rounded-lg border border-border p-4">
-              <Box className="flex-1">
-                <Label
-                  htmlFor="my-checkbox"
-                  onPress={
-                    getPlatformInfo().isReactNative
-                      ? () => {
-                          setIsChecked((prev) => !prev);
-                        }
-                      : undefined
-                  }
-                >
-                  Mark as primary content
-                </Label>
-              </Box>
-              <Switch
-                id="my-checkbox"
-                checked={isChecked}
-                onCheckedChange={setIsChecked}
-              />
-            </Box>
+            <SwitchWithLabel
+              isChecked={isChecked}
+              onCheckedChange={setIsChecked}
+            />
+            <StyledAlertDialog />
           </Box>
         </CardContent>
         <CardFooter>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Showcase } from "@unative/universal/blocks";
+import { Showcase } from "@unative/blocks";
 
 const Home = () => {
   return (

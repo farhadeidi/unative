@@ -114,4 +114,18 @@ iconWithClassName(MoonIcon);
 iconWithClassName(SunIcon);
 iconWithClassName(CheckIcon);
 
-export { CheckIcon, MoonIcon, SunIcon, SystemIcon };
+const ChevronDownIcon = CheckIcon;
+const ChevronUpIcon = CheckIcon;
+const ChevronRightIcon = CheckIcon;
+const ChevronLeftIcon = CheckIcon;
+
+export {
+  CheckIcon,
+  ChevronDownIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  ChevronUpIcon,
+  MoonIcon,
+  SunIcon,
+  SystemIcon,
+};
