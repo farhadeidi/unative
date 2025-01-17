@@ -98,6 +98,9 @@ importers:
       '@tanstack/react-query':
         specifier: ^5.64.0
         version: 5.64.0(react@18.3.1)
+      '@unative/blocks':
+        specifier: workspace:*
+        version: link:../../packages/unative-blocks/dist
       '@unative/primitives':
         specifier: workspace:*
         version: link:../../packages/unative-primitives/dist
@@ -231,6 +234,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@unative/blocks':
+        specifier: workspace:*
+        version: link:../../packages/unative-blocks/dist
       '@unative/primitives':
         specifier: workspace:*
         version: link:../../packages/unative-primitives/dist

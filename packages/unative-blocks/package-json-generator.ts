@@ -21,7 +21,7 @@ const getExports = ({
   if (!advanceOptions.enabled) {
     return {
       types: `${filePath}/${fileName}.d.ts`,
-      require: `${filePath}/${fileName}.cjs`,
+      require: `${filePath}/${fileName}.js`,
       import: `${filePath}/${fileName}.js`,
       default: `${filePath}/${fileName}.js`,
     };
@@ -37,15 +37,15 @@ const getExports = ({
     },
     require: {
       types: `${filePath}/${webFileName}.d.ts`,
-      default: `${filePath}/${webFileName}.cjs`,
+      default: `${filePath}/${webFileName}.js`,
     },
     import: {
       types: `${filePath}/${webFileName}.d.ts`,
-      default: `${filePath}/${webFileName}.cjs`,
+      default: `${filePath}/${webFileName}.js`,
     },
     default: {
       types: `${filePath}/${webFileName}.d.ts`,
-      default: `${filePath}/${webFileName}.cjs`,
+      default: `${filePath}/${webFileName}.js`,
     },
   };
 };
