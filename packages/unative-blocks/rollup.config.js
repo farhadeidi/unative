@@ -21,10 +21,11 @@ function runOnSuccessPlugin() {
   return {
     name: "run-on-success",
     async writeBundle() {
-      console.log("Build process completed!");
+      await run("npx tsx ensure-use-client.ts");
       await run("cp ../../README.md ./dist/README.md");
       await run("cp ./nativewind-env.d.ts ./dist/nativewind-env.d.ts");
       await run("npx tsx package-json-generator.ts");
+      console.log("Build process completed!");
     },
   };
 }
@@ -63,7 +64,6 @@ const options = {
     format: "es",
     dir: "dist",
     chunkFileNames: "chunks/[name]-[hash].js",
-    banner: "'use client';",
   },
   plugins: [resolve(), typescript({}), runOnSuccessPlugin()],
   external: [...externalDependencies, "@unative/universal", /node_modules/],
