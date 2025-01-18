@@ -331,6 +331,12 @@ importers:
 
   packages/unative-blocks:
     devDependencies:
+      '@unative/primitives':
+        specifier: workspace:*
+        version: link:../unative-primitives/dist
+      '@unative/theme':
+        specifier: workspace:*
+        version: link:../unative-theme/dist
       '@unative/universal':
         specifier: workspace:*
         version: link:../unative-universal/dist

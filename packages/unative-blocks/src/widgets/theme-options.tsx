@@ -27,8 +27,8 @@ const schemes: {
   },
 ];
 
-export type ThemeSwitchProps = {};
-export const ThemeSwitch = ({}: ThemeSwitchProps) => {
+export type ThemeOptionsProps = {};
+export const ThemeOptions = ({}: ThemeOptionsProps) => {
   const { theme, themes, setScheme, setTheme, isDarkMode } = useTheme();
 
   return (
@@ -41,7 +41,7 @@ export const ThemeSwitch = ({}: ThemeSwitchProps) => {
 
           return (
             <Button
-              // variant="unstyled"
+              variant="unstyled"
               size="icon"
               key={themeName}
               className="rounded-full"

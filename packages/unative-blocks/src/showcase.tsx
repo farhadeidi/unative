@@ -37,7 +37,17 @@ export const Showcase = ({ className, children, ...props }: ShowcaseProps) => {
               tempore reprehenderit molestias excepturi quibusdam doloribus
               optio ea. Quo blanditiis quis laudantium nulla?
             </Text>
+
             <SwitchWithLabel
+              label="Strictly Necessary"
+              description="These cookies are essential in order to use the website and use its features."
+              isChecked={isChecked}
+              onCheckedChange={setIsChecked}
+            />
+
+            <SwitchWithLabel
+              label="Functional Cookies"
+              description="These cookies allow the website to provide personalized functionality."
               isChecked={isChecked}
               onCheckedChange={setIsChecked}
             />

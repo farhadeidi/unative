@@ -26,10 +26,13 @@
   "homepage": "https://unative.dev",
   "keywords": [],
   "devDependencies": {
-    "@unative/universal": "workspace:*"
+    "@unative/universal": "workspace:*",
+    "@unative/primitives": "workspace:*",
+    "@unative/theme": "workspace:*"
   },
   "peerDependencies": {
-    "@unative/universal": "*"
+    "@unative/universal": "*",
+    "@unative/theme": "*"
   },
   "peerDependenciesMeta": {},
   "dependencies": {}

@@ -20,12 +20,14 @@ const buttonVariants = cva(
         ghost:
           "web:hover:bg-accent web:hover:text-accent-foreground active:bg-accent",
         link: "web:underline-offset-4 web:hover:underline web:focus:underline",
+        unstyled: "",
       },
       size: {
         default: "h-10 px-4 py-2 native:h-12 native:px-5 native:py-3",
         sm: "h-9 rounded-md px-3",
         lg: "h-11 rounded-md px-8 native:h-14",
         icon: "h-10 w-10",
+        unstyled: "",
       },
     },
     defaultVariants: {
@@ -47,12 +49,14 @@ const buttonTextVariants = cva(
           "text-secondary-foreground group-active:text-secondary-foreground",
         ghost: "group-active:text-accent-foreground",
         link: "text-primary group-active:underline",
+        unstyled: "",
       },
       size: {
         default: "",
         sm: "",
         lg: "native:text-lg",
         icon: "",
+        unstyled: "",
       },
     },
     defaultVariants: {
@@ -75,7 +79,7 @@ const Button = React.forwardRef<
     <TextClassContext.Provider
       value={buttonTextVariants({
         variant,
-        size,
+        size: variant === "unstyled" ? "unstyled" : size,
         className: "web:pointer-events-none",
       })}
     >
