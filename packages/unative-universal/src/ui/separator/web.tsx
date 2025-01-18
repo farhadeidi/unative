@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { SeparatorPrimitive } from "@unative/primitives/web";
+import { SeparatorPrimitive } from "@unative/primitives/web/separator";
 
 import { cn } from "../../lib/utils";
 
