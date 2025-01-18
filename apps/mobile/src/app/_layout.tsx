@@ -93,6 +93,7 @@ const RootLayout = () => {
     <QueryClientProvider client={queryClient}>
       <UnativeProvider themes={THEMES} defaultTheme="default">
         <App />
+        <PortalHost />
       </UnativeProvider>
     </QueryClientProvider>
   );
@@ -175,7 +176,6 @@ const App = () => {
           />
           <Stack.Screen name="+not-found" />
         </Stack>
-        <PortalHost />
         <StatusBar style="auto" />
       </Shell>
     </ThemeProvider>

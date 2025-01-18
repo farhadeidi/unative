@@ -47,7 +47,7 @@ const getFontFamilies = () => {
         "font-weight": value.weight,
         "font-style": "normal",
       };
-      fontFamilies[`.platform-web .font-${key}`] = {
+      fontFamilies[`#unp-native-web .font-${key}`] = {
         "font-family": webSafeFonts.join(", "),
         "font-weight": value.weight,
         "font-style": "normal",
@@ -61,7 +61,7 @@ const getFontFamilies = () => {
         "font-style": "normal",
       };
 
-      fontFamilies[`.platform-web .font-${key}-italic`] = {
+      fontFamilies[`#unp-native-web .font-${key}-italic`] = {
         "font-family": `InterVariableItalic, ${webSafeFonts.join(", ")}`,
         "font-weight": value.weight,
         "font-style": "italic",
