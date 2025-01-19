@@ -1,8 +1,10 @@
 "use client";
 
 import React from "react";
-import { LucideProps, MonitorCogIcon, MoonIcon, SunIcon } from "lucide-react";
+import type { LucideProps } from "lucide-react";
+import { MonitorCogIcon, MoonIcon, SunIcon } from "lucide-react";
 import { useTheme } from "unative/theme";
+import { Box, Button } from "unative/ui";
 
 const schemes: {
   id: "system" | "light" | "dark";
@@ -26,15 +28,13 @@ const schemes: {
   },
 ];
 
-export type ThemeSwitchProps = {};
-export const ThemeSwitch = ({}: ThemeSwitchProps) => {
+export type ThemeOptionsProps = {};
+export const ThemeOptions = ({}: ThemeOptionsProps) => {
   const themeHook = useTheme();
-  console.log("dev => themeHook", themeHook);
 
-  // return null;
   return (
-    <div className="flex flex-row gap-2">
-      <div className="flex flex-row items-center gap-2">
+    <Box className="flex flex-row gap-2">
+      <Box className="flex flex-row items-center gap-2">
         {Object.keys(themeHook?.themes).map((themeName) => {
           const isActive = themeHook?.theme?.name === themeName;
           const activeTheme =
@@ -43,17 +43,16 @@ export const ThemeSwitch = ({}: ThemeSwitchProps) => {
             ];
 
           return (
-            <button
-              title="Switch theme"
-              // variant="unstyled"
-              // size="icon"
+            <Button
+              variant="unstyled"
+              size="icon"
               key={themeName}
               className="rounded-full"
               onClick={() => {
                 themeHook?.setTheme(themeName);
               }}
             >
-              <div
+              <Box
                 className="h-7 w-7 rounded-full border border-border bg-background"
                 style={{
                   borderColor: isActive
@@ -62,27 +61,26 @@ export const ThemeSwitch = ({}: ThemeSwitchProps) => {
                   padding: isActive ? 4 : 8,
                 }}
               >
-                <div
+                <Box
                   className="h-full w-full rounded-full"
                   style={{
                     backgroundColor: activeTheme?.["--primary"],
                   }}
                 />
-              </div>
-            </button>
+              </Box>
+            </Button>
           );
         })}
-      </div>
+      </Box>
 
       <div className="flex flex-row items-center gap-2">
         {schemes.map((item) => {
           const isActive = themeHook?.theme?.savedScheme === item.id;
 
           return (
-            <button
-              title="Switch theme"
-              // size="icon"
-              // variant={isActive ? "default" : "outline"}
+            <Button
+              size="icon"
+              variant={isActive ? "default" : "outline"}
               key={item.id}
               onClick={() => {
                 themeHook?.setScheme(item.id);
@@ -95,10 +93,10 @@ export const ThemeSwitch = ({}: ThemeSwitchProps) => {
                   isActive ? "text-primary-foreground" : "text-foreground"
                 }
               />
-            </button>
+            </Button>
           );
         })}
       </div>
-    </div>
+    </Box>
   );
 };
