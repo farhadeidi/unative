@@ -57,15 +57,15 @@ const options = {
     }
     warn(warning);
   },
-  treeshake: true,
+  treeshake: false,
   output: {
     format: "es",
     dir: "dist",
     chunkFileNames: "chunks/[name]-[hash].js",
-    banner: "'use client';",
+    // banner: "'use client';",
   },
   plugins: [resolve(), typescript({}), runOnSuccessPlugin()],
-  external: [...externalDependencies, "@unative/universal", /node_modules/],
+  external: [...externalDependencies, /node_modules/],
 };
 
 export default options;

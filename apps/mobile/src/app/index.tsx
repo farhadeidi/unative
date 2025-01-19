@@ -1,6 +1,6 @@
 import React from "react";
 import { Showcase } from "@unative/blocks";
-import { Box } from "@unative/universal/ui";
+import { Box } from "unative/ui";
 
 import { ThemeOptions } from "@/components/theme-options";
 import { TmdbTrendingPeople } from "@/components/tmdb-trending-people";

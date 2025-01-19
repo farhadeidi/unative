@@ -1,4 +1,4 @@
-import { Box, Text } from "@unative/universal";
+import { Box, Text } from "unative";
 
 const WidgetsDemo = () => {
   return (

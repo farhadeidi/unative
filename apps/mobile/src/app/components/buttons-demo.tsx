@@ -1,6 +1,6 @@
 import { ScrollView } from "react-native";
 import { capitalize } from "remeda";
-import { Box, Button, ButtonProps, Text } from "@unative/universal";
+import { Box, Button, ButtonProps, Text } from "unative";
 
 import { PageWrapper } from "@/components/page-wrapper";
 

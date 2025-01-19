@@ -9,8 +9,8 @@
     "types": ["nativewind/types", "@types/node"],
     "baseUrl": "./src",
     "paths": {
-      "@unative/universal": ["."],
-      "@unative/universal/*": ["./*"],
+      "unative": ["."],
+      "unative/*": ["./*"],
       "@/*": ["./*"]
     }
   },

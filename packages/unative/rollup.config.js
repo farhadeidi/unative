@@ -86,7 +86,12 @@ const options = {
     typescript(),
     runOnSuccessPlugin(),
   ],
-  external: [...externalDependencies, "@unative/universal", /node_modules/],
+  external: [
+    ...externalDependencies,
+    "unative",
+    "@unative/primitives",
+    /node_modules/,
+  ],
 };
 
 export default options;

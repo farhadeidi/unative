@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "expo-router";
-import { Box, BoxProps, Button, Text } from "@unative/universal";
+import { Box, BoxProps, Button, Text } from "unative";
 
 import { cn } from "@/lib/utils";
 import { navigationLinks } from "@/navigation-links";

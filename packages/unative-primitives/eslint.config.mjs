@@ -36,6 +36,7 @@ export default [
       "react-hooks/exhaustive-deps": "off",
       "@typescript-eslint/no-empty-object-type": "off",
       "no-empty-pattern": "off",
+      "@typescript-eslint/consistent-type-imports": "error",
 
       "@typescript-eslint/no-unused-vars": [
         "warn",

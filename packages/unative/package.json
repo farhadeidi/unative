@@ -30,37 +30,35 @@
     "@types/node": "^20",
     "@types/react": "~18.3.12",
     "esbuild-react18-useclient": "^1.0.7",
+    "lucide-react": "^0.471.1",
+    "lucide-react-native": "^0.471.0",
     "nativewind": "*",
     "react": "18.3.1",
     "react-native": "0.76.5",
+    "react-native-reanimated": "~3.16.1",
     "react-native-safe-area-context": "4.12.0",
     "react-native-svg": "15.8.0",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.7.2",
-    "zustand": "^5.0.2",
-    "lucide-react": "^0.471.1",
-    "lucide-react-native": "^0.471.0",
-    "react-native-reanimated": "~3.16.1",
-    "@unative/theme": "*"
+    "zustand": "^5.0.2"
   },
   "peerDependencies": {
     "@gorhom/bottom-sheet": "*",
     "@react-native-async-storage/async-storage": "*",
-    "@unative/theme": "*",
     "clsx": "*",
+    "lucide-react": "*",
+    "lucide-react-native": "*",
     "nativewind": "*",
     "react": "*",
     "react-dom": "*",
     "react-native": "*",
+    "react-native-reanimated": "*",
     "react-native-safe-area-context": "*",
     "react-native-svg": "*",
     "react-native-web": "*",
     "tailwind-merge": "*",
     "tailwind-variants": "*",
-    "tailwindcss": "*",
-    "lucide-react-native": "*",
-    "lucide-react": "*",
-    "react-native-reanimated": "*"
+    "tailwindcss": "*"
   },
   "peerDependenciesMeta": {
     "react-native": {
@@ -89,6 +87,6 @@
     }
   },
   "dependencies": {
-    "@unative/primitives": "*"
+    "@unative/primitives": "workspace:*"
   }
 }

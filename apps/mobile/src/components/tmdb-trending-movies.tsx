@@ -13,7 +13,7 @@ import {
   Pill,
   Skeleton,
   Text,
-} from "@unative/universal";
+} from "unative";
 
 import { CalendarDaysIcon, StarIcon } from "@/components/icons";
 

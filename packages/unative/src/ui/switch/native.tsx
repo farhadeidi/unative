@@ -7,7 +7,8 @@ import Animated, {
   withTiming,
 } from "react-native-reanimated";
 import * as SwitchPrimitives from "@unative/primitives/native/switch";
-import { useTheme } from "@unative/theme";
+
+import { useTheme } from "@/theme/hooks";
 
 import { cn } from "../../lib/utils";
 

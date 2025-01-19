@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Box } from "@unative/universal";
+import { Box } from "unative";
 
 import { LogoType } from "@/components/logo";
 

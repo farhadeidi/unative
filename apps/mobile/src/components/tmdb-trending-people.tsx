@@ -9,7 +9,7 @@ import {
   Box,
   Center,
   Text,
-} from "@unative/universal";
+} from "unative";
 
 export const TmdbTrendingPeople = () => {
   const { data } = useQuery({

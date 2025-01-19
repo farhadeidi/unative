@@ -1,5 +1,5 @@
 import { Platform } from "react-native";
-import { Box } from "@unative/universal";
+import { Box } from "unative";
 
 import { ShellSidebar } from "@/components/shell-sidebar";
 

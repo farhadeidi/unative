@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Text } from "@unative/universal";
+import { Box, Text } from "unative";
 
 const ThemeSwitchDemo = () => {
   return (

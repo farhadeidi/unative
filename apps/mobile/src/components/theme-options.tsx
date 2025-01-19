@@ -1,5 +1,5 @@
 import { useTheme } from "@unative/theme";
-import { Box, BoxProps, Button } from "@unative/universal";
+import { Box, BoxProps, Button } from "unative";
 
 import { cn } from "@/lib/utils";
 import { MonitorCogIcon, MoonIcon, SunIcon } from "@/components/icons";

@@ -1,3 +1,1 @@
-export * from "./accordion";
-export * from "./avatar";
-export * from "./separator";
+export const version = "1.0.0";
