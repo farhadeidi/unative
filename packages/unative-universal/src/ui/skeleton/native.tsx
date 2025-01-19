@@ -1,11 +1,13 @@
 /** @jsxImportSource nativewind */
 
 import React from "react";
-import { View } from "react-native";
-import { tv, VariantProps } from "tailwind-variants";
+import type { View } from "react-native";
+import type { VariantProps } from "tailwind-variants";
+import { tv } from "tailwind-variants";
 
 import { cn } from "../../lib/utils";
-import { Box, BoxProps } from "../box";
+import type { BoxProps } from "../box";
+import { Box } from "../box";
 import { TextClassContext } from "../text";
 
 export const skeletonVariants = tv({

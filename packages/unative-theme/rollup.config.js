@@ -64,7 +64,6 @@ const options = {
     format: "es",
     dir: "dist",
     chunkFileNames: "chunks/[name]-[hash].js",
-    // banner: `"use client";`,
   },
   plugins: [resolve(), typescript(), runOnSuccessPlugin()],
   external: [...externalDependencies, "@unative/universal", /node_modules/],

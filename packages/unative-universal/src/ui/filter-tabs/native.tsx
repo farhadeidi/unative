@@ -1,9 +1,12 @@
 import React from "react";
 import { useEffect, useRef, useState } from "react";
-import { FlatList, FlatListProps } from "react-native";
-import { tv, VariantProps } from "tailwind-variants";
+import type { FlatListProps } from "react-native";
+import { FlatList } from "react-native";
+import type { VariantProps } from "tailwind-variants";
+import { tv } from "tailwind-variants";
 
-import { Pill, PillProps, PillVariantProps } from "../pill/native";
+import type { PillProps, PillVariantProps } from "../pill/native";
+import { Pill } from "../pill/native";
 import { Text } from "../text/native";
 
 export const filterTabsVariants = tv({

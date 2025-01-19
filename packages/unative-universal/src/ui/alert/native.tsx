@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { View, type ViewProps } from "react-native";
 import { useTheme } from "@react-navigation/native";
 
-import { IconProps } from "../../lib/icons/native";
+import type { IconProps } from "../../lib/icons/native";
 import { cn } from "../../lib/utils";
 import { Text } from "../text";
 

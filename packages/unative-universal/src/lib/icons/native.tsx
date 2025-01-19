@@ -2,7 +2,8 @@
 
 import React from "react";
 import { cssInterop } from "nativewind";
-import Svg, { Circle, Path, SvgProps } from "react-native-svg";
+import type { SvgProps } from "react-native-svg";
+import Svg, { Circle, Path } from "react-native-svg";
 
 import { cn } from "../utils";
 

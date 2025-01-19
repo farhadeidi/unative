@@ -69,7 +69,7 @@ const getUsableVariableValue = ({
     return value;
   }
   if (value.match(/^([\d.]+)(rem|em|px)?$/)) {
-    value = getPixelValue({ value, baseSize: baseRemSize, isWeb });
+    value = getPixelValue({ value, baseSize: baseRemSize, isWeb: !!isWeb });
   }
   return value;
 };

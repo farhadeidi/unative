@@ -104,7 +104,7 @@ const getThemesFileStringToWrite = ({
   const addSpreadSyntax = (themeName: string) => {
     const theme = themeVariables[themeName];
     if (!theme || !theme.light) return "";
-    const hasDarkKeys = !!theme.dark && Object.keys(theme.dark).length > 0;
+    const hasDarkKeys = !!theme.dark && Object.keys(theme.dark)?.length > 0;
 
     const darkVars = { ...(theme.light || {}), ...(theme.dark || {}) };
 

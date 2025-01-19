@@ -1,9 +1,8 @@
 import React from "react";
-import {
-  TextInput as NativeTextInput,
-  TextInputProps as NativeTextInputProps,
-} from "react-native";
-import { tv, VariantProps } from "tailwind-variants";
+import type { TextInputProps as NativeTextInputProps } from "react-native";
+import { TextInput as NativeTextInput } from "react-native";
+import type { VariantProps } from "tailwind-variants";
+import { tv } from "tailwind-variants";
 
 import { cn } from "../../lib/utils";
 import { TextClassContext } from "../text/native";

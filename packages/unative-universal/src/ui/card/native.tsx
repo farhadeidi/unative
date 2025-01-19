@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Text, type TextProps, View, type ViewProps } from "react-native";
-import { Shared } from "@unative/primitives/native";
+import type { Shared } from "@unative/primitives/native";
 
 import { cn } from "../../lib/utils";
 import { TextClassContext } from "../text";

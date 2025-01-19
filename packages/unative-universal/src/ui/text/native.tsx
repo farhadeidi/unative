@@ -2,7 +2,8 @@
 
 import * as React from "react";
 import { Text as RNText } from "react-native";
-import { Slot, Types } from "@unative/primitives/native/shared";
+import type { Types } from "@unative/primitives/native/shared";
+import { Slot } from "@unative/primitives/native/shared";
 
 import { cn } from "../../lib/utils";
 

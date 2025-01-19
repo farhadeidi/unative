@@ -4,8 +4,10 @@
   "description": "One UI Library for Web and Mobile",
   "type": "module",
   "scripts": {
-    "watch": "tsup --watch",
-    "build": "tsup",
+    "watch-changes": "rollup -c --watch",
+    "watch": "pnpm watch-changes",
+    "build": "rm -rf dist && rollup -c",
+    "prepare": "",
     "generate-package": "npx tsx ./package-json-generator.ts"
   },
   "publishConfig": {

@@ -6,7 +6,11 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "outDir": "dist",
-    "types": ["nativewind/types", "@types/node"]
+    "types": ["nativewind/types"],
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["./*"]
+    }
   },
   "include": ["src"],
   "exclude": ["node_modules"]

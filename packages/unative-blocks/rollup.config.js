@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 import { exec } from "child_process";
 
 import * as fs from "fs";
+const isProd = !process.env.ROLLUP_WATCH;
 
 function run(cmd) {
   return new Promise((resolve, reject) => {
@@ -64,6 +65,7 @@ const options = {
     format: "es",
     dir: "dist",
     chunkFileNames: "chunks/[name]-[hash].js",
+    // banner: isProd ? undefined : `"use client";`,
   },
   plugins: [resolve(), typescript({}), runOnSuccessPlugin()],
   external: [...externalDependencies, "@unative/universal", /node_modules/],

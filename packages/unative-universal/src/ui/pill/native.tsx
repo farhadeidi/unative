@@ -1,6 +1,8 @@
 import React from "react";
-import { Pressable, View } from "react-native";
-import { tv, VariantProps } from "tailwind-variants";
+import type { View } from "react-native";
+import { Pressable } from "react-native";
+import type { VariantProps } from "tailwind-variants";
+import { tv } from "tailwind-variants";
 
 import { DEFAULT_VARIANTS } from "../../lib/default-variants";
 import { cn } from "../../lib/utils";
