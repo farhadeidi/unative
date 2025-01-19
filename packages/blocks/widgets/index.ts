@@ -1,1 +1,1 @@
-export * from "./theme-options";
+export const version = "1.0.0";

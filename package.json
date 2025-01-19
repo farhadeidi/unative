@@ -23,6 +23,7 @@
     "@rollup/plugin-node-resolve": "^16.0.0",
     "@rollup/plugin-typescript": "^12.1.2",
     "@turbo/gen": "^2.3.3",
+    "chokidar": "^4.0.3",
     "clean-package": "^2.2.0",
     "cosmiconfig": "^9.0.0",
     "eslint-config-expo": "^8.0.1",
