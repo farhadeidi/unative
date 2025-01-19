@@ -1,4 +1,4 @@
-import { Box, BoxProps, Text, TextProps } from "@unative/universal";
+import { HTMLAttributes } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -28,27 +28,27 @@ export const LogoType = ({
   logoProps,
   description,
   ...props
-}: BoxProps & {
-  textProps?: TextProps;
+}: HTMLAttributes<HTMLDivElement> & {
+  textProps?: HTMLAttributes<HTMLDivElement>;
   logoProps?: LogoProps;
   description?: string;
 }) => {
   return (
-    <Box
+    <div
       className={cn("flex flex-row items-center gap-2", className)}
       {...props}
     >
       <Logo {...logoProps} />
-      <Box className="-mt-1 flex-1">
-        <Text {...textProps} className={cn("text-lg font-bold", className)}>
+      <div className="-mt-1 flex-1">
+        <div {...textProps} className={cn("text-lg font-bold", className)}>
           Unative
-        </Text>
+        </div>
         {!!description && (
-          <Text className={cn("text-sm leading-3 text-muted-foreground")}>
+          <div className={cn("text-sm leading-3 text-muted-foreground")}>
             {description}
-          </Text>
+          </div>
         )}
-      </Box>
-    </Box>
+      </div>
+    </div>
   );
 };

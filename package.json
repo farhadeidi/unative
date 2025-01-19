@@ -15,9 +15,10 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-versions": "pnpm dlx sherif@latest",
     "fix-versions": "pnpm dlx sherif@latest --fix --no-install",
-    "clean": "npx ts-node cleaner"
+    "clean": "npx tsx cleaner"
   },
   "devDependencies": {
+    "@rollup/plugin-alias": "^5.1.1",
     "@rollup/plugin-commonjs": "^28.0.2",
     "@rollup/plugin-node-resolve": "^16.0.0",
     "@rollup/plugin-typescript": "^12.1.2",
