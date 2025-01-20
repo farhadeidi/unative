@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+
 import {
   ThemeProvider as NextThemesProvider,
   useTheme as useNextTheme,
-} from "next-themes";
-
+} from "../next-themes-handler";
 import type {
   ColorSchemes,
   ProviderProps,

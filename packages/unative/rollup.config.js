@@ -72,37 +72,7 @@ const options = {
     chunkFileNames: "chunks/[name]-[hash].js",
     // banner: `"use client";`,
   },
-  plugins: [
-    resolve(),
-    // alias({
-    //   entries: [
-    //     { find: "@/hooks", replacement: path.resolve(__dirname, "src/hooks") },
-    //     {
-    //       find: "@/components",
-    //       replacement: path.resolve(__dirname, "src/components"),
-    //     },
-    //     { find: "@/utils", replacement: path.resolve(__dirname, "src/utils") },
-    //   ],
-    // }),
-    typescript(),
-    runOnSuccessPlugin(),
-  ],
-  // external: (source, importer, isResolved) => {
-  //   if (builtinModules.includes(source)) return true;
-
-  //   const exceptions = ["clsx", "tailwind-merge"];
-
-  //   if (exceptions.includes(source)) return false;
-
-  //   if (
-  //     source.startsWith(".") ||
-  //     source.startsWith("/") ||
-  //     source.startsWith("@/")
-  //   )
-  //     return false;
-
-  //   return true; // تمام ماژول‌های دیگر external باشند
-  // },
+  plugins: [resolve(), typescript(), runOnSuccessPlugin()],
   external: (source, importer, isResolved) => {
     if (builtinModules.includes(source)) return false;
 
@@ -123,7 +93,6 @@ const options = {
       "@react-navigation",
       "zustand",
       "nativewind",
-      "next-themes",
       "clsx",
       "tailwind-merge",
       "class-variance-authority",

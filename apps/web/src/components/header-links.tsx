@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { HeaderNavigation } from "@unative/blocks/widgets/header-navigation";
+
+import { HeaderNavigation } from "@/components/blocks/header-navigation";
 
 export const HeaderLinks = () => {
   const pathname = usePathname();

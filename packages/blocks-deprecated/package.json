@@ -2,7 +2,7 @@
   "name": "@unative/blocks",
   "scripts": {
     "lint": "eslint . --max-warnings 0",
-    "dev": "npx tsx watch files-change-listener.ts"
+    "watch": "npx tsx watch files-change-listener.ts"
   },
   "files": [
     "widgets",
@@ -29,19 +29,31 @@
   },
   "peerDependencies": {
     "unative": "*",
+    "@gorhom/bottom-sheet": "*",
+    "@react-native-async-storage/async-storage": "*",
     "lucide-react": "*",
     "lucide-react-native": "*",
     "nativewind": "*",
     "react": "*",
+    "react-dom": "*",
     "react-native": "*",
     "react-native-reanimated": "*",
     "react-native-safe-area-context": "*",
     "react-native-svg": "*",
+    "react-native-web": "*",
     "tailwindcss": "*",
-    "typescript": "*",
+    "class-variance-authority": "*",
+    "clsx": "*",
+    "tailwind-merge": "*",
     "zustand": "*"
   },
   "peerDependenciesMeta": {
+    "@gorhom/bottom-sheet": {
+      "optional": true
+    },
+    "@react-native-async-storage/async-storage": {
+      "optional": true
+    },
     "lucide-react": {
       "optional": true
     },
@@ -49,6 +61,9 @@
       "optional": true
     },
     "nativewind": {
+      "optional": true
+    },
+    "react-dom": {
       "optional": true
     },
     "react-native": {
@@ -63,7 +78,16 @@
     "react-native-svg": {
       "optional": true
     },
-    "typescript": {
+    "react-native-web": {
+      "optional": true
+    },
+    "class-variance-authority": {
+      "optional": true
+    },
+    "clsx": {
+      "optional": true
+    },
+    "tailwind-merge": {
       "optional": true
     },
     "zustand": {

@@ -1,21 +1,22 @@
+"use client";
+import { cn } from "unative/lib/utils";
+import { Box } from "unative/ui/box";
 import {
-  Box,
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
   navigationMenuTriggerStyle,
-} from "unative/ui";
+} from "unative/ui/navigation-menu";
 
-import { cn } from "@/lib/utils";
-export type HeaderNavigationLinkProps = {
+export interface HeaderNavigationLinkProps {
   label: string;
   href: string;
   isDisabled?: boolean;
   items?: HeaderNavigationLinkProps[];
-};
+}
 
-export type HeaderNavigationProps = {
+export interface HeaderNavigationProps {
   links: HeaderNavigationLinkProps[];
   isActiveExtractor?: (item: HeaderNavigationLinkProps) => boolean;
   LinkComponent: React.FC<{
@@ -23,7 +24,7 @@ export type HeaderNavigationProps = {
     item: HeaderNavigationLinkProps;
     index: number;
   }>;
-};
+}
 
 export const HeaderNavigation = ({
   links,

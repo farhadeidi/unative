@@ -18,8 +18,7 @@
     "remeda": "^2.19.0",
     "tailwind-merge": "^2.6.0",
     "tailwind-variants": "^0.3.0",
-    "unative": "workspace:*",
-    "@unative/blocks": "workspace:*"
+    "unative": "workspace:*"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

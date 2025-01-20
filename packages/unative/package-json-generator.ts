@@ -133,43 +133,47 @@ function updatePackageJson(
   packageJsonPath: string,
   outputPath: string,
 ) {
-  // Generate the new exports
-  const newExports = generateExports(srcDir);
+  try {
+    const newExports = generateExports(srcDir);
 
-  // Read the existing package.json
-  const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf-8"));
+    // Read the existing package.json
+    const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf-8"));
 
-  // Replace the exports section with the new exports
-  packageJson.exports = newExports;
-  delete packageJson.devDependencies;
-  delete packageJson.scripts;
+    // Replace the exports section with the new exports
+    packageJson.exports = newExports;
+    delete packageJson.devDependencies;
+    delete packageJson.scripts;
 
-  const peerDependencies = packageJson.peerDependencies || {};
-  packageJson.peerDependenciesMeta = packageJson.peerDependenciesMeta || {};
+    const peerDependencies = packageJson.peerDependencies || {};
+    const peerDependenciesMeta = packageJson.peerDependenciesMeta || {};
 
-  const requiredPeerDependencies = [
-    "react",
-    "tailwindcss",
-    "clsx",
-    "tailwind-merge",
-    "tailwind-variants",
-    "@unative/theme",
-    "@unative/primitives",
-  ];
-  Object.keys(peerDependencies).forEach((dep) => {
-    if (!requiredPeerDependencies.includes(dep)) {
-      packageJson.peerDependenciesMeta[dep] = { optional: true };
+    const requiredPeerDependencies = [
+      "react",
+      "tailwindcss",
+      "clsx",
+      "tailwind-merge",
+      "tailwind-variants",
+    ];
+    Object.keys(peerDependencies).forEach((dep) => {
+      if (!requiredPeerDependencies.includes(dep)) {
+        peerDependenciesMeta[dep] = { optional: true };
+      }
+    });
+
+    const outputDir = path.dirname(outputPath);
+    if (!fs.existsSync(outputDir)) {
+      fs.mkdirSync(outputDir, { recursive: true });
     }
-  });
+    // Write the updated package.json to the output path
+    packageJson.devDependencies = {};
+    packageJson.peerDependenciesMeta = peerDependenciesMeta || {};
+    fs.writeFileSync(outputPath, JSON.stringify(packageJson, null, 2));
 
-  const outputDir = path.dirname(outputPath);
-  if (!fs.existsSync(outputDir)) {
-    fs.mkdirSync(outputDir, { recursive: true });
+    console.log(`Updated package.json saved to ${outputPath}`);
+  } catch (error) {
+    console.log("dev => error", error);
   }
-  // Write the updated package.json to the output path
-  fs.writeFileSync(outputPath, JSON.stringify(packageJson, null, 2));
-
-  console.log(`Updated package.json saved to ${outputPath}`);
+  // Generate the new exports
 }
 
 updatePackageJson("./src", "./package.json", "./dist/package.json");

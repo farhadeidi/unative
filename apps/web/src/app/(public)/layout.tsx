@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { Box } from "unative/ui";
-import { ThemeOptions } from "@unative/blocks/widgets/theme-options";
+import { Box } from "unative/ui/box";
 
+import { ThemeSwitch } from "@/components/blocks/theme-switch";
 import { LogoType } from "@/components/logo";
 
 export default function PublicLayout({
@@ -18,8 +18,8 @@ export default function PublicLayout({
         <Link href="/">
           <LogoType />
         </Link>
-        <div className="flex-1"></div>
-        <ThemeOptions />
+        <div className="flex-1">123</div>
+        <ThemeSwitch />
       </header>
       <main>{children}</main>
     </Box>

@@ -4,7 +4,8 @@ import React from "react";
 import type { LucideProps } from "lucide-react";
 import { MonitorCogIcon, MoonIcon, SunIcon } from "lucide-react";
 import { useTheme } from "unative/theme";
-import { Box, Button } from "unative/ui";
+import { Box } from "unative/ui/box";
+import { Button } from "unative/ui/button";
 
 const schemes: {
   id: "system" | "light" | "dark";
@@ -28,8 +29,8 @@ const schemes: {
   },
 ];
 
-export type ThemeOptionsProps = {};
-export const ThemeOptions = ({}: ThemeOptionsProps) => {
+export type ThemeSwitchProps = {};
+export const ThemeSwitch = ({}: ThemeSwitchProps) => {
   const { themes, theme, isDarkMode, setTheme, setScheme } = useTheme();
 
   return (

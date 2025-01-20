@@ -8,9 +8,7 @@
     "outDir": "dist",
     "types": ["nativewind/types", "@types/node"],
     "baseUrl": ".",
-    "paths": {
-      "@/*": ["./*"]
-    }
+    "paths": {}
   },
   "include": ["."],
   "exclude": ["node_modules"]
