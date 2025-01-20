@@ -4,6 +4,7 @@ import glob from "glob";
 import path from "path";
 import { fileURLToPath } from "node:url";
 import { exec } from "child_process";
+import { builtinModules } from "module";
 import alias from "@rollup/plugin-alias";
 
 // Resolve __dirname for ES module
@@ -86,12 +87,63 @@ const options = {
     typescript(),
     runOnSuccessPlugin(),
   ],
-  external: [
-    ...externalDependencies,
-    "unative",
-    "@unative/primitives",
-    /node_modules/,
-  ],
+  // external: (source, importer, isResolved) => {
+  //   if (builtinModules.includes(source)) return true;
+
+  //   const exceptions = ["clsx", "tailwind-merge"];
+
+  //   if (exceptions.includes(source)) return false;
+
+  //   if (
+  //     source.startsWith(".") ||
+  //     source.startsWith("/") ||
+  //     source.startsWith("@/")
+  //   )
+  //     return false;
+
+  //   return true; // تمام ماژول‌های دیگر external باشند
+  // },
+  external: (source, importer, isResolved) => {
+    if (builtinModules.includes(source)) return false;
+
+    if (
+      source.startsWith(".") ||
+      source.startsWith("/") ||
+      source.startsWith("@/")
+    ) {
+      return false;
+    }
+
+    const otherExceptions = [
+      "@unative/primitives",
+      "tslib",
+      "react",
+      "react-native",
+      "@react-native-async-storage",
+      "@react-navigation",
+      "zustand",
+      "nativewind",
+      "next-themes",
+      "clsx",
+      "tailwind-merge",
+      "class-variance-authority",
+      "lucide-react",
+      "tailwind-variants",
+    ];
+    if (otherExceptions.some((exception) => source.startsWith(exception))) {
+      return true;
+    }
+
+    console.log("dev => source", source);
+
+    return false;
+  },
+  // external: [
+  //   ...externalDependencies,
+  //   "unative",
+  //   "@unative/primitives",
+  //   /node_modules/,
+  // ],
 };
 
 export default options;

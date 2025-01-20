@@ -7,13 +7,8 @@
  */
 
 import * as React from "react";
-import {
-  BackHandler,
-  GestureResponderEvent,
-  Pressable,
-  Text,
-  View,
-} from "react-native";
+import type { GestureResponderEvent } from "react-native";
+import { BackHandler, Pressable, Text, View } from "react-native";
 
 import { useControllableState } from "../shared/hooks";
 import { Portal as RNPPortal } from "../shared/portal";

@@ -10,8 +10,8 @@ import type {
 } from "../shared/types";
 
 type RootProps = SlottableViewProps & {
-  value: string | undefined;
-  onValueChange: (value: string | undefined) => void;
+  value?: string | undefined;
+  onValueChange?: (value: string | undefined) => void;
   /**
    * Platform: WEB ONLY
    */

@@ -4,7 +4,7 @@ import * as React from "react";
 // import { ChevronDown } from "lucide-react";
 import { AccordionPrimitive } from "@unative/primitives/web/accordion";
 
-import { cn } from "../../lib/utils";
+import { cn } from "@/lib/utils";
 
 const Accordion = AccordionPrimitive.Root;
 

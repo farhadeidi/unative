@@ -4,6 +4,7 @@ export default {
   darkMode: "class",
   content: [
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/unative/**/*.{js,jsx,ts,tsx}",
     "./node_modules/@unative/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {

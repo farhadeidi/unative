@@ -153,7 +153,7 @@ const Trigger = React.forwardRef<TriggerRef, TriggerProps>(
         setTriggerPosition({ width, pageX, pageY: pageY, height });
       });
 
-      onValueChange(menuValue === value ? "" : menuValue);
+      onValueChange?.(menuValue === value ? "" : menuValue);
       onPressProp?.(ev);
     }
 
@@ -243,7 +243,7 @@ const Content = React.forwardRef<ContentRef, ContentProps>(
         () => {
           setTriggerPosition(null);
           setContentLayout(null);
-          onValueChange("");
+          onValueChange?.("");
           return true;
         },
       );

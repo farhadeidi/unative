@@ -304,6 +304,9 @@ importers:
       '@types/react':
         specifier: ~18.3.12
         version: 18.3.18
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
       lucide-react:
         specifier: ^0.471.1
         version: 0.471.1(react@18.3.1)
@@ -328,6 +331,9 @@ importers:
       react-native-svg:
         specifier: 15.8.0
         version: 15.8.0(react-native@0.76.5(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
+      tailwind-merge:
+        specifier: ^2.6.0
+        version: 2.6.0
       tailwindcss:
         specifier: ^3.4.1
         version: 3.4.17(ts-node@10.9.2(@types/node@20.17.6)(typescript@5.7.2))
@@ -510,8 +516,11 @@ importers:
       '@unative/primitives':
         specifier: workspace:*
         version: link:../primitives/dist
+      class-variance-authority:
+        specifier: ^0.7.1
+        version: 0.7.1
       clsx:
-        specifier: '*'
+        specifier: ^2.1.1
         version: 2.1.1
       react-dom:
         specifier: '*'
@@ -520,11 +529,11 @@ importers:
         specifier: '*'
         version: 0.19.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       tailwind-merge:
-        specifier: '*'
+        specifier: ^2.6.0
         version: 2.6.0
-      tailwind-variants:
-        specifier: '*'
-        version: 0.3.0(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@20.17.6)(typescript@5.7.2)))
+      zustand:
+        specifier: ^5.0.2
+        version: 5.0.2(@types/react@18.3.18)(react@18.3.1)(use-sync-external-store@1.4.0(react@18.3.1))
     devDependencies:
       '@gorhom/bottom-sheet':
         specifier: ^5.0.6
@@ -562,15 +571,15 @@ importers:
       react-native-svg:
         specifier: 15.8.0
         version: 15.8.0(react-native@0.76.5(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
+      tailwind-variants:
+        specifier: ^0.3.0
+        version: 0.3.0(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@20.17.6)(typescript@5.7.2)))
       tailwindcss:
         specifier: ^3.4.1
         version: 3.4.17(ts-node@10.9.2(@types/node@20.17.6)(typescript@5.7.2))
       typescript:
         specifier: ^5.7.2
         version: 5.7.2
-      zustand:
-        specifier: ^5.0.2
-        version: 5.0.2(@types/react@18.3.18)(react@18.3.1)(use-sync-external-store@1.4.0(react@18.3.1))
     publishDirectory: dist
 
 packages:

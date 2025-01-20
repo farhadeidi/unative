@@ -7,7 +7,8 @@
  */
 
 import * as React from "react";
-import { GestureResponderEvent, Pressable, View } from "react-native";
+import type { GestureResponderEvent } from "react-native";
+import { Pressable, View } from "react-native";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 
 import { useAugmentedRef, useIsomorphicLayoutEffect } from "../shared/hooks";
@@ -149,13 +150,13 @@ const Trigger = React.forwardRef<TriggerRef, TriggerProps>(
       onKeyDownProp?.(ev);
       if (ev.key === " ") {
         onPressProp?.(EmptyGestureResponderEvent);
-        onValueChange(value === rootValue ? "" : value);
+        onValueChange?.(value === rootValue ? "" : value);
       }
     }
 
     function onPress(ev: GestureResponderEvent) {
       onPressProp?.(ev);
-      onValueChange(value === rootValue ? "" : value);
+      onValueChange?.(value === rootValue ? "" : value);
     }
 
     const Component = asChild ? Slot.Pressable : Pressable;
@@ -233,13 +234,13 @@ const Link = React.forwardRef<LinkRef, LinkProps>(
       onKeyDownProp?.(ev);
       if (ev.key === "Enter" || ev.key === " ") {
         onPressProp?.(EmptyGestureResponderEvent);
-        onValueChange("");
+        onValueChange?.("");
       }
     }
 
     function onPress(ev: GestureResponderEvent) {
       onPressProp?.(ev);
-      onValueChange("");
+      onValueChange?.("");
     }
 
     const Component = asChild ? Slot.Pressable : Pressable;
