@@ -95,9 +95,7 @@
     }
   },
   "exports": {
-    "./widgets/header-navigation": "./widgets/header-navigation.tsx",
     "./widgets": "./widgets/index.ts",
-    "./widgets/theme-options": "./widgets/theme-options.tsx",
     "./sections": "./sections/index.ts"
   }
 }

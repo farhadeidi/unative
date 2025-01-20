@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-
 import {
   ThemeProvider as NextThemesProvider,
   useTheme as useNextTheme,
-} from "../next-themes-handler";
+} from "next-themes";
+
 import type {
   ColorSchemes,
   ProviderProps,
@@ -56,7 +56,7 @@ export const Provider = ({ children, ...props }: ProviderProps) => {
 
 const InnerProvider = ({ children, ...props }: ProviderProps) => {
   const [activeTheme, setActiveTheme] = useState(
-    getTheme("theme-brown", "default"),
+    getTheme("unative-theme-name", "default"),
   );
 
   const [isInitialized, setIsInitialized] = useState(false);
