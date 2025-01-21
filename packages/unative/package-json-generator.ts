@@ -21,7 +21,7 @@ const getExports = ({
   if (!advanceOptions.enabled) {
     return {
       types: `${filePath}/${fileName}.d.ts`,
-      require: `${filePath}/${fileName}.js`,
+      require: `${filePath}/${fileName}.cjs`,
       import: `${filePath}/${fileName}.js`,
       default: `${filePath}/${fileName}.js`,
     };

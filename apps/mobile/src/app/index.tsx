@@ -1,17 +1,20 @@
 import React from "react";
-import { Showcase } from "@unative/blocks";
-import { Box } from "unative/ui";
+import { ScrollView } from "react-native";
+import { Box } from "unative/ui/box";
 
+import { LoginForm } from "@/components/blocks/login-form";
 import { ThemeOptions } from "@/components/theme-options";
 import { TmdbTrendingPeople } from "@/components/tmdb-trending-people";
 
 export default function HomeScreen() {
   return (
     <Box className="flex-1">
-      <TmdbTrendingPeople />
-      <Box className="p-4">
-        <Showcase />
-      </Box>
+      <ScrollView>
+        <TmdbTrendingPeople />
+        <Box className="p-4">
+          <LoginForm />
+        </Box>
+      </ScrollView>
       <ThemeOptions />
     </Box>
   );

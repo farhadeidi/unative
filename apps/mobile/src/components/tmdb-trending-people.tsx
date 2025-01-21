@@ -1,15 +1,10 @@
 import React from "react";
 import { FlatList } from "react-native";
+import { Avatar, AvatarFallback, AvatarImage } from "unative/ui/avatar";
+import { Box, Center } from "unative/ui/box";
+import { Text } from "unative/ui/text";
 import { api } from "@repo/shared-api";
 import { useQuery } from "@tanstack/react-query";
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-  Box,
-  Center,
-  Text,
-} from "unative";
 
 export const TmdbTrendingPeople = () => {
   const { data } = useQuery({

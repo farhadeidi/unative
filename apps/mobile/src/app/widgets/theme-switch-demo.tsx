@@ -1,5 +1,6 @@
 import React from "react";
-import { Box, Text } from "unative";
+import { Box } from "unative/ui/box";
+import { Text } from "unative/ui/text";
 
 const ThemeSwitchDemo = () => {
   return (

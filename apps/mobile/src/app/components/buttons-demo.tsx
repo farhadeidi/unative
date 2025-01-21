@@ -1,13 +1,15 @@
 import { ScrollView } from "react-native";
 import { capitalize } from "remeda";
-import { Box, Button, ButtonProps, Text } from "unative";
+import { Box } from "unative/ui/box";
+import { Button, ButtonProps } from "unative/ui/button";
+import { Text } from "unative/ui/text";
 
 import { PageWrapper } from "@/components/page-wrapper";
 
 const buttonVariants: ButtonProps[] = [
-  {
-    variant: "primary",
-  },
+  // {
+  //   variant: "primary",
+  // },
   {
     variant: "default",
   },
@@ -20,18 +22,18 @@ const buttonVariants: ButtonProps[] = [
   {
     variant: "destructive",
   },
-  {
-    variant: "destructive-outline",
-  },
-  {
-    variant: "destructive-link",
-  },
+  // {
+  //   variant: "destructive-outline",
+  // },
+  // {
+  //   variant: "destructive-link",
+  // },
   {
     variant: "link",
   },
-  {
-    variant: "positive",
-  },
+  // {
+  //   variant: "positive",
+  // },
   {
     variant: "ghost",
   },
@@ -50,10 +52,10 @@ const buttons: { label: string; items: ButtonProps[] }[] = [
     label: "Size: LG",
     items: buttonVariants.map((el) => ({ ...el, size: "lg" })),
   },
-  {
-    label: "Size: XL",
-    items: buttonVariants.map((el) => ({ ...el, size: "xl" })),
-  },
+  // {
+  //   label: "Size: XL",
+  //   items: buttonVariants.map((el) => ({ ...el, size: "xl" })),
+  // },
 ];
 
 const ButtonsDemoPage = () => {

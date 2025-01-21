@@ -1,19 +1,15 @@
 import React from "react";
 import { FlatList, Image } from "react-native";
+import { Box, HStack } from "unative/ui/box";
+import { Button } from "unative/ui/button";
+import { Card } from "unative/ui/card/native";
+import { FilterTabs } from "unative/ui/filter-tabs";
+import { Pill } from "unative/ui/pill/native";
+import { Skeleton } from "unative/ui/skeleton";
+import { Text } from "unative/ui/text";
+import { H4, P } from "unative/ui/typography";
 import { api } from "@repo/shared-api";
 import { useQuery } from "@tanstack/react-query";
-import {
-  Box,
-  Button,
-  Card,
-  FilterTabs,
-  H4,
-  HStack,
-  P,
-  Pill,
-  Skeleton,
-  Text,
-} from "unative";
 
 import { CalendarDaysIcon, StarIcon } from "@/components/icons";
 
@@ -121,7 +117,7 @@ export const TmdbTrendingMovies = () => {
                       );
                     })}
                   </HStack>
-                  <Button variant="primary">
+                  <Button>
                     <Text>Details</Text>
                   </Button>
                 </Box>

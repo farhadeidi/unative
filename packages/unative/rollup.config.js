@@ -12,6 +12,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 import * as fs from "fs";
+import commonjs from "@rollup/plugin-commonjs";
 
 function run(cmd) {
   return new Promise((resolve, reject) => {
@@ -66,12 +67,21 @@ const options = {
   },
   treeshake: true,
   logLevel: "debug",
-  output: {
-    format: "es",
-    dir: "dist",
-    chunkFileNames: "chunks/[name]-[hash].js",
-    // banner: `"use client";`,
-  },
+  output: [
+    {
+      format: "es",
+      dir: "dist",
+      chunkFileNames: "chunks/[name]-[hash].js",
+      // banner: `"use client";`,
+    },
+    {
+      dir: "dist",
+      format: "cjs",
+      entryFileNames: "[name].cjs",
+      chunkFileNames: "chunks/[name]-[hash].cjs",
+      exports: "auto",
+    },
+  ],
   plugins: [resolve(), typescript(), runOnSuccessPlugin()],
   external: (source, importer, isResolved) => {
     if (builtinModules.includes(source)) return false;

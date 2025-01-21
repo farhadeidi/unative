@@ -1,4 +1,5 @@
-import { Box, Text } from "unative";
+import { Box } from "unative/ui/box";
+import { Text } from "unative/ui/text";
 
 import { PageWrapper } from "@/components/page-wrapper";
 

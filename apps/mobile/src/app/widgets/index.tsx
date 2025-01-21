@@ -1,11 +1,7 @@
-import { Box, Text } from "unative";
+import { Box } from "unative/ui/box";
 
 const WidgetsDemo = () => {
-  return (
-    <Box>
-      <Text>WidgetsDemo</Text>
-    </Box>
-  );
+  return <Box></Box>;
 };
 
 export default WidgetsDemo;

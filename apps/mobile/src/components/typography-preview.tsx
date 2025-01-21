@@ -1,5 +1,6 @@
 import React from "react";
-import { Box, BoxProps, Text } from "unative";
+import { Box, BoxProps } from "unative/ui/box";
+import { Text } from "unative/ui/text";
 
 import { cn } from "@/lib/utils";
 
