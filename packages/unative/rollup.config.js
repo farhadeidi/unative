@@ -96,7 +96,6 @@ const options = {
 
     const otherExceptions = [
       "@unative/primitives",
-      "tslib",
       "react",
       "react-native",
       "@react-native-async-storage",

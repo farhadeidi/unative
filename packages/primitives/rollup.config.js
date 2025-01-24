@@ -65,7 +65,7 @@ const options = {
     // banner: "'use client';",
   },
   plugins: [resolve(), typescript({}), runOnSuccessPlugin()],
-  external: [...externalDependencies, /node_modules/],
+  external: [...externalDependencies],
 };
 
 export default options;

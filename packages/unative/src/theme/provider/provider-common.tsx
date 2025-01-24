@@ -34,6 +34,7 @@ export const CommonProvider = ({
   onThemeChange,
   isParentInitialized,
   isWeb = false,
+  onInitEnd,
 }: CommonProviderProps) => {
   const [isInitialized, setIsInitialized] = useState(false);
   const [themes, setThemes] = useState<UnativeThemes>(rawThemes);
@@ -68,6 +69,7 @@ export const CommonProvider = ({
         values: optimizedThemes[themeName][isDarkMode ? "dark" : "light"],
       });
       setIsInitialized(true);
+      onInitEnd?.();
     };
     if (isParentInitialized) {
       init();
