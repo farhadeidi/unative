@@ -2,6 +2,12 @@
 
 **<span style="color: red;">⚠️ Important: This project is still under development. Do not use this library in your production projects. You can start using it once the first stable version is launched.</span>**
 
+## Example Project
+
+For a complete example of how to use **Unative** with Expo, check out the [Unative Expo example](https://github.com/farhadeidi/unative-expo-example) project. It demonstrates how to set up Unative with Expo Router, Nativewind, TypeScript, and more.
+
+![Demo of Unative Example Expo](./screenshot.gif)
+
 ## Table of Contents
 
 - [What is Unative?](#what-is-unative)
