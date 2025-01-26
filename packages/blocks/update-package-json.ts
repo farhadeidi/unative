@@ -59,6 +59,8 @@ const updatePackageFile = async (basePaths: string[]) => {
     }
   }
 
+  exports["./icons"] = "./icons/linear/index.ts";
+
   packageJson.exports = exports;
 
   const peerDependencies = packageJson.peerDependencies || {};

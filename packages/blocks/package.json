@@ -33,6 +33,7 @@
   "peerDependenciesMeta": {},
   "exports": {
     "./widgets/theme-switch-with-segmented-control": "./widgets/theme-switch-with-segmented-control.tsx",
-    "./widgets/theme-switch": "./widgets/theme-switch.tsx"
+    "./widgets/theme-switch": "./widgets/theme-switch.tsx",
+    "./icons": "./icons/index.ts"
   }
 }
