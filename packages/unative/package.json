@@ -34,6 +34,7 @@
     "tailwind-merge": "^2.6.0",
     "zustand": "^5.0.2",
     "@gorhom/bottom-sheet": "^5.0.6",
+    "@react-native-segmented-control/segmented-control": "2.5.4",
     "@types/node": "^20",
     "@types/react": "~18.3.12",
     "esbuild-react18-useclient": "^1.0.7",
@@ -52,6 +53,7 @@
   "peerDependencies": {
     "@gorhom/bottom-sheet": "*",
     "@react-native-async-storage/async-storage": "*",
+    "@react-native-segmented-control/segmented-control": "2.5.4",
     "lucide-react": "*",
     "lucide-react-native": "*",
     "nativewind": "*",

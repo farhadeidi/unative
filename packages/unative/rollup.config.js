@@ -107,6 +107,7 @@ const options = {
       "class-variance-authority",
       "lucide-react",
       "tailwind-variants",
+      "@react-native-segmented-control/segmented-control",
     ];
     if (otherExceptions.some((exception) => source.startsWith(exception))) {
       return true;

@@ -1,11 +1,10 @@
 /** @jsxImportSource nativewind */
 
+import { cn } from "unative/lib/utils";
 import { useTheme } from "unative/theme";
 import { Box, BoxProps } from "unative/ui/box";
 import { Button } from "unative/ui/button";
 import { Text } from "unative/ui/text";
-
-import { cn } from "unative/lib/utils";
 
 export type ThemeSwitchProps = BoxProps & {};
 export const ThemeSwitch = ({ className, ...props }: ThemeSwitchProps) => {

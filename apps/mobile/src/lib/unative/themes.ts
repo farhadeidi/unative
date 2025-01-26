@@ -10,7 +10,7 @@ import type { UnativeThemes, UnativeThemeVariables } from "unative/theme";
 export const DEFAULT_THEME_LIGHT: UnativeThemeVariables = {
   "--background": "0 0% 100%",
   "--foreground": "0 0% 0%",
-  "--card": "0 0% 95%",
+  "--card": "0 0% 100%",
   "--card-foreground": "0 0% 0%",
   "--popover": "0 0% 100%",
   "--popover-foreground": "0 0% 0%",

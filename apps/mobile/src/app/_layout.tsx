@@ -171,7 +171,7 @@ const App = () => {
           <Stack.Screen
             name="index"
             options={{
-              title: "Home",
+              title: "Explore",
             }}
           />
           <Stack.Screen name="+not-found" />
