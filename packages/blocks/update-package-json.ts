@@ -59,7 +59,7 @@ const updatePackageFile = async (basePaths: string[]) => {
     }
   }
 
-  exports["./icons"] = "./icons/linear/index.ts";
+  exports["./icons"] = "./icons/index.ts";
 
   packageJson.exports = exports;
 

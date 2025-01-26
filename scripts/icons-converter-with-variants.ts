@@ -102,8 +102,10 @@ const generateIconFile = async (
   variants: string[]
 ) => {
   let imports = new Set([
+    `import { useContext } from "react";`,
     `import { Path, Svg } from "unative/lib/svg";`,
     `import { cn } from "unative/lib/utils";`,
+    `import { TextClassContext } from "unative/ui/text";`,
     "",
     `import type { IconProps, IconVariants } from "../types/icons-type";`,
   ]);
@@ -131,7 +133,7 @@ const generateIconFile = async (
 
   if (usesG) {
     let importsArray = Array.from(imports);
-    importsArray[0] = `import { G, Path, Svg } from "unative/lib/svg";`; // Modify the first line
+    importsArray[1] = `import { G, Path, Svg } from "unative/lib/svg";`; // Modify the first line
     imports = new Set(importsArray); // Recreate the set
   }
 
@@ -145,10 +147,12 @@ const generateIconFile = async (
   const finalExport = `
 export const ${getComponentName(componentName)}Icon = ({
   variant = "linear",
+  className,
   ...props
 }: IconProps) => {
+  const textClasses = useContext(TextClassContext);
   const Component = variants[variant];
-  return <Component {...props} />;
+  return <Component className={cn(textClasses, className)} {...props} />;
 };
 `;
 

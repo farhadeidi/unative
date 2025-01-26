@@ -1,5 +1,7 @@
+import { useContext } from "react";
 import { Path, Svg } from "unative/lib/svg";
 import { cn } from "unative/lib/utils";
+import { TextClassContext } from "unative/ui/text";
 
 import type { IconProps, IconVariants } from "../types/icons-type";
 
@@ -278,7 +280,12 @@ const variants: IconVariants = {
   twotone: CupTwotone,
 };
 
-export const CupIcon = ({ variant = "linear", ...props }: IconProps) => {
+export const CupIcon = ({
+  variant = "linear",
+  className,
+  ...props
+}: IconProps) => {
+  const textClasses = useContext(TextClassContext);
   const Component = variants[variant];
-  return <Component {...props} />;
+  return <Component className={cn(textClasses, className)} {...props} />;
 };
