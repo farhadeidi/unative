@@ -3,6 +3,7 @@ import { G, Path, Svg } from "unative/lib/svg";
 import { cn } from "unative/lib/utils";
 import { TextClassContext } from "unative/ui/text";
 
+import { iconDefaultOptions } from "../icons-configuration";
 import type { IconProps, IconVariants } from "../types/icons-type";
 
 const Microphone2Bold = ({ size = 24, className, ...props }: IconProps) => {
@@ -245,7 +246,7 @@ const variants: IconVariants = {
 };
 
 export const Microphone2Icon = ({
-  variant = "linear",
+  variant = iconDefaultOptions.variant,
   className,
   ...props
 }: IconProps) => {

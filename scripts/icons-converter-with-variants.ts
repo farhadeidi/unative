@@ -107,6 +107,7 @@ const generateIconFile = async (
     `import { cn } from "unative/lib/utils";`,
     `import { TextClassContext } from "unative/ui/text";`,
     "",
+    `import { iconDefaultOptions } from "../icons-configuration";`,
     `import type { IconProps, IconVariants } from "../types/icons-type";`,
   ]);
 
@@ -146,7 +147,7 @@ const generateIconFile = async (
 
   const finalExport = `
 export const ${getComponentName(componentName)}Icon = ({
-  variant = "linear",
+  variant = iconDefaultOptions.variant,
   className,
   ...props
 }: IconProps) => {

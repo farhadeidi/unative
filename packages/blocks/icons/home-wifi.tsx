@@ -3,6 +3,7 @@ import { Path, Svg } from "unative/lib/svg";
 import { cn } from "unative/lib/utils";
 import { TextClassContext } from "unative/ui/text";
 
+import { iconDefaultOptions } from "../icons-configuration";
 import type { IconProps, IconVariants } from "../types/icons-type";
 
 const HomeWifiBold = ({ size = 24, className, ...props }: IconProps) => {
@@ -230,7 +231,7 @@ const variants: IconVariants = {
 };
 
 export const HomeWifiIcon = ({
-  variant = "linear",
+  variant = iconDefaultOptions.variant,
   className,
   ...props
 }: IconProps) => {
