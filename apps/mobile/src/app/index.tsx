@@ -1,9 +1,8 @@
 import React from "react";
 import { ScrollView } from "react-native";
 import { Box } from "unative/ui/box";
+import { ThemeSwitch } from "@unative/blocks/widgets/theme-switch";
 
-import { LoginForm } from "@/components/blocks/login-form";
-import { ThemeOptions } from "@/components/theme-options";
 import { TmdbTrendingPeople } from "@/components/tmdb-trending-people";
 
 export default function HomeScreen() {
@@ -11,11 +10,9 @@ export default function HomeScreen() {
     <Box className="flex-1">
       <ScrollView>
         <TmdbTrendingPeople />
-        <Box className="p-4">
-          <LoginForm />
-        </Box>
+        <Box className="p-4">{/* <LoginForm /> */}</Box>
       </ScrollView>
-      <ThemeOptions />
+      <ThemeSwitch />
     </Box>
   );
 }

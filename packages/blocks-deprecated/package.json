@@ -1,8 +1,8 @@
 {
-  "name": "@unative/blocks",
+  "name": "@unative/blocks-deprecated",
   "scripts": {
     "lint": "eslint . --max-warnings 0",
-    "watch": "npx tsx watch files-change-listener.ts"
+    "deprecated-watch": "npx tsx watch files-change-listener.ts"
   },
   "files": [
     "widgets",

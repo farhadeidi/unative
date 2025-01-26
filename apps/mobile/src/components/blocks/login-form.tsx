@@ -41,7 +41,7 @@ export function LoginForm({ className, ...props }: BoxProps) {
                   <Label htmlFor="password">Password</Label>
                   <Button
                     // href="#"
-                    variant={"link"}
+                    variant="link"
                     size="sm"
                     className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
                   >

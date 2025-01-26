@@ -8,6 +8,7 @@ module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
     "./node_modules/unative/**/*.{js,jsx,mjs,ts,tsx}",
+    "./node_modules/@unative/**/*.{js,jsx,mjs,ts,tsx}",
   ],
   presets: [require("nativewind/preset")],
   theme: {

@@ -1,0 +1,37 @@
+{
+  "name": "@unative/blocks",
+  "scripts": {
+    "lint": "eslint . --max-warnings 0",
+    "watch": "npx tsx watch files-change-listener.ts"
+  },
+  "files": [
+    "widgets",
+    "sections",
+    "package.json"
+  ],
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "~18.3.12",
+    "lucide-react": "^0.471.1",
+    "lucide-react-native": "^0.471.0",
+    "nativewind": "*",
+    "react": "18.3.1",
+    "react-native": "0.76.5",
+    "react-native-reanimated": "~3.16.1",
+    "react-native-safe-area-context": "4.12.0",
+    "react-native-svg": "15.8.0",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.7.2",
+    "zustand": "^5.0.2",
+    "unative": "workspace:*",
+    "tailwind-merge": "^2.6.0",
+    "clsx": "^2.1.1"
+  },
+  "peerDependencies": {
+    "unative": "*"
+  },
+  "peerDependenciesMeta": {},
+  "exports": {
+    "./widgets/theme-switch": "./widgets/theme-switch.tsx"
+  }
+}
