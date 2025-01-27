@@ -7,6 +7,7 @@
     "watch-changes": "rollup -c --watch",
     "watch": "pnpm watch-changes",
     "build": "rm -rf dist && rollup -c",
+    "lint": "eslint src",
     "prepare": "",
     "generate-package": "npx tsx ./package-json-generator.ts"
   },
@@ -26,6 +27,8 @@
   "homepage": "https://unative.dev",
   "keywords": [],
   "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
     "@types/node": "^20",
     "@types/react": "~18.3.12",
     "nativewind": "*",

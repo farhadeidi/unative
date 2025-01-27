@@ -33,7 +33,7 @@ function ensureUseClientInOutput(srcDir: string, distDir: string): void {
           !distContent.startsWith('"use client";') &&
           !distContent.startsWith("'use client';")
         ) {
-          console.log(`Adding \"use client\" to ${distFile}`);
+          console.log(`Adding "use client" to ${distFile}`);
           const updatedContent = `"use client";\n${distContent}`;
           fs.writeFileSync(distFile, updatedContent, "utf-8");
         }

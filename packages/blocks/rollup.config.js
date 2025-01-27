@@ -1,10 +1,9 @@
+import { exec } from "child_process";
+import glob from "glob";
+import { fileURLToPath, URL } from "node:url";
+import path from "path";
 import resolve from "@rollup/plugin-node-resolve";
 import typescript from "@rollup/plugin-typescript";
-import glob from "glob";
-import path from "path";
-import { fileURLToPath } from "node:url";
-import { exec } from "child_process";
-import alias from "@rollup/plugin-alias";
 
 // Resolve __dirname for ES module
 const __filename = fileURLToPath(import.meta.url);
@@ -26,7 +25,6 @@ function runOnSuccessPlugin() {
   return {
     name: "run-on-success",
     async writeBundle() {
-      console.log("Build process completed!");
       await run("npx tsx ensure-use-client.ts");
       await run("cp ../../README.md ./dist/README.md");
       await run("cp ./nativewind-env.d.ts ./dist/nativewind-env.d.ts");

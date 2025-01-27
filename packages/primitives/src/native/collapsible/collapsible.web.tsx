@@ -102,6 +102,7 @@ function useCollapsibleContext() {
 
 const Trigger = React.forwardRef<TriggerRef, TriggerProps>(
   (
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     { asChild, onPress: onPressProp, disabled: disabledProp = false, ...props },
     ref,
   ) => {

@@ -1,6 +1,6 @@
 {
   "name": "unative",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "One UI Library for Web and Mobile",
   "type": "module",
   "scripts": {
@@ -8,6 +8,7 @@
     "watch": "pnpm watch-changes",
     "build": "rm -rf dist && rollup -c",
     "prepare": "",
+    "lint": "eslint src",
     "generate-package": "npx tsx ./package-json-generator.ts"
   },
   "publishConfig": {
@@ -31,6 +32,8 @@
   "devDependencies": {
     "@gorhom/bottom-sheet": "^5.0.6",
     "@react-native-segmented-control/segmented-control": "2.5.4",
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
     "@types/node": "^20",
     "@types/react": "~18.3.12",
     "class-variance-authority": "^0.7.1",

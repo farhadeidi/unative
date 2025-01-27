@@ -1,5 +1,6 @@
 import type { Pressable, Text, View, ViewStyle } from "react-native";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type ComponentPropsWithAsChild<T extends React.ElementType<any>> =
   React.ComponentPropsWithoutRef<T> & { asChild?: boolean };
 

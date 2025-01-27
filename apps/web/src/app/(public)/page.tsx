@@ -6,6 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "unative/ui/card";
+import { HomeIcon } from "@unative/blocks/icons";
 
 const Home = () => {
   return (
@@ -16,7 +17,9 @@ const Home = () => {
             <CardTitle>Switch</CardTitle>
             <CardDescription>This is description</CardDescription>
           </CardHeader>
-          <CardContent>123</CardContent>
+          <CardContent>
+            <HomeIcon />
+          </CardContent>
         </Card>
       </div>
     </div>

@@ -71,6 +71,7 @@ function defaultGetValueLabel(value: number, max: number) {
   return `${Math.round((value / max) * 100)}%`;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function isValidValueNumber(value: any, max: number): value is number {
   return (
     typeof value === "number" && !isNaN(value) && value <= max && value >= 0

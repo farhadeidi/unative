@@ -106,7 +106,7 @@ const BlockQuote = React.forwardRef<Types.TextRef, Types.SlottableTextProps>(
     const Component = asChild ? Slot.Text : Text;
     return (
       <Component
-        // @ts-ignore - role of blockquote renders blockquote element on the web
+        // @ts-expect-error - role of blockquote renders blockquote element on the web
         role={Platform.OS === "web" ? "blockquote" : undefined}
         className={cn(
           "native:mt-4 native:pl-3 web:select-text mt-6 border-l-2 border-border pl-6 text-base italic text-foreground",
@@ -126,7 +126,7 @@ const Code = React.forwardRef<Types.TextRef, Types.SlottableTextProps>(
     const Component = asChild ? Slot.Text : Text;
     return (
       <Component
-        // @ts-ignore - role of code renders code element on the web
+        // @ts-expect-error - role of code renders code element on the web
         role={Platform.OS === "web" ? "code" : undefined}
         className={cn(
           "web:select-text relative rounded-md bg-muted px-[0.3rem] py-[0.2rem] text-sm font-semibold text-foreground",

@@ -64,7 +64,7 @@ const getThemesByCssContentString = (
     const themeContent = themeMatch[2];
 
     const lightVariables = getVariablesByPartialCssString(
-      themeContent?.split("&.dark")[0]!,
+      themeContent?.split("&.dark")[0],
     );
     let darkVariables: { [key: string]: string } = {};
 

@@ -88,7 +88,7 @@ const getExtractedThemeValues = ({
   isWeb?: boolean;
   withConvertedColors?: boolean;
 }): UnativeThemeVariables => {
-  let result = { ...values };
+  const result = { ...values };
 
   Object.keys(values).forEach((property) => {
     const value = getUsableVariableValue({
@@ -108,8 +108,8 @@ const getOptimizedThemes = (values: {
   isWeb: boolean;
   baseRemSize: number;
 }): { optimizedThemes: UnativeThemes; cssVars: UnativeThemes } => {
-  let optimizedThemes: UnativeThemes = {};
-  let cssVars: UnativeThemes = {};
+  const optimizedThemes: UnativeThemes = {};
+  const cssVars: UnativeThemes = {};
 
   Object.keys(values.themes).forEach((el) => {
     const lightVars = getExtractedThemeValues({

@@ -35,7 +35,7 @@ const watchFoldersAndRunCommand = (
   debounceDelay: number,
 ): void => {
   const watcher = chokidar.watch(folderPaths, {
-    ignored: /(^|[\/\\])\../, // Ignore dotfiles
+    ignored: /(^|[/\\])\../, // Ignore dotfiles
     persistent: true,
   });
 

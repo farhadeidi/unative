@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 import "../../global.css";
 import "react-native-reanimated";
 

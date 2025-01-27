@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /**
  * Source code copied and adapted from:
  * https://github.com/pacocoursey/next-themes

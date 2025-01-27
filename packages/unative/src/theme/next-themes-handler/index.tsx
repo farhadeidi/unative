@@ -52,7 +52,7 @@ const Theme = ({
   const attrs = !value ? themes : Object.values(value);
 
   const applyTheme = React.useCallback(
-    (theme: any) => {
+    (theme: string) => {
       let resolved = theme;
       if (!resolved) return;
 
@@ -88,8 +88,7 @@ const Theme = ({
         const colorScheme = colorSchemes.includes(resolved)
           ? resolved
           : fallback;
-        // @ts-ignore
-        d.style.colorScheme = colorScheme;
+        d.style.colorScheme = colorScheme || "system";
       }
 
       enable?.();
@@ -98,8 +97,8 @@ const Theme = ({
   );
 
   const setTheme = React.useCallback(
-    (value: any) => {
-      const newTheme = typeof value === "function" ? value(theme) : value;
+    (value: string | ((val: string) => string)) => {
+      const newTheme = typeof value === "function" ? value(theme || "") : value;
       setThemeState(newTheme);
 
       // Save to storage
@@ -156,7 +155,7 @@ const Theme = ({
 
   // Whenever theme or forcedTheme changes, apply it
   React.useEffect(() => {
-    applyTheme(forcedTheme ?? theme);
+    applyTheme(forcedTheme ?? theme!);
   }, [forcedTheme, theme]);
 
   const providerValue = React.useMemo(

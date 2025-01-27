@@ -1,5 +1,6 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "globalPassThroughEnv": ["NODE_ENV", "EXPO_PUBLIC_TMDB_API_KEY"],
   "ui": "tui",
   "tasks": {
     "build": {

@@ -36,10 +36,10 @@ const handlerFunction = async (options: WithUnativeOptions) => {
   console.log("Themes file generated successfully");
 };
 
-export async function withUnative(
-  config: any,
+export async function withUnative<T>(
+  config: T,
   options: WithUnativeOptions = {} as WithUnativeOptions,
-): Promise<any> {
+): Promise<T> {
   await handlerFunction(options);
   if (process.env.NODE_ENV === "development") {
     watchForChanges(options);

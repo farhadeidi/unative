@@ -5,7 +5,7 @@ import { Text } from "unative/ui/text";
 
 import mock from "@/data/collections.json";
 
-export const ShopCollections = ({}) => {
+export const ShopCollections = () => {
   const data = [...mock.data.collections.edges.slice(0, 6)];
 
   return (

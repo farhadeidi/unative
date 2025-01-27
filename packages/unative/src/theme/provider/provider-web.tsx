@@ -25,7 +25,6 @@ const getTheme = (key: string, fallback?: string) => {
   }
   return theme || fallback;
 };
-
 export const applyCssVars = (values: UnativeThemeVariables) => {
   Object.entries(values).forEach(([key, value]) => {
     document.documentElement.style.setProperty(`${key}`, value);
@@ -68,7 +67,10 @@ const InnerProvider = ({ children, ...props }: ProviderProps) => {
   } = useNextTheme();
 
   const onThemeChange = async (themeName: string) => {
-    const isExists = props.themes.hasOwnProperty(themeName);
+    const isExists = Object.prototype.hasOwnProperty.call(
+      props.themes,
+      themeName,
+    );
     if (isExists) {
       setActiveTheme(themeName);
       localStorage.setItem("unative-theme-name", themeName);

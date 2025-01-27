@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { GestureResponderEvent } from "react-native";
 
 const ToggleGroupUtils = {

@@ -4,7 +4,7 @@ import { Text } from "unative/ui/text";
 
 import mock from "@/data/products.json";
 
-export const ShopProducts = ({}) => {
+export const ShopProducts = () => {
   return (
     <Box>
       {mock.data.products.edges.map((product) => {

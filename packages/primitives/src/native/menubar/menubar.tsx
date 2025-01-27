@@ -416,8 +416,12 @@ const CheckboxItem = React.forwardRef<CheckboxItemRef, CheckboxItemProps>(
     },
     ref,
   ) => {
-    const { onValueChange, setTriggerPosition, setContentLayout, nativeID } =
-      useRootContext();
+    const {
+      onValueChange,
+      setTriggerPosition,
+      setContentLayout,
+      nativeID: _,
+    } = useRootContext();
 
     function onPress(ev: GestureResponderEvent) {
       onCheckedChange(!checked);

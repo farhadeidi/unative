@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import type { CSSProperties, ReactNode } from "react";
 import { omit } from "remeda";

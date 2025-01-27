@@ -20,7 +20,10 @@ export const Provider = ({ children, ...props }: ProviderProps) => {
   const isDarkMode = colorScheme === "dark";
 
   const onThemeChange = async (themeName: string) => {
-    const isExists = props.themes.hasOwnProperty(themeName);
+    const isExists = Object.prototype.hasOwnProperty.call(
+      props.themes,
+      themeName,
+    );
     if (isExists) {
       setActiveTheme(themeName);
       await AsyncStorage.setItem("unative-theme-name", themeName);

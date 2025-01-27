@@ -176,7 +176,7 @@ const Trigger = React.forwardRef<TriggerRef, TriggerProps>(
             ? rootToArray.filter((val) => val !== value)
             : rootToArray.concat(value)
           : Array.from(new Set(rootToArray.concat(value)));
-        // @ts-ignore - `newValue` is of type `string[]` which is OK
+        // @ts-expect-error - `newValue` is of type `string[]` which is OK
         onValueChange(newValue);
       }
       onPressProp?.(ev);

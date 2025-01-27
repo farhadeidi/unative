@@ -29,8 +29,7 @@ const schemes: {
   },
 ];
 
-export type ThemeSwitchProps = {};
-export const ThemeSwitch = ({}: ThemeSwitchProps) => {
+export const ThemeSwitch = () => {
   const { themes, theme, isDarkMode, setTheme, setScheme } = useTheme();
 
   return (
