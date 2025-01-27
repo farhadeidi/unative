@@ -4,7 +4,7 @@ import type {
   ComponentPropsWithAsChild,
   SlottableViewProps,
   ViewRef,
-} from "../shared/types";
+} from "../types";
 
 export type RootProps = SlottableViewProps & {
   alt: string;

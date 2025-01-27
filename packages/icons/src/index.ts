@@ -1,1 +1,1 @@
-export const icons = {};
+export * from "./iconsax";

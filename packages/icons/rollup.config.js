@@ -1,6 +1,6 @@
 import { exec } from "child_process";
 import * as fs from "fs";
-import glob from "glob";
+import { glob } from "glob";
 import { fileURLToPath, URL } from "node:url";
 import path from "path";
 import resolve from "@rollup/plugin-node-resolve";
@@ -66,7 +66,7 @@ const options = {
     format: "es",
     dir: "dist",
     chunkFileNames: "chunks/[name]-[hash].js",
-    // banner: `"use client";`,
+    banner: `"use client";`,
   },
   plugins: [resolve(), typescript(), runOnSuccessPlugin()],
   external: [

@@ -14,9 +14,10 @@ import {
   useAugmentedRef,
   useControllableState,
   useIsomorphicLayoutEffect,
-} from "../shared/hooks";
-import * as Slot from "../shared/slot";
-import { EmptyGestureResponderEvent } from "../shared/utils";
+} from "@/native/hooks";
+
+import * as Slot from "../slot";
+import { EmptyGestureResponderEvent } from "../utils";
 
 import type {
   CheckboxItemProps,

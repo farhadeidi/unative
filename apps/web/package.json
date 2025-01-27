@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@unative/blocks": "workspace:*",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.471.1",
@@ -29,6 +28,7 @@
     "@types/node": "^20",
     "@types/react": "~18.3.12",
     "@types/react-dom": "^18.3.1",
+    "@unative/icons": "workspace:*",
     "eslint": "^9.19.0",
     "eslint-config-next": "15.1.3",
     "postcss": "^8",

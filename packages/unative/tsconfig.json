@@ -1,13 +1,9 @@
 {
+  "extends": "@repo/typescript-config/unative-library.json",
   "compilerOptions": {
-    "jsx": "preserve",
-    "declaration": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "outDir": "dist",
     "types": ["nativewind/types", "@types/node"],
     "baseUrl": "./src",
+    "outDir": "dist",
     "paths": {
       "unative": ["."],
       "unative/*": ["./*"],
@@ -15,5 +11,26 @@
     }
   },
   "include": ["src"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "rollup.config.js"]
 }
+
+// {
+//   "compilerOptions": {
+//     "jsx": "preserve",
+//     "declaration": true,
+//     "esModuleInterop": true,
+//     "forceConsistentCasingInFileNames": true,
+//     "strict": true,
+//     "outDir": "dist",
+//     "types": ["nativewind/types", "@types/node"],
+//     "skipLibCheck": true,
+//     "baseUrl": "./src",
+//     "paths": {
+//       "unative": ["."],
+//       "unative/*": ["./*"],
+//       "@/*": ["./*"]
+//     }
+//   },
+//   "include": ["src"],
+//   "exclude": ["node_modules"]
+// }

@@ -22,9 +22,16 @@ export const config = [
     },
   },
   {
-    ignores: ["dist/**", "**/expo-env.d.ts"],
+    files: ["src/**/*.js", "src/**/*.ts", "src/**/*.tsx"],
+    ignores: [
+      "dist/**",
+      "**/expo-env.d.ts",
+      "rollup.config.js",
+      "tailwind.config.js",
+    ],
     rules: {
       "@typescript-eslint/no-empty-object-type": "off",
+      "@typescript-eslint/ban-ts-comment": "off",
       "@typescript-eslint/no-unused-vars": [
         "warn",
         {

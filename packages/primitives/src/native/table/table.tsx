@@ -9,13 +9,13 @@
 import * as React from "react";
 import { Pressable, View } from "react-native";
 
-import * as Slot from "../shared/slot";
+import * as Slot from "../slot";
 import type {
   PressableRef,
   SlottablePressableProps,
   SlottableViewProps,
   ViewRef,
-} from "../shared/types";
+} from "../types";
 
 type RootProps = SlottableViewProps;
 type RootRef = ViewRef;

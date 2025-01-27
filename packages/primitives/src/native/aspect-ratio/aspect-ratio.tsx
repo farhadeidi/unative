@@ -9,8 +9,8 @@
 import * as React from "react";
 import { View, type ViewStyle } from "react-native";
 
-import * as Slot from "../shared/slot";
-import type { SlottableViewProps, ViewRef } from "../shared/types";
+import * as Slot from "../slot";
+import type { SlottableViewProps, ViewRef } from "../types";
 
 type RootProps = Omit<SlottableViewProps, "style"> & {
   ratio?: number;

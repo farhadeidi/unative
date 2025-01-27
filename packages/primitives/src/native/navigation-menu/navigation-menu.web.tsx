@@ -11,9 +11,10 @@ import type { GestureResponderEvent } from "react-native";
 import { Pressable, View } from "react-native";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 
-import { useAugmentedRef, useIsomorphicLayoutEffect } from "../shared/hooks";
-import * as Slot from "../shared/slot";
-import { EmptyGestureResponderEvent } from "../shared/utils";
+import { useAugmentedRef, useIsomorphicLayoutEffect } from "@/native/hooks";
+
+import * as Slot from "../slot";
+import { EmptyGestureResponderEvent } from "../utils";
 
 import type {
   ContentProps,

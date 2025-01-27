@@ -16,9 +16,10 @@ import {
   View,
 } from "react-native";
 
-import { type LayoutPosition, useRelativePosition } from "../shared/hooks";
-import { Portal as RNPPortal } from "../shared/portal";
-import * as Slot from "../shared/slot";
+import { type LayoutPosition, useRelativePosition } from "@/native/hooks";
+
+import { Portal as RNPPortal } from "../portal";
+import * as Slot from "../slot";
 
 import type {
   ContentProps,

@@ -1,11 +1,13 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-undef */
+import { exec } from "child_process";
+import { glob } from "glob";
+import { builtinModules } from "module";
+import { fileURLToPath, URL } from "node:url";
+import path from "path";
+import alias from "@rollup/plugin-alias";
 import resolve from "@rollup/plugin-node-resolve";
 import typescript from "@rollup/plugin-typescript";
-import glob from "glob";
-import path from "path";
-import { fileURLToPath } from "node:url";
-import { exec } from "child_process";
-import { builtinModules } from "module";
-import alias from "@rollup/plugin-alias";
 
 // Resolve __dirname for ES module
 const __filename = fileURLToPath(import.meta.url);

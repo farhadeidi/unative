@@ -11,6 +11,7 @@ const isHslColor = (value: string): boolean => {
   }
   const [, h, s, l] = value.match(hslRegex)!;
 
+  if (!h || !s || !l) return false;
   // Check if the values are within the valid ranges
   const hue = parseFloat(h);
   const saturation = parseFloat(s);
@@ -43,7 +44,7 @@ const getPixelValue = ({
   if (!match) return value;
 
   const [, num, unit] = match;
-  const numValue = parseFloat(num);
+  const numValue = parseFloat(num ?? "0");
 
   switch (unit) {
     case "rem":
@@ -92,7 +93,7 @@ const getExtractedThemeValues = ({
 
   Object.keys(values).forEach((property) => {
     const value = getUsableVariableValue({
-      value: values[property as keyof UnativeThemeVariables],
+      value: values[property as keyof UnativeThemeVariables] || "",
       baseRemSize,
       isWeb,
       withConvertedColors,
@@ -113,13 +114,13 @@ const getOptimizedThemes = (values: {
 
   Object.keys(values.themes).forEach((el) => {
     const lightVars = getExtractedThemeValues({
-      values: values.themes[el].light,
+      values: values.themes[el]?.light || {},
       baseRemSize: values.baseRemSize,
       isWeb: values.isWeb,
       withConvertedColors: true,
     });
     const darkVars = getExtractedThemeValues({
-      values: values.themes[el].dark,
+      values: values.themes[el]?.dark || {},
       baseRemSize: values.baseRemSize,
       isWeb: values.isWeb,
       withConvertedColors: true,
@@ -131,13 +132,13 @@ const getOptimizedThemes = (values: {
     };
 
     const cssLightVars = getExtractedThemeValues({
-      values: values.themes[el].light,
+      values: values.themes[el]?.light || {},
       baseRemSize: values.baseRemSize,
       isWeb: values.isWeb,
       withConvertedColors: false,
     });
     const cssDarkVars = getExtractedThemeValues({
-      values: values.themes[el].dark,
+      values: values.themes[el]?.dark || {},
       baseRemSize: values.baseRemSize,
       isWeb: values.isWeb,
       withConvertedColors: false,

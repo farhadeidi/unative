@@ -12,11 +12,11 @@ import { Pressable, View } from "react-native";
 import * as Accordion from "@radix-ui/react-accordion";
 
 import {
-  Slot,
   useAugmentedRef,
   useControllableState,
   useIsomorphicLayoutEffect,
-} from "../shared";
+} from "@/native/hooks";
+import * as Slot from "@/native/slot";
 
 import type {
   ContentProps,

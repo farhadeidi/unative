@@ -1,16 +1,16 @@
 import * as React from "react";
 import { View } from "react-native";
-import type { Types } from "@unative/primitives/native/shared";
-import { Slot } from "@unative/primitives/native/shared";
+import { SlottableViewProps, ViewRef } from "@unative/primitives/native";
+import * as Slot from "@unative/primitives/native/slot";
 
 import { cn } from "../../lib/utils";
 
-type RootProps = Types.SlottableViewProps & {
+type RootProps = SlottableViewProps & {
   orientation?: "horizontal" | "vertical";
   decorative?: boolean;
 };
 
-type RootRef = Types.ViewRef;
+type RootRef = ViewRef;
 
 export const Separator = React.forwardRef<RootRef, RootProps>(
   (

@@ -10,8 +10,9 @@ import * as React from "react";
 import { Pressable, View } from "react-native";
 import * as HoverCard from "@radix-ui/react-hover-card";
 
-import { useAugmentedRef } from "../shared/hooks";
-import * as Slot from "../shared/slot";
+import { useAugmentedRef } from "@/native/hooks";
+
+import * as Slot from "../slot";
 
 import type {
   ContentProps,

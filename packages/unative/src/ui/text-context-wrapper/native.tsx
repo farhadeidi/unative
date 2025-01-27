@@ -6,12 +6,11 @@ import { SlottableTextProps, TextRef } from "@unative/primitives/native";
 import * as Slot from "@unative/primitives/native/slot";
 
 import { cn } from "../../lib/utils";
-
-import { TextClassContext } from "./text-context";
+import { TextClassContext } from "../text/text-context";
 
 export type TextProps = SlottableTextProps;
 
-const Text = React.forwardRef<TextRef, SlottableTextProps>(
+const TextContextWrapper = React.forwardRef<TextRef, SlottableTextProps>(
   ({ className, asChild = false, ...props }, ref) => {
     const textClass = React.useContext(TextClassContext);
     const Component = asChild ? Slot.Text : RNText;
@@ -29,6 +28,6 @@ const Text = React.forwardRef<TextRef, SlottableTextProps>(
     );
   },
 );
-Text.displayName = "Text";
+TextContextWrapper.displayName = "TextContextWrapper";
 
-export { Text, TextClassContext };
+export { TextContextWrapper };

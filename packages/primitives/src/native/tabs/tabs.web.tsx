@@ -10,7 +10,7 @@ import * as React from "react";
 import { Pressable, View } from "react-native";
 import * as Tabs from "@radix-ui/react-tabs";
 
-import * as Slot from "../shared/slot";
+import * as Slot from "../slot";
 
 import type {
   ContentProps,

@@ -66,7 +66,8 @@ export const CommonProvider = ({
         name: themeName,
         scheme: isDarkMode ? "dark" : "light",
         savedScheme: savedScheme,
-        values: optimizedThemes[themeName][isDarkMode ? "dark" : "light"],
+        values:
+          optimizedThemes[themeName]?.[isDarkMode ? "dark" : "light"] || {},
       });
       setIsInitialized(true);
       onInitEnd?.();

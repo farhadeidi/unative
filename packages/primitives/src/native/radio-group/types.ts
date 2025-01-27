@@ -4,7 +4,7 @@ import {
   SlottablePressableProps,
   SlottableViewProps,
   ViewRef,
-} from "../shared/types";
+} from "../types";
 
 type RootProps = SlottableViewProps & {
   value: string | undefined;

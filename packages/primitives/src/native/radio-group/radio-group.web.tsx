@@ -10,7 +10,7 @@ import * as React from "react";
 import { GestureResponderEvent, Pressable, View } from "react-native";
 import * as RadioGroup from "@radix-ui/react-radio-group";
 
-import * as Slot from "../shared/slot";
+import * as Slot from "../slot";
 
 import type {
   IndicatorProps,

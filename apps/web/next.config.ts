@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 import { withUnative } from "unative/theme/with-unative";
 
 const nextConfig: NextConfig = {
-  transpilePackages: ["unative", "@unative/blocks"],
+  transpilePackages: ["unative"],
   /* config options here */
 };
 

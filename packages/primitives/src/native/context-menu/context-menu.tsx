@@ -23,9 +23,10 @@ import {
   useAugmentedRef,
   useControllableState,
   useRelativePosition,
-} from "../shared/hooks";
-import { Portal as RNPPortal } from "../shared/portal";
-import * as Slot from "../shared/slot";
+} from "@/native/hooks";
+
+import { Portal as RNPPortal } from "../portal";
+import * as Slot from "../slot";
 
 import type {
   CheckboxItemProps,

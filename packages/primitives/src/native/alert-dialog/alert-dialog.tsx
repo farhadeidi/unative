@@ -15,8 +15,10 @@ import {
   View,
 } from "react-native";
 
-import { Slot, useControllableState } from "../shared";
-import { Portal as RNPPortal } from "../shared/portal";
+import { useControllableState } from "@/native/hooks";
+import * as Slot from "@/native/slot";
+
+import { Portal as RNPPortal } from "../portal";
 
 import type {
   ActionProps,

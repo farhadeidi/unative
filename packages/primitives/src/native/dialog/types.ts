@@ -6,7 +6,7 @@ import type {
   SlottableViewProps,
   TextRef,
   ViewRef,
-} from "../shared/types";
+} from "../types";
 
 type RootContext = {
   open: boolean;

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { LabelPrimitive } from "@unative/primitives/native";
+import * as LabelPrimitive from "@unative/primitives/native/label";
 
 import { cn } from "../../lib/utils";
 

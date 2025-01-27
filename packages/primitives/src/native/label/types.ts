@@ -5,7 +5,7 @@ import type {
   SlottablePressableProps,
   SlottableTextProps,
   TextRef,
-} from "../shared/types";
+} from "../types";
 
 type RootProps = Omit<
   SlottablePressableProps,

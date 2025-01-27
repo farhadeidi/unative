@@ -7,7 +7,7 @@ import type {
   SlottableViewProps,
   TextRef,
   ViewRef,
-} from "../shared/types";
+} from "../types";
 
 type RootProps = SlottableViewProps & {
   onOpenChange?: (open: boolean) => void;

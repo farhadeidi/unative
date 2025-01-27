@@ -9,8 +9,9 @@
 import * as React from "react";
 import { type GestureResponderEvent, Pressable, View } from "react-native";
 
-import { useControllableState } from "../shared/hooks";
-import * as Slot from "../shared/slot";
+import { useControllableState } from "@/native/hooks";
+
+import * as Slot from "../slot";
 
 import type {
   ContentProps,

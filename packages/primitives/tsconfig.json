@@ -1,13 +1,9 @@
 {
+  "extends": "@repo/typescript-config/unative-library.json",
   "compilerOptions": {
-    "jsx": "preserve",
-    "declaration": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "outDir": "dist",
     "types": ["nativewind/types", "@types/node"],
     "baseUrl": "./src",
+    "outDir": "dist",
     "paths": {
       "@/*": ["./*"]
     }

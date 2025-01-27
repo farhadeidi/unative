@@ -25,7 +25,9 @@ export const SegmentedControl = ({
       selectedIndex={items.findIndex((item) => item.value === value)}
       onChange={(event) => {
         const item = items[event.nativeEvent.selectedSegmentIndex];
-        onChange(item.value, item);
+        if (item) {
+          onChange(item.value, item);
+        }
       }}
       {...nativeProps}
     />

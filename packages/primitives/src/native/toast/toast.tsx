@@ -14,7 +14,7 @@ import {
   View,
 } from "react-native";
 
-import * as Slot from "../shared/slot";
+import * as Slot from "../slot";
 
 import type {
   ActionProps,

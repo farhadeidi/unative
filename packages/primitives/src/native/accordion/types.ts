@@ -4,7 +4,7 @@ import type {
   SlottablePressableProps,
   SlottableViewProps,
   ViewRef,
-} from "../shared/types";
+} from "../types";
 
 type RootContext = {
   type: "single" | "multiple";

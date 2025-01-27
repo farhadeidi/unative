@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { Check, ChevronRight, Circle } from "lucide-react";
-import { MenubarPrimitive } from "@unative/primitives/web/menubar";
+import * as MenubarPrimitive from "@unative/primitives/web/menubar";
 
 import { cn } from "../../lib/utils";
 

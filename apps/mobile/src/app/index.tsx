@@ -1,9 +1,8 @@
 import React from "react";
 import { ScrollView } from "react-native";
 import { Box } from "unative/ui/box";
-import { Button } from "unative/ui/button";
-import { AddCircleIcon, Home2Icon as HomeIcon } from "@unative/blocks/icons";
 import { ThemeSwitchWithSegmentedControl } from "@unative/blocks/widgets/theme-switch-with-segmented-control";
+import {} from "@unative/icons";
 
 import { ShopCollections } from "@/components/shop-collections";
 import { ShopProductsHorizontalCarousel } from "@/components/shop-products-horizontal-carousel";
@@ -12,11 +11,6 @@ export default function HomeScreen() {
   return (
     <Box className="flex-1">
       <ScrollView>
-        <AddCircleIcon size={48} />
-
-        <Button>
-          <HomeIcon />
-        </Button>
         <Box className="gap-4">
           <ShopCollections />
           <Box className="gap-4">

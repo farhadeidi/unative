@@ -1,11 +1,11 @@
+/* eslint-disable no-undef */
+import { exec } from "child_process";
+import * as fs from "fs";
+import { glob } from "glob";
+import { fileURLToPath } from "node:url";
+import path from "path";
 import resolve from "@rollup/plugin-node-resolve";
 import typescript from "@rollup/plugin-typescript";
-import glob from "glob";
-import path from "path";
-import { fileURLToPath } from "node:url";
-import { exec } from "child_process";
-
-import * as fs from "fs";
 
 function run(cmd) {
   return new Promise((resolve, reject) => {

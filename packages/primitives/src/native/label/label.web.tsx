@@ -10,7 +10,7 @@ import * as React from "react";
 import { Pressable, Text as RNText } from "react-native";
 import * as Label from "@radix-ui/react-label";
 
-import * as Slot from "../shared/slot";
+import * as Slot from "../slot";
 
 import type { RootProps, RootRef, TextProps, TextRef } from "./types";
 

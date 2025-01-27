@@ -10,7 +10,7 @@ import * as React from "react";
 import { type GestureResponderEvent, Pressable } from "react-native";
 import * as Toggle from "@radix-ui/react-toggle";
 
-import * as Slot from "../shared/slot";
+import * as Slot from "../slot";
 
 import type { RootProps, RootRef } from "./types";
 

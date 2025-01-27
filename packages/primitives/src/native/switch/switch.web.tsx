@@ -10,7 +10,7 @@ import * as React from "react";
 import { type GestureResponderEvent, Pressable, View } from "react-native";
 import * as Switch from "@radix-ui/react-switch";
 
-import * as Slot from "../shared/slot";
+import * as Slot from "../slot";
 
 import type { RootProps, RootRef, ThumbProps, ThumbRef } from "./types";
 

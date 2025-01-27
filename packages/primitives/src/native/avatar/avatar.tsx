@@ -16,8 +16,9 @@ import {
   View,
 } from "react-native";
 
-import { useIsomorphicLayoutEffect } from "../shared/hooks";
-import * as Slot from "../shared/slot";
+import { useIsomorphicLayoutEffect } from "@/native/hooks";
+
+import * as Slot from "../slot";
 
 import {
   FallbackProps,

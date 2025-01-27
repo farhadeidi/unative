@@ -10,7 +10,7 @@ import * as React from "react";
 import { View } from "react-native";
 import * as Progress from "@radix-ui/react-progress";
 
-import * as Slot from "../shared/slot";
+import * as Slot from "../slot";
 
 import type { IndicatorProps, IndicatorRef, RootProps, RootRef } from "./types";
 

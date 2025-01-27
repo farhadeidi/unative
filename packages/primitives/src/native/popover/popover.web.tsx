@@ -10,8 +10,9 @@ import * as React from "react";
 import { type GestureResponderEvent, Pressable, View } from "react-native";
 import * as Popover from "@radix-ui/react-popover";
 
-import { useAugmentedRef, useIsomorphicLayoutEffect } from "../shared/hooks";
-import * as Slot from "../shared/slot";
+import { useAugmentedRef, useIsomorphicLayoutEffect } from "@/native/hooks";
+
+import * as Slot from "../slot";
 
 import type {
   CloseProps,

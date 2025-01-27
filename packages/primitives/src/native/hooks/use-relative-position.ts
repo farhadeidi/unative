@@ -6,7 +6,7 @@ import {
   type ViewStyle,
 } from "react-native";
 
-import type { Insets } from "../types";
+import type { Insets } from "@/native/types";
 
 const POSITION_ABSOLUTE: ViewStyle = {
   position: "absolute",

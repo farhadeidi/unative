@@ -10,7 +10,7 @@ import * as React from "react";
 import { View } from "react-native";
 import * as Slider from "@radix-ui/react-slider";
 
-import * as Slot from "../shared/slot";
+import * as Slot from "../slot";
 
 import type {
   RangeProps,

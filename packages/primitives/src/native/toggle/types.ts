@@ -1,4 +1,4 @@
-import type { PressableRef, SlottablePressableProps } from "../shared/types";
+import type { PressableRef, SlottablePressableProps } from "../types";
 
 type RootProps = SlottablePressableProps & {
   pressed: boolean;

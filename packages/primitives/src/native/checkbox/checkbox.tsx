@@ -9,8 +9,8 @@
 import * as React from "react";
 import { GestureResponderEvent, Pressable, View } from "react-native";
 
-import * as Slot from "../shared/slot";
-import type { PressableRef, SlottablePressableProps } from "../shared/types";
+import * as Slot from "../slot";
+import type { PressableRef, SlottablePressableProps } from "../types";
 
 import type { IndicatorProps, IndicatorRef, RootProps, RootRef } from "./types";
 

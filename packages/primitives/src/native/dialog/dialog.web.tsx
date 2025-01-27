@@ -19,8 +19,9 @@ import {
   useAugmentedRef,
   useControllableState,
   useIsomorphicLayoutEffect,
-} from "../shared/hooks";
-import * as Slot from "../shared/slot";
+} from "@/native/hooks";
+
+import * as Slot from "../slot";
 
 import type {
   CloseProps,

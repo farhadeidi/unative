@@ -10,9 +10,10 @@ import * as React from "react";
 import type { GestureResponderEvent } from "react-native";
 import { BackHandler, Pressable, Text, View } from "react-native";
 
-import { useControllableState } from "../shared/hooks";
-import { Portal as RNPPortal } from "../shared/portal";
-import * as Slot from "../shared/slot";
+import { useControllableState } from "@/native/hooks";
+
+import { Portal as RNPPortal } from "../portal";
+import * as Slot from "../slot";
 
 import type {
   CloseProps,
