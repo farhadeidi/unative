@@ -54,8 +54,8 @@ const getExports = ({
   };
 };
 
-function generateExports(dirPath: string): Record<string, any> {
-  const exports: Record<string, any> = {};
+function generateExports(dirPath: string): Record<string, unknown> {
+  const exports: Record<string, unknown> = {};
 
   function processDirectory(currentPath: string) {
     const items = fs.readdirSync(currentPath, { withFileTypes: true });

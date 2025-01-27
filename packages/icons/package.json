@@ -1,0 +1,37 @@
+{
+  "name": "@unative/icons",
+  "scripts": {
+    "lint": "eslint . --max-warnings 0",
+    "watch": "npx tsx watch files-change-listener.ts",
+    "build": "rm -rf dist && rollup -c",
+    "ensure": "tsx ../../scripts/ensure-use-client.ts",
+    "pkg-g": "tsx ../../scripts/package-json-generator.ts src package.json dist/package.json",
+    "generate-iconsax-icons": "rm -rf src/iconsax && tsx scripts/icons-converter-with-variants.ts ./raw-files/iconsax src/iconsax && tsx scripts/icons-index-generator.ts src/iconsax"
+  },
+  "files": [
+    "dist",
+    "package.json"
+  ],
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^20",
+    "@types/react": "~18.3.12",
+    "clsx": "^2.1.1",
+    "nativewind": "*",
+    "react": "18.3.1",
+    "react-native": "0.76.5",
+    "react-native-reanimated": "~3.16.1",
+    "react-native-safe-area-context": "4.12.0",
+    "react-native-svg": "15.8.0",
+    "tailwind-merge": "^2.6.0",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.7.2",
+    "unative": "workspace:*",
+    "zustand": "^5.0.2"
+  },
+  "peerDependencies": {
+    "unative": "*"
+  },
+  "peerDependenciesMeta": {}
+}
