@@ -54,7 +54,10 @@ const getExports = ({
   };
 };
 
-function generateExports(dirPath: string): Record<string, unknown> {
+function generateExports(
+  dirPath: string,
+  withSimpleMode = false
+): Record<string, unknown> {
   const exports: Record<string, unknown> = {};
 
   function processDirectory(currentPath: string) {
@@ -103,17 +106,23 @@ function generateExports(dirPath: string): Record<string, unknown> {
         const isAdvancedOptionEnabled =
           itemName.endsWith("index") && (hasWebFileInDir || hasNativeFileInDir);
 
-        exports[
-          `${relativePath}${itemName === "index" ? "" : `/${itemName}`}`
-        ] = getExports({
-          filePath: `${relativePath}`,
-          fileName: itemName,
-          advanceOptions: {
-            enabled: isAdvancedOptionEnabled,
-            hasWebFile: hasWebFileInDir,
-            hasNativeFile: hasNativeFileInDir,
-          },
-        });
+        if (withSimpleMode) {
+          exports[
+            `${relativePath}${itemName === "index" ? "" : `/${itemName}`}`
+          ] = `${relativePath}/${itemName}.js`;
+        } else {
+          exports[
+            `${relativePath}${itemName === "index" ? "" : `/${itemName}`}`
+          ] = getExports({
+            filePath: `${relativePath}`,
+            fileName: itemName,
+            advanceOptions: {
+              enabled: isAdvancedOptionEnabled,
+              hasWebFile: hasWebFileInDir,
+              hasNativeFile: hasNativeFileInDir,
+            },
+          });
+        }
       }
     });
     items.forEach((item) => {
@@ -131,13 +140,17 @@ function generateExports(dirPath: string): Record<string, unknown> {
 function updatePackageJson(
   srcDir: string,
   packageJsonPath: string,
-  outputPath: string
+  outputPath: string,
+  withSimpleExports: boolean,
+  noExportsEdit: boolean
 ) {
   try {
-    const newExports = generateExports(srcDir);
-
     // Read the existing package.json
     const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf-8"));
+
+    const newExports = noExportsEdit
+      ? packageJson.exports
+      : generateExports(srcDir, withSimpleExports);
 
     // Replace the exports section with the new exports
     packageJson.exports = newExports;
@@ -194,5 +207,13 @@ if (args.length < 3) {
 const srcDir = path.resolve(args[0]);
 const srcDirPackage = path.resolve(args[1]);
 const distDirPackage = path.resolve(args[2]);
+const withSimpleExports = args.includes("--simple");
+const noExportsEdit = args.includes("--no-exports-edit");
 
-updatePackageJson(srcDir, srcDirPackage, distDirPackage);
+updatePackageJson(
+  srcDir,
+  srcDirPackage,
+  distDirPackage,
+  withSimpleExports,
+  noExportsEdit
+);

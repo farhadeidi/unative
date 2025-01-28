@@ -12,6 +12,7 @@ export type IconVariantName =
 export type IconProps = SvgProps & {
   size?: number;
   variant?: IconVariantName;
+  className?: string;
 };
 
 export type IconVariants = {

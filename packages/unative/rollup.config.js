@@ -9,6 +9,25 @@ import alias from "@rollup/plugin-alias";
 import resolve from "@rollup/plugin-node-resolve";
 import typescript from "@rollup/plugin-typescript";
 
+const internalDeps = [".", "/", "@/", "tslib"];
+const externalDeps = [
+  "class-variance-authority",
+  "unative",
+  "@unative",
+  "react",
+  "@react",
+  "nativewind",
+  "tailwindcss",
+];
+
+console.log("External Deps");
+console.table(externalDeps);
+
+console.log("Internal Deps");
+console.table(internalDeps);
+
+const otherDepsToCheck = [];
+
 // Resolve __dirname for ES module
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -87,35 +106,17 @@ const options = {
   plugins: [resolve(), typescript(), runOnSuccessPlugin()],
   external: (source, importer, isResolved) => {
     if (builtinModules.includes(source)) return false;
-
-    if (
-      source.startsWith(".") ||
-      source.startsWith("/") ||
-      source.startsWith("@/")
-    ) {
+    if (internalDeps.some((el) => source.startsWith(el))) {
       return false;
     }
-
-    const otherExceptions = [
-      "@unative/primitives",
-      "react",
-      "react-native",
-      "@react-native-async-storage",
-      "@react-navigation",
-      "zustand",
-      "nativewind",
-      "clsx",
-      "tailwind-merge",
-      "class-variance-authority",
-      "lucide-react",
-      "tailwind-variants",
-      "@react-native-segmented-control/segmented-control",
-    ];
-    if (otherExceptions.some((exception) => source.startsWith(exception))) {
+    if (externalDeps.some((el) => source.startsWith(el))) {
       return true;
     }
 
-    console.log("dev => source", source);
+    if (!otherDepsToCheck.includes(source)) {
+      otherDepsToCheck.push(source);
+      console.log("Using as internal source =>", source);
+    }
 
     return false;
   },
