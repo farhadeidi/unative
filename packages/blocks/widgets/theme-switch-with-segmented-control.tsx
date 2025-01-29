@@ -1,6 +1,7 @@
 /** @jsxImportSource nativewind */
 
-import { ColorSchemes, useTheme } from "unative/theme";
+import { useTheme } from "unative/hooks";
+import { ColorSchemes } from "unative/types";
 import { Box } from "unative/ui/box";
 import { Label } from "unative/ui/label";
 import { SegmentedControl } from "unative/ui/segmented-control";

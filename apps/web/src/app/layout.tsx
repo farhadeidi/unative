@@ -1,9 +1,8 @@
-import "./globals.css";
-
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-
-import ClientProviders from "@/app/providers";
+import { Provider as UnativeProvider } from "unative/provider";
+import "./globals.css";
+import { THEMES } from "@/lib/unative/themes";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,9 +29,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ClientProviders>
-          <div className="flex min-h-screen">{children}</div>
-        </ClientProviders>
+        <UnativeProvider themes={THEMES}>{children}</UnativeProvider>
       </body>
     </html>
   );

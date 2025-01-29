@@ -1,14 +1,16 @@
 {
   "name": "@unative/icons",
-  "version": "0.0.6",
+  "version": "0.0.9",
   "type": "module",
   "description": "Universal icons for unative library",
   "scripts": {
     "lint": "eslint . --max-warnings 0",
+    "watch-changes": "rollup -c --watch",
     "watch": "npx tsx watch files-change-listener.ts",
-    "build": "rm -rf dist && rollup -c",
+    "build": "rm -rf dist && rm -rf src/iconsax && pnpm generate-iconsax-icons && rollup -c",
     "ensure": "tsx ../../scripts/ensure-use-client.ts",
     "pkg-g": "tsx ../../scripts/package-json-generator.ts src package.json dist/package.json",
+    "check-icons": "tsx scripts/icons-checker.ts",
     "generate-iconsax-icons": "rm -rf src/iconsax && tsx scripts/icons-converter-with-variants.ts ./raw-files/iconsax src/iconsax && tsx scripts/icons-index-generator.ts src/iconsax",
     "generate-index-file": "tsx scripts/icons-index-generator.ts src/iconsax",
     "generate-iconsax-icons-without-index": "rm -rf src/iconsax && tsx scripts/icons-converter-with-variants.ts ./raw-files/iconsax src/iconsax"
@@ -36,16 +38,19 @@
     "glob": "^11.0.1",
     "nativewind": "*",
     "react": "18.3.1",
-    "react-native": "0.76.5",
-    "react-native-reanimated": "~3.16.1",
+    "react-native": "0.76.6",
+    "react-native-reanimated": "~3.16.7",
     "react-native-safe-area-context": "4.12.0",
     "react-native-svg": "15.8.0",
     "remeda": "^2.19.0",
     "tailwind-merge": "^2.6.0",
-    "tailwindcss": "^3.4.1",
+    "tailwindcss": "^3.4.17",
     "tslib": "^2.8.1",
     "typescript": "^5.7.2",
-    "unative": "workspace:*"
+    "unative": "file:../unative/dist"
+  },
+  "dependencies": {
+    "class-variance-authority": "^0.7.1"
   },
   "peerDependencies": {
     "unative": "*"

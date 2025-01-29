@@ -3,7 +3,6 @@ import { withUnative } from "unative/with-unative";
 
 const nextConfig: NextConfig = {
   transpilePackages: ["unative", "@unative/icons"],
-  /* config options here */
 };
 
 export default withUnative(nextConfig, {

@@ -2,14 +2,18 @@
 
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const folders = [
-  path.resolve(__dirname, "../../../raw-files/iconsax/bold"),
-  path.resolve(__dirname, "../../../raw-files/iconsax/broken"),
-  path.resolve(__dirname, "../../../raw-files/iconsax/bulk"),
-  path.resolve(__dirname, "../../../raw-files/iconsax/linear"),
-  path.resolve(__dirname, "../../../raw-files/iconsax/outline"),
-  path.resolve(__dirname, "../../../raw-files/iconsax/twotone"),
+  path.resolve(__dirname, "../raw-files/iconsax/bold"),
+  path.resolve(__dirname, "../raw-files/iconsax/broken"),
+  path.resolve(__dirname, "../raw-files/iconsax/bulk"),
+  path.resolve(__dirname, "../raw-files/iconsax/linear"),
+  path.resolve(__dirname, "../raw-files/iconsax/outline"),
+  path.resolve(__dirname, "../raw-files/iconsax/twotone"),
 ];
 
 const compareFolders = (folders: string[]) => {

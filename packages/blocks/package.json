@@ -16,18 +16,18 @@
     "@types/react": "~18.3.12",
     "clsx": "^2.1.1",
     "lucide-react": "^0.471.1",
-    "lucide-react-native": "^0.471.0",
+    "lucide-react-native": "^0.474.0",
     "nativewind": "*",
     "react": "18.3.1",
-    "react-native": "0.76.5",
-    "react-native-reanimated": "~3.16.1",
+    "react-native": "0.76.6",
+    "react-native-reanimated": "~3.16.7",
     "react-native-safe-area-context": "4.12.0",
     "react-native-svg": "15.8.0",
     "tailwind-merge": "^2.6.0",
-    "tailwindcss": "^3.4.1",
+    "tailwindcss": "^3.4.17",
     "typescript": "^5.7.2",
     "unative": "workspace:*",
-    "zustand": "^5.0.2"
+    "zustand": "^5.0.3"
   },
   "peerDependencies": {
     "unative": "*"

@@ -79,14 +79,13 @@ const generateVariantComponent = (
   const { jsx, usesG } = convertSvgToJsx(svgContent);
 
   const component = `
-const ${componentName} = ({ size = 24, className, ...props }: IconProps) => {
+const ${componentName} = ({ size = 24, ...props }: IconProps) => {
   return (
     <Svg
       width={size}
       height={size}
       viewBox="0 0 24 24"
       fill="none"
-      className={cn("text-foreground", className)}
       {...props}
     >
       ${jsx}

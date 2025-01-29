@@ -1,50 +1,85 @@
-# Welcome to your Expo app 👋
+# Unative Example Expo
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This project is a template for building React Native applications using the **Unative** UI library, **Expo**, and **Expo Router**. It provides a fully configured environment with tools like TypeScript, ESLint, Prettier, Jest, and Nativewind for styling.
 
-## Get started
+![Demo of Unative Example Expo](./screenshot.gif)
 
-1. Install dependencies
+## Features
 
-   ```bash
-   npm install
+- **Expo Router**: Simplified routing for React Native applications.
+- **Unative UI**: A modern, cross-platform UI library for web and React Native.
+- **Nativewind**: Tailwind CSS for React Native.
+- **Prettier & ESLint**: Pre-configured linting and formatting.
+- **Jest**: Unit testing setup using Jest and `jest-expo`.
+
+## Installation
+
+1. Clone the template using `degit`:
+
+   ```
+   npx degit farhadeidi/unative-expo-example my-app
    ```
 
-2. Start the app
+2. Navigate to your project directory:
 
-   ```bash
-    npx expo start
+   ```
+   cd my-app
    ```
 
-In the output, you'll find options to open the app in a
+3. Install dependencies using `pnpm` (or your preferred package manager):
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+   ```
+   pnpm install
+   ```
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+4. Start the project:
+   ```
+   pnpm start
+   ```
 
-## Get a fresh project
+## Scripts
 
-When you're ready, run:
+- **`pnpm start`**: Starts the Expo development server.
+- **`pnpm reset-project`**: Resets the project configuration.
+- **`pnpm android`**: Runs the app on an Android device or emulator.
+- **`pnpm ios`**: Runs the app on an iOS device or simulator.
+- **`pnpm web`**: Runs the app in a web browser.
+- **`pnpm test`**: Runs Jest tests in watch mode.
+- **`pnpm lint`**: Runs ESLint to check for linting errors.
+- **`pnpm lint-fix`**: Automatically fixes linting errors.
 
-```bash
-npm run reset-project
-```
+## Project Structure
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+- **`expo-router/entry`**: Entry point for the Expo Router.
+- **`scripts/reset-project.js`**: A script to reset the project configuration.
+- **`src/`**: The main source directory for your application.
 
-## Learn more
+## Dependencies
 
-To learn more about developing your project with Expo, look at the following resources:
+### Main Dependencies
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- `expo` for React Native development.
+- `react` and `react-native` for building cross-platform applications.
+- `expo-router` for routing.
+- `nativewind` for Tailwind-style utility classes in React Native.
+- `unative` for cross-platform UI components.
 
-## Join the community
+### Dev Dependencies
 
-Join our community of developers creating universal apps.
+- `eslint` and `prettier` for linting and formatting.
+- `jest` and `jest-expo` for testing.
+- `typescript` for static typing.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Customization
+
+### Tailwind CSS
+
+Tailwind CSS is configured via `nativewind`. You can update the configuration in the `tailwind.config.js` file.
+
+### ESLint and Prettier
+
+The project includes a pre-configured `.eslintrc` and `.prettierrc`. Adjust rules as needed for your coding standards.
+
+## License
+
+This project is licensed under the MIT License.
