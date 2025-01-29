@@ -23,7 +23,7 @@ const generateIndexFiles = (baseFolder: string) => {
         // If it's a file, export it
         const fileName = path.basename(item, path.extname(item));
         exports.push(
-          `export { default as ${getComponentName(fileName)} } from "./${fileName}";`,
+          `export { default as ${getComponentName(fileName)}Icon } from "./${fileName}";`,
         );
       }
     });
