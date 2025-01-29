@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable no-undef */
+/// <reference types="node" />
+
 import { exec } from "child_process";
-// import * as fs from "fs";
 import { glob } from "glob";
 import { builtinModules } from "node:module";
 import { fileURLToPath, URL } from "node:url";

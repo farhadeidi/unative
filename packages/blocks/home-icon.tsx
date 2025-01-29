@@ -1,4 +1,4 @@
-import { Path, Svg, SvgProps } from "unative/lib/svg";
+import { Path, Svg, SvgProps } from "unative/ui/svg";
 
 export const HomeLinearIcon = ({
   size = 24,

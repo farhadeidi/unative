@@ -8,7 +8,7 @@ import Animated, {
 } from "react-native-reanimated";
 import * as SwitchPrimitives from "@unative/primitives/native/switch";
 
-import { useTheme } from "@/theme/hooks";
+import { useTheme } from "@/hooks";
 
 import { cn } from "../../lib/utils";
 

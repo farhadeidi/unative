@@ -1,5 +1,5 @@
 import type { NextConfig } from "next";
-import { withUnative } from "unative/theme/with-unative";
+import { withUnative } from "unative/with-unative";
 
 const nextConfig: NextConfig = {
   transpilePackages: ["unative", "@unative/icons"],

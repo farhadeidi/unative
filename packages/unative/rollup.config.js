@@ -1,11 +1,10 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable no-undef */
+/// <reference types="node" />
+
 import { exec } from "child_process";
 import { glob } from "glob";
 import { builtinModules } from "module";
 import { fileURLToPath, URL } from "node:url";
 import path from "path";
-import alias from "@rollup/plugin-alias";
 import resolve from "@rollup/plugin-node-resolve";
 import typescript from "@rollup/plugin-typescript";
 
@@ -50,10 +49,14 @@ function runOnSuccessPlugin() {
     name: "run-on-success",
     async writeBundle() {
       console.log("Build process completed!");
-      await run("npx tsx ensure-use-client.ts");
+      await run("tsx ../../scripts/ensure-use-client.ts src dist");
       await run("cp ../../README.md ./dist/README.md");
-      await run("cp ./nativewind-env.d.ts ./dist/nativewind-env.d.ts");
-      await run("npx tsx package-json-generator.ts");
+      await run(
+        "cp ../../scripts/nativewind-env.d.ts ./dist/nativewind-env.d.ts",
+      );
+      await run(
+        "tsx ../../scripts/package-json-generator.ts ./src ./package.json ./dist/package.json --no-exports-edit",
+      );
     },
   };
 }

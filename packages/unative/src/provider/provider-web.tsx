@@ -10,7 +10,7 @@ import type {
   ColorSchemes,
   ProviderProps,
   UnativeThemeVariables,
-} from "../types/theme-types";
+} from "../types";
 
 import { CommonProvider } from "./provider-common";
 import { configureThemeScript } from "./theme-script";

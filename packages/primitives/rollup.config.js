@@ -1,4 +1,5 @@
-/* eslint-disable no-undef */
+/// <reference types="node" />
+
 import { exec } from "child_process";
 import * as fs from "fs";
 import { glob } from "glob";

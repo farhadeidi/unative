@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { Path, Svg } from "unative/lib/svg";
 import { cn } from "unative/lib/utils";
+import { Path, Svg } from "unative/ui/svg";
 import { TextClassContext } from "unative/ui/text";
 
 import type { IconProps, IconVariants } from "../icon-options";
@@ -188,3 +188,5 @@ export const ScreenmirroringIcon = ({
   const Component = variants[variant];
   return <Component className={cn(textClasses, className)} {...props} />;
 };
+
+export default ScreenmirroringIcon;

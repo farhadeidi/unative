@@ -20,6 +20,11 @@ export const config = [
     rules: {
       "turbo/no-undeclared-env-vars": "warn",
     },
+    env: {
+      browser: true,
+      node: true,
+      es2021: true,
+    },
   },
   {
     files: ["src/**/*.js", "src/**/*.ts", "src/**/*.tsx"],

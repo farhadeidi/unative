@@ -1,7 +1,4 @@
-import type {
-  UnativeThemes,
-  UnativeThemeVariables,
-} from "../types/theme-types";
+import type { UnativeThemes, UnativeThemeVariables } from "../types";
 
 const isHslColor = (value: string): boolean => {
   const hslRegex =

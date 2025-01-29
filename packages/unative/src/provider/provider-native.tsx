@@ -6,7 +6,7 @@ import { Platform, View } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 // import { useTheme } from "../hooks/use-theme";
-import type { ColorSchemes, ProviderProps } from "../types/theme-types";
+import type { ColorSchemes, ProviderProps } from "../types";
 
 import { CommonProvider } from "./provider-common";
 

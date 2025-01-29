@@ -1,5 +1,5 @@
 import React from "react";
-import type { SvgProps } from "unative/lib/svg";
+import type { SvgProps } from "unative/ui/svg";
 
 export type IconVariantName =
   | "bold"

@@ -2,11 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-import type {
-  ColorSchemes,
-  ProviderProps,
-  UnativeThemes,
-} from "../types/theme-types";
+import type { ColorSchemes, ProviderProps, UnativeThemes } from "../types";
 
 import type { ThemeState } from "./context";
 import { ProviderContext } from "./context";

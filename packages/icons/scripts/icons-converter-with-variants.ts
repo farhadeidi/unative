@@ -1,7 +1,10 @@
+/// <reference types="node" />
+
 import fs from "fs";
 import path from "path";
 import prettier from "prettier";
 import { capitalize, toCamelCase } from "remeda";
+import { getComponentName, getVariantName } from "./helpers";
 
 /**
  * @param {string} srcDir - Source directory.
@@ -18,22 +21,6 @@ if (args.length < 2) {
 
 const iconsFolder = path.resolve(args[0]);
 const outputFolder = path.resolve(args[1]);
-
-// Paths
-// const iconsFolder = path.resolve(__dirname, srcDir);
-// const outputFolder = path.resolve(__dirname, "../packages/blocks/icons");
-
-const getComponentName = (value: string) => {
-  return capitalize(toCamelCase(value));
-};
-
-const getVariantName = (iconName: string, variant: string) => {
-  return `${getComponentName(iconName)}${capitalize(variant)}`;
-};
-
-function prependIfStartsWithNumber(input, prefix) {
-  return input.replace(/^(\d)/, `${prefix}$1`);
-}
 
 // Options
 const options = {
@@ -119,8 +106,8 @@ const generateIconFile = async (
 ) => {
   let imports = new Set([
     `import { useContext } from "react";`,
-    `import { Path, Svg } from "unative/lib/svg";`,
     `import { cn } from "unative/lib/utils";`,
+    `import { Path, Svg } from "unative/ui/svg";`,
     `import { TextClassContext } from "unative/ui/text";`,
     "",
     `import type { IconProps, IconVariants } from "../icon-options";`,
@@ -150,7 +137,7 @@ const generateIconFile = async (
 
   if (usesG) {
     const importsArray = Array.from(imports);
-    importsArray[1] = `import { G, Path, Svg } from "unative/lib/svg";`; // Modify the first line
+    importsArray[2] = `import { G, Path, Svg } from "unative/ui/svg";`; // Modify the first line
     imports = new Set(importsArray); // Recreate the set
   }
 
@@ -171,6 +158,8 @@ export const ${getComponentName(componentName)}Icon = ({
   const Component = variants[variant];
   return <Component className={cn(textClasses, className)} {...props} />;
 };
+
+export default ${getComponentName(componentName)}Icon;
 `;
 
   const fileContent = `${Array.from(imports).join("\n")}\n\n${variantComponents.join(
@@ -207,12 +196,7 @@ const processIcons = () => {
       return;
     }
 
-    let componentName = baseIconName;
-    componentName = componentName.replaceAll("&", "-");
-    componentName = prependIfStartsWithNumber(componentName, "i-");
-    componentName = toCamelCase(componentName);
-
-    generateIconFile(baseIconName, getComponentName(componentName), variants);
+    generateIconFile(baseIconName, getComponentName(baseIconName), variants);
   });
 };
 

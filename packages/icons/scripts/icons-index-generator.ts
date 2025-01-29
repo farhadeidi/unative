@@ -1,5 +1,8 @@
+/// <reference types="node" />
+
 import fs from "fs";
 import path from "path";
+import { getComponentName } from "./helpers";
 
 const generateIndexFiles = (baseFolder: string) => {
   // Recursive function to process each folder
@@ -8,6 +11,7 @@ const generateIndexFiles = (baseFolder: string) => {
     const exports: string[] = [];
 
     items.forEach((item) => {
+      if (item === "index.ts") return;
       const fullPath = path.join(currentFolder, item);
 
       if (fs.statSync(fullPath).isDirectory()) {
@@ -18,7 +22,9 @@ const generateIndexFiles = (baseFolder: string) => {
       } else if (item.endsWith(".ts") || item.endsWith(".tsx")) {
         // If it's a file, export it
         const fileName = path.basename(item, path.extname(item));
-        exports.push(`export * from "./${fileName}";`);
+        exports.push(
+          `export { default as ${getComponentName(fileName)} } from "./${fileName}";`,
+        );
       }
     });
 

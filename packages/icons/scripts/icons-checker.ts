@@ -1,3 +1,5 @@
+/// <reference types="node" />
+
 import fs from "fs";
 import path from "path";
 
@@ -26,11 +28,12 @@ const compareFolders = (folders: string[]) => {
   });
 
   const allFiles = Array.from(
-    new Set(Object.values(fileMap).flatMap((set) => Array.from(set)))
+    new Set(Object.values(fileMap).flatMap((set) => Array.from(set))),
   );
 
   console.log(
-    "File".padEnd(50) + folders.map((f) => path.basename(f).padEnd(10)).join("")
+    "File".padEnd(50) +
+      folders.map((f) => path.basename(f).padEnd(10)).join(""),
   );
   console.log("-".repeat(50 + folders.length * 10));
 

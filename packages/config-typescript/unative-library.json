@@ -5,6 +5,7 @@
     "jsx": "preserve",
     "module": "ES6",
     "moduleResolution": "bundler",
+    "lib": ["esnext", "dom"],
     "forceConsistentCasingInFileNames": true,
     "declaration": true,
     "declarationMap": true,

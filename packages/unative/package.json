@@ -1,6 +1,6 @@
 {
   "name": "unative",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "One UI Library for Web and Mobile",
   "type": "module",
   "scripts": {
@@ -77,5 +77,149 @@
     "tailwind-merge": "*",
     "tailwindcss": "*",
     "zustand": "*"
+  },
+  "exports": {
+    ".": {
+      "react-native": {
+        "types": "./index.d.ts",
+        "default": "./index.js"
+      },
+      "react-server": {
+        "types": "./web.d.ts",
+        "default": "./web.js"
+      },
+      "require": {
+        "types": "./web.d.ts",
+        "default": "./web.cjs"
+      },
+      "import": {
+        "types": "./web.d.ts",
+        "default": "./web.js"
+      },
+      "default": {
+        "types": "./web.d.ts",
+        "default": "./web.js"
+      }
+    },
+    "./provider": {
+      "react-native": {
+        "types": "./provider/index.d.ts",
+        "default": "./provider/index.js"
+      },
+      "react-server": {
+        "types": "./provider/web.d.ts",
+        "default": "./provider/web.js"
+      },
+      "require": {
+        "types": "./provider/web.d.ts",
+        "default": "./provider/web.cjs"
+      },
+      "import": {
+        "types": "./provider/web.d.ts",
+        "default": "./provider/web.js"
+      },
+      "default": {
+        "types": "./provider/web.d.ts",
+        "default": "./provider/web.js"
+      }
+    },
+    "./types": {
+      "types": "./types/index.d.ts",
+      "require": "./types/index.cjs",
+      "import": "./types/index.js",
+      "default": "./types/index.js"
+    },
+    "./provider/web": {
+      "types": "./provider/web.d.ts",
+      "require": "./provider/web.cjs",
+      "import": "./provider/web.js",
+      "default": "./provider/web.js"
+    },
+    "./provider/native": {
+      "types": "./provider/native.d.ts",
+      "require": "./provider/native.cjs",
+      "import": "./provider/native.js",
+      "default": "./provider/native.js"
+    },
+    "./with-unative": {
+      "types": "./with-unative/index.d.ts",
+      "require": "./with-unative/index.cjs",
+      "import": "./with-unative/index.js",
+      "default": "./with-unative/index.js"
+    },
+    "./hooks": {
+      "types": "./hooks/index.d.ts",
+      "require": "./hooks/index.cjs",
+      "import": "./hooks/index.js",
+      "default": "./hooks/index.js"
+    },
+    "./lib": {
+      "types": "./lib/index.d.ts",
+      "require": "./lib/index.cjs",
+      "import": "./lib/index.js",
+      "default": "./lib/index.js"
+    },
+    "./lib/*": {
+      "types": "./lib/*.d.ts",
+      "require": "./lib/*.cjs",
+      "import": "./lib/*.js",
+      "default": "./lib/*.js"
+    },
+    "./ui": {
+      "react-native": {
+        "types": "./ui/index.d.ts",
+        "default": "./ui/index.js"
+      },
+      "react-server": {
+        "types": "./ui/web.d.ts",
+        "default": "./ui/web.js"
+      },
+      "require": {
+        "types": "./ui/web.d.ts",
+        "default": "./ui/web.cjs"
+      },
+      "import": {
+        "types": "./ui/web.d.ts",
+        "default": "./ui/web.js"
+      },
+      "default": {
+        "types": "./ui/web.d.ts",
+        "default": "./ui/web.js"
+      }
+    },
+    "./ui/*": {
+      "react-native": {
+        "types": "./ui/*/native.d.ts",
+        "default": "./ui/*/native.js"
+      },
+      "react-server": {
+        "types": "./ui/*/web.d.ts",
+        "default": "./ui/*/web.js"
+      },
+      "require": {
+        "types": "./ui/*/web.d.ts",
+        "default": "./ui/*/web.cjs"
+      },
+      "import": {
+        "types": "./ui/*/web.d.ts",
+        "default": "./ui/*/web.js"
+      },
+      "default": {
+        "types": "./ui/*/web.d.ts",
+        "default": "./ui/*/web.js"
+      }
+    },
+    "./ui/*/native": {
+      "types": "./ui/*/native.d.ts",
+      "require": "./ui/*/native.cjs",
+      "import": "./ui/*/native.js",
+      "default": "./ui/*/native.js"
+    },
+    "./ui/*/web": {
+      "types": "./ui/*/web.d.ts",
+      "require": "./ui/*/web.cjs",
+      "import": "./ui/*/web.js",
+      "default": "./ui/*/web.js"
+    }
   }
 }
