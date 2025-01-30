@@ -6,7 +6,6 @@
   "scripts": {
     "lint": "eslint . --max-warnings 0",
     "watch-changes": "rollup -c --watch",
-    "watch": "npx tsx watch files-change-listener.ts",
     "build": "rm -rf dist && rm -rf src/iconsax && pnpm generate-iconsax-icons && rollup -c",
     "ensure": "tsx ../../scripts/ensure-use-client.ts",
     "pkg-g": "tsx ../../scripts/package-json-generator.ts src package.json dist/package.json",
@@ -47,7 +46,7 @@
     "tailwindcss": "^3.4.17",
     "tslib": "^2.8.1",
     "typescript": "^5.7.2",
-    "unative": "file:../unative/dist"
+    "unative": "workspace:*"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1"

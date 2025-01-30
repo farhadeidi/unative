@@ -452,8 +452,8 @@ importers:
         specifier: ^5.7.2
         version: 5.7.3
       unative:
-        specifier: file:../unative/dist
-        version: file:packages/unative/dist(hpqjy6cu6auzpbbhmoowjucxja)
+        specifier: workspace:*
+        version: link:../unative/dist
     publishDirectory: dist
 
   packages/primitives:
@@ -8157,57 +8157,6 @@ packages:
     resolution: {integrity: sha512-v3Xu+yuwBXisp6QYTcH4UbH+xYJXqnq2m/LtQVWKWzYc1iehYnLixoQDN9FH6/j9/oybfd6W9Ghwkl8+UMKTKQ==}
     engines: {node: '>=0.8.0'}
     hasBin: true
-
-  unative@file:packages/unative/dist:
-    resolution: {directory: packages/unative/dist, type: directory}
-    peerDependencies:
-      '@gorhom/bottom-sheet': '*'
-      '@react-native-async-storage/async-storage': '*'
-      '@react-native-segmented-control/segmented-control': 2.5.4
-      class-variance-authority: '*'
-      clsx: '*'
-      lucide-react: '*'
-      lucide-react-native: '*'
-      nativewind: '*'
-      react: '*'
-      react-dom: '*'
-      react-native: '*'
-      react-native-reanimated: '*'
-      react-native-safe-area-context: '*'
-      react-native-svg: '*'
-      react-native-web: '*'
-      tailwind-merge: '*'
-      tailwindcss: '*'
-      zustand: '*'
-    peerDependenciesMeta:
-      '@gorhom/bottom-sheet':
-        optional: true
-      '@react-native-async-storage/async-storage':
-        optional: true
-      '@react-native-segmented-control/segmented-control':
-        optional: true
-      class-variance-authority:
-        optional: true
-      lucide-react:
-        optional: true
-      lucide-react-native:
-        optional: true
-      nativewind:
-        optional: true
-      react-dom:
-        optional: true
-      react-native:
-        optional: true
-      react-native-reanimated:
-        optional: true
-      react-native-safe-area-context:
-        optional: true
-      react-native-svg:
-        optional: true
-      react-native-web:
-        optional: true
-      zustand:
-        optional: true
 
   unbox-primitive@1.1.0:
     resolution: {integrity: sha512-nWJ91DjeOkej/TA8pXQ3myruKpKEYgqvpw9lz4OPHj/NWFNluYrjbz9j01CJ8yKQd2g4jFoOkINCTW2I5LEEyw==}
@@ -17413,29 +17362,6 @@ snapshots:
 
   uglify-js@3.19.3:
     optional: true
-
-  unative@file:packages/unative/dist(hpqjy6cu6auzpbbhmoowjucxja):
-    dependencies:
-      '@unative/primitives': link:packages/primitives/dist
-      clsx: 2.1.1
-      react: 18.3.1
-      tailwind-merge: 2.6.0
-      tailwindcss: 3.4.17(ts-node@10.9.2(@types/node@20.17.16)(typescript@5.7.3))
-    optionalDependencies:
-      '@gorhom/bottom-sheet': 5.0.6(@types/react@18.3.18)(react-native-gesture-handler@2.20.2(react-native@0.76.6(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1))(react-native-reanimated@3.16.7(@babel/core@7.26.7)(react-native@0.76.6(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1))(react-native@0.76.6(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
-      '@react-native-async-storage/async-storage': 1.23.1(react-native@0.76.6(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@18.3.18)(react@18.3.1))
-      '@react-native-segmented-control/segmented-control': 2.5.4(react-native@0.76.6(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
-      class-variance-authority: 0.7.1
-      lucide-react: 0.471.2(react@18.3.1)
-      lucide-react-native: 0.474.0(react-native-svg@15.8.0(react-native@0.76.6(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1))(react-native@0.76.6(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
-      nativewind: 4.1.23(react-native-reanimated@3.16.7(@babel/core@7.26.7)(react-native@0.76.6(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1))(react-native-safe-area-context@4.12.0(react-native@0.76.6(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1))(react-native-svg@15.8.0(react-native@0.76.6(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1))(react-native@0.76.6(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@20.17.16)(typescript@5.7.3)))
-      react-dom: 18.3.1(react@18.3.1)
-      react-native: 0.76.6(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@18.3.18)(react@18.3.1)
-      react-native-reanimated: 3.16.7(@babel/core@7.26.7)(react-native@0.76.6(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
-      react-native-safe-area-context: 4.12.0(react-native@0.76.6(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
-      react-native-svg: 15.8.0(react-native@0.76.6(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
-      react-native-web: 0.19.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      zustand: 5.0.3(@types/react@18.3.18)(react@18.3.1)(use-sync-external-store@1.4.0(react@18.3.1))
 
   unbox-primitive@1.1.0:
     dependencies:

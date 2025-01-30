@@ -10,25 +10,42 @@ import {
 } from "unative/ui/table";
 import * as icons from "@unative/icons/iconsax";
 import { toKebabCase } from "remeda";
+import SvgComponentSample from "@/app/icons/svg-component-sample";
+import { IconVariant } from "@unative/icons/icon-options";
 
 const filteredIcons: string[] = [];
 // const filteredIcons = ["arrow", "caret", "chevron"];
+const iconVariants: IconVariant[] = [
+  "bold",
+  "linear",
+  "broken",
+  "bulk",
+  "twotone",
+];
 
 export default function Home() {
   return (
     <Box className="min-h-screen bg-background flex flex-col gap-2 p-8">
       <Box className="w-full max-w-3xl mx-auto">
+        <Box className="flex flex-row gap-4">
+          {iconVariants.map((variant) => {
+            return (
+              <SvgComponentSample key={variant} size={96} variant={variant} />
+            );
+          })}
+        </Box>
         <Table>
           <TableCaption>A list of your recent invoices.</TableCaption>
           <TableHeader>
             <TableRow>
               <TableHead>Name</TableHead>
-              <TableHead className="w-20">Bold</TableHead>
-              <TableHead className="w-20">Linear</TableHead>
-              <TableHead className="w-20">Outline</TableHead>
-              <TableHead className="w-20">Broken</TableHead>
-              <TableHead className="w-20">Bulk</TableHead>
-              <TableHead className="w-20">TwoTone</TableHead>
+              {iconVariants.map((variant) => {
+                return (
+                  <TableHead key={variant} className="w-20">
+                    {variant}
+                  </TableHead>
+                );
+              })}
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -50,24 +67,17 @@ export default function Home() {
                   <TableCell>
                     {toKebabCase(iconName.replace("Icon", ""))}
                   </TableCell>
-                  <TableCell>
-                    <Component variant="bold" />
-                  </TableCell>
-                  <TableCell>
-                    <Component variant="linear" />
-                  </TableCell>
-                  <TableCell>
-                    <Component variant="outline" />
-                  </TableCell>
-                  <TableCell>
-                    <Component variant="broken" />
-                  </TableCell>
-                  <TableCell>
-                    <Component variant="bulk" />
-                  </TableCell>
-                  <TableCell>
-                    <Component variant="twotone" />
-                  </TableCell>
+                  {iconVariants.map((variant) => {
+                    return (
+                      <TableCell key={variant}>
+                        <Component
+                          variant={variant}
+                          strokeWidth={1}
+                          size={48}
+                        />
+                      </TableCell>
+                    );
+                  })}
                 </TableRow>
               );
             })}
