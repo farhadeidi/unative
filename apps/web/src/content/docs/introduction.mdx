@@ -1,0 +1,101 @@
+---
+title: "Introduction to Unative"
+publishedAt: "2025-02-02"
+excerpt: "Unative is a modern UI library designed for seamless use across web and mobile platforms, eliminating the need for react-native-web."
+keywords:
+  [
+    "Unative",
+    "React Native",
+    "UI Library",
+    "Next.js",
+    "TailwindCSS",
+    "Nativewind",
+    "Radix Primitives",
+  ]
+tags:
+  [
+    "React Native",
+    "Web Development",
+    "UI Components",
+    "Next.js",
+    "Expo",
+    "TailwindCSS",
+  ]
+---
+
+## What is Unative?
+
+Unative makes it easy to create great-looking and consistent user interfaces for both React Native and web apps. Powered by Tailwind CSS and Nativewind, it gives you a fast and simple way to handle styling across platforms. With full support for React Server Components, Unative helps you use modern tools to build amazing projects effortlessly.
+
+### The Story Behind
+
+As someone who has been working as a Frontend Developer for years, I’ve always noticed a significant gap between UI libraries for web and mobile. I needed a UI library that was fully optimized for both platforms—a library that I could use seamlessly on the web (without requiring any extra layers like `react-native-web`) and on mobile without being restricted by React Native’s limitations for web elements.
+
+Most importantly, I wanted something that could stay in sync across all my projects, ensuring consistency and efficiency in my workflow.
+
+### Learn once, Use everywhere
+
+The **Unative** UI Library is inspired by ShadCN, with additional support from [RNR](https://github.com/mrzachnugent/react-native-reusables) and **RN-Primitives**. It is designed to work seamlessly across both web and mobile platforms, offering a truly native experience.
+
+**Unative does not require react-native-web in nextjs or other web frameworks.** No components from React Native will be loaded in your web projects, even when using frameworks like Next.js, Vite, or any other React-based framework. This means you get an optimized, fully native experience for web and mobile without relying on compatibility layers or workarounds.
+
+Whether you're building a mobile app or a web project, Unative provides a single, unified library that ensures consistency, performance, and simplicity across platforms.
+
+## Optimized for Both Platforms
+
+Unative is fully optimized for both web and mobile platforms. Everything is loaded in a completely treeshakeable way. For example, if you only use the `Box` component on the web, the size of the import is as minimal as importing a simple `<div>`. On React Native, it’s equivalent to importing a `View` from `react-native`.
+
+All components are processed individually, ensuring maximum efficiency. Each core component consists of two main files:
+
+- **web**: Includes all dependencies required for running on the web, powered by [Radix Primitives](https://www.radix-ui.com/).
+- **native**: Includes all dependencies for running on React Native and React Native Web.
+
+This modular approach ensures that your projects remain lightweight and optimized, regardless of the platform you’re building for.
+
+```tsx title="./src/my-card.tsx"
+// The only file you need
+// Nextjs, React Native, React Native Web, Expo and ...
+
+import { cn } from "unative/lib/utils";
+import type { BoxProps } from "unative/ui/box";
+import { Box } from "unative/ui/box";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "unative/ui/card";
+import { Text } from "unative/ui/text";
+
+export type MyCardProps = BoxProps & {
+  title: string;
+  description?: string;
+  content: string;
+};
+
+export const MyCard = ({
+  title,
+  content,
+  className,
+  ...props
+}: MyCardProps) => {
+  return (
+    <Card className={cn("flex", className)} {...props}>
+      <CardHeader>
+        <CardTitle>{title}</CardTitle>
+        <CardDescription>My Description</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <Box>
+          <Text>{content}</Text>
+        </Box>
+      </CardContent>
+    </Card>
+  );
+};
+```
+
+## Example Project
+
+For a complete example of how to use **Unative** with Expo, check out the [Unative Expo example](https://github.com/farhadeidi/unative-expo-example) project. It demonstrates how to set up Unative with Expo Router, Nativewind, TypeScript, and more.

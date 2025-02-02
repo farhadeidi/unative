@@ -1,0 +1,288 @@
+---
+title: "First Universal Component"
+publishedAt: "2024-04-09"
+summary: "Learn how to set up Unative on mobile and Next.js, ensuring a smooth and optimized experience across platforms."
+keywords:
+  [
+    "Unative",
+    "React Native",
+    "Next.js",
+    "Expo",
+    "TailwindCSS",
+    "Nativewind",
+    "UI Library",
+    "Installation",
+  ]
+tags:
+  [
+    "Installation",
+    "Setup Guide",
+    "React Native",
+    "Next.js",
+    "Expo",
+    "Web Development",
+  ]
+---
+
+## Your first component
+
+```tsx title="my-component.tsx"
+import { cn } from "unative/lib/utils";
+import type { BoxProps } from "unative/ui/box";
+import { Box } from "unative/ui/box";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "unative/ui/card";
+import { Text } from "unative/ui/text";
+
+export type MyCardProps = BoxProps & {
+  title: string;
+  description?: string;
+  content: string;
+};
+
+export const MyCard = ({
+  title,
+  content,
+  className,
+  ...props
+}: MyCardProps) => {
+  return (
+    <Card className={cn("flex", className)} {...props}>
+      <CardHeader>
+        <CardTitle>{title}</CardTitle>
+        <CardDescription>My Description</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <Box>
+          <Text>{content}</Text>
+        </Box>
+      </CardContent>
+    </Card>
+  );
+};
+```
+
+## Theming
+
+### Config HOC
+
+#### NextJS
+
+```ts title="next.config.ts"
+import type { NextConfig } from "next";
+import { withUnative } from "unative/theme/with-unative";
+
+const nextConfig: NextConfig = {
+  transpilePackages: ["unative"],
+};
+
+export default withUnative(nextConfig, {
+  css: "./src/app/globals.css",
+  outputDir: "./src/lib/unative",
+});
+```
+
+#### Metro
+
+```js title="metro.config.js"
+// Learn more https://docs.expo.io/guides/customizing-metro
+const { getDefaultConfig } = require("expo/metro-config");
+const { withNativeWind } = require("nativewind/metro");
+const { withUnative } = require("unative/theme/with-unative");
+
+/** @type {import('expo/metro-config').MetroConfig} */
+const config = getDefaultConfig(__dirname);
+
+module.exports = withUnative(
+  withNativeWind(config, { input: "./global.css" }),
+  {
+    css: "./global.css",
+    outputDir: "./src/lib/unative",
+  },
+);
+```
+
+### Provider
+
+```tsx
+import { Provider as UnativeProvider } from "unative/theme/provider";
+import { THEMES } from "@/lib/unative/themes"; // Configured in metro.config.js or next.config.ts
+
+<UnativeProvider themes={THEMES}>{children}</UnativeProvider>;
+```
+
+### useTheme hook
+
+```tsx
+import { useTheme } from "unative/theme";
+
+const App = () => {
+  const {
+    themes, // All Installed Themes
+    theme, // Current Theme
+    isDarkMode,
+    setTheme, // Set theme by theme-name
+    setScheme, // Set Scheme => dark | light | system
+    colorScheme, // dark | light
+    colorSchemes, // [dark, light, system]
+    isInitialized,
+    rawThemes, // Raw css theme values - Not optimized for react native
+    savedColorScheme, // system | light | dark
+    rawThemeValues,
+  } = useTheme();
+
+  return null;
+};
+```
+
+### Base CSS variables
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 220 80% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 0%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 90%;
+    --muted-foreground: 0 0% 30%;
+    --accent: 220 80% 90%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 80% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 90%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+
+    --radius: 0.5rem;
+    --radius-lg: 2rem;
+    --radius-button: 6px;
+    --radius-card: 6px;
+
+    --positive: 142 60% 40%;
+    --positive-foreground: 0 0% 100%;
+    --warning: 40 100% 50%;
+    --warning-foreground: 39.6 100% 50.2%;
+    --link: 216 100% 60%;
+  }
+
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 9.02%;
+    --card-foreground: 0 0% 100%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 15%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+    --radius: 3rem;
+    --positive: 142 72% 29%;
+    --positive-foreground: 0 0% 100%;
+    --warning: 39.6 100% 50.2%;
+    --warning-foreground: 39.6 100% 50.2%;
+    --link: 216.89 100% 59.61%;
+  }
+}
+
+.theme-brown {
+  --background: 31 57% 93%;
+  --primary: 30 100% 50%;
+  --primary-foreground: 0 0% 100%;
+  --card: 31 57% 85%;
+  --accent: 30 100% 80%;
+  --radius: 0.5rem;
+  --radius-lg: 2rem;
+  --radius-button: 24px;
+  --radius-card: 0.5rem;
+
+  &.dark {
+    --background: 0 0% 0%;
+    --primary: 30 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --card: 31 57% 8%;
+    --accent: 30 100% 30%;
+  }
+}
+
+.theme-third {
+  --background: 0 0% 100%;
+  --primary: 16 65% 40%;
+  --primary-foreground: 0 0% 100%;
+  &.dark {
+    --background: 0 0% 0%;
+    --primary: 16 65% 40%;
+    --primary-foreground: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
+  }
+}
+```
+
+## Contributing
+
+We’re excited to have you contribute to **Unative**! Contributions help make this library better for everyone. Whether you’re fixing bugs, improving documentation, or adding new features, we’d love to collaborate with you.
+
+### How to Contribute
+
+1. Fork the repository and clone it locally.
+2. Install the dependencies using `pnpm`:
+   ```sh
+   pnpm install
+   ```
+3. Create a new branch for your changes:
+   ```sh
+   git checkout -b feature/my-awesome-feature
+   ```
+4. Make your changes and test them thoroughly.
+5. Commit your changes with a meaningful commit message:
+   ```sh
+   git commit -m "Add: My awesome feature"
+   ```
+6. Push your branch:
+   ```sh
+   git push origin feature/my-awesome-feature
+   ```
+7. Open a Pull Request and describe your changes in detail.
+
+### Code of Conduct
+
+By contributing, you agree to abide by our [Code of Conduct](https://github.com/your-repo/code-of-conduct).
+
+---
+
+## License
+
+**Unative** is licensed under the [MIT License](https://opensource.org/licenses/MIT). Feel free to use, modify, and distribute the library as per the terms of the license.

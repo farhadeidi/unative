@@ -19,7 +19,7 @@ export const DEFAULT_THEME_LIGHT: UnativeThemeVariables = {
   "--secondary": "0 0% 0%",
   "--secondary-foreground": "0 0% 100%",
   "--muted": "0 0% 90%",
-  "--muted-foreground": "0 0% 30%",
+  "--muted-foreground": "0 0% 40%",
   "--accent": "220 80% 90%",
   "--accent-foreground": "222.2 47.4% 11.2%",
   "--destructive": "0 80% 60%",

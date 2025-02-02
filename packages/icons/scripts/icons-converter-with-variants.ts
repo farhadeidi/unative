@@ -4,6 +4,7 @@ import fs from "fs";
 import path from "path";
 import prettier from "prettier";
 import { capitalize, toCamelCase } from "remeda";
+
 import { getComponentName, getVariantName } from "./helpers";
 
 /**
@@ -105,11 +106,12 @@ const ${componentName} = ({ size = 24,${hasSecondaryOption ? ` alterOpacity,` : 
 
   return (
     <Svg
-      width={size}
-      height={size}
       viewBox="0 0 24 24"
       fill="none"
       {...props}
+      width={size}
+      height={size}
+      style={{ width: size, height: size }}
     >
       ${jsx}
     </Svg>
@@ -161,7 +163,7 @@ const generateIconFile = async (
 
   if (usesG || usesCircle) {
     const importsArray = Array.from(imports);
-    let items = ["Path", "Svg"];
+    const items = ["Path", "Svg"];
     if (usesG) items.unshift("G");
     if (usesCircle) items.unshift("Circle");
     importsArray[2] = `import { ${items.join(", ")} } from "unative/ui/svg";`; // Modify the first line

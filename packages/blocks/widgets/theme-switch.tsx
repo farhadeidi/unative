@@ -1,7 +1,7 @@
-/** @jsxImportSource nativewind */
+"use client";
 
-import { cn } from "unative/lib/utils";
 import { useTheme } from "unative/hooks";
+import { cn } from "unative/lib/utils";
 import { Box, BoxProps } from "unative/ui/box";
 import { Button } from "unative/ui/button";
 import { Text } from "unative/ui/text";

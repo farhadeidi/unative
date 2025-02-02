@@ -1,3 +1,64 @@
+---
+title: "Setup Theming"
+publishedAt: "2025-02-02"
+summary: "How to use theme in Unative, with TailwindCSS, ensuring a smooth and optimized experience across platforms."
+keywords:
+  [
+    "Unative",
+    "React Native",
+    "Next.js",
+    "Expo",
+    "TailwindCSS",
+    "Nativewind",
+    "UI Library",
+  ]
+tags:
+  [
+    "Installation",
+    "Setup Guide",
+    "React Native",
+    "Next.js",
+    "Expo",
+    "Web Development",
+  ]
+---
+
+## Provider
+
+```tsx
+import { Provider as UnativeProvider } from "unative/theme/provider";
+import { THEMES } from "@/lib/unative/themes"; // Configured in metro.config.js or next.config.ts
+
+<UnativeProvider themes={THEMES}>{children}</UnativeProvider>;
+```
+
+### useTheme hook
+
+```tsx
+import { useTheme } from "unative/theme";
+
+const App = () => {
+  const {
+    themes, // All Installed Themes
+    theme, // Current Theme
+    isDarkMode,
+    setTheme, // Set theme by theme-name
+    setScheme, // Set Scheme => dark | light | system
+    colorScheme, // dark | light
+    colorSchemes, // [dark, light, system]
+    isInitialized,
+    rawThemes, // Raw css theme values - Not optimized for react native
+    savedColorScheme, // system | light | dark
+    rawThemeValues,
+  } = useTheme();
+
+  return null;
+};
+```
+
+### Base CSS variables
+
+```css
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,7 +76,7 @@
     --secondary: 0 0% 0%;
     --secondary-foreground: 0 0% 100%;
     --muted: 0 0% 90%;
-    --muted-foreground: 0 0% 40%;
+    --muted-foreground: 0 0% 30%;
     --accent: 220 80% 90%;
     --accent-foreground: 222.2 47.4% 11.2%;
     --destructive: 0 80% 60%;
@@ -98,21 +159,10 @@
 
 @layer base {
   * {
-    /* @apply border-border; */
+    @apply border-border;
   }
   body {
     @apply bg-background font-sans text-foreground antialiased;
   }
 }
-
-:root {
-  --sh-class: #4d9ef6;
-  --sh-identifier: #6caedd;
-  --sh-sign: #cdd3de;
-  --sh-property: #3182ce;
-  --sh-entity: #2db1bc;
-  --sh-jsxliterals: #939dfd;
-  --sh-string: #26dabd;
-  --sh-keyword: #ff6b6b;
-  --sh-comment: #cbc3c3;
-}
+```

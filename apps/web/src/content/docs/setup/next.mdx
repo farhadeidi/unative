@@ -1,10 +1,60 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
+---
+title: "Setup Next"
+publishedAt: "2025-02-02"
+summary: "Setup Unative on Next js, with TailwindCSS, ensuring a smooth and optimized experience across platforms."
+keywords:
+  [
+    "Unative",
+    "React Native",
+    "Next.js",
+    "Expo",
+    "TailwindCSS",
+    "Nativewind",
+    "UI Library",
+    "Installation",
+  ]
+tags:
+  [
+    "Installation",
+    "Setup Guide",
+    "React Native",
+    "Next.js",
+    "Expo",
+    "Web Development",
+  ]
+---
+
+## Installation
+
+### 1. Set Up TailwindCSS
+
+Make sure TailwindCSS is installed and configured in your Next.js project. If you haven’t done this yet, follow the [official TailwindCSS installation guide for Next.js](https://tailwindcss.com/docs/guides/nextjs).
+
+```sh
+pnpm i tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+```
+
+### 2. Install dependencies
+
+```sh
+pnpm i unative
+```
+
+```sh
+pnpm i clsx tailwind-merge class-variance-authority next-themes lucide-react
+```
+
+#### 3. Tailwind Configuration
+
+```js
+// tailwind.config.ts
 import type { Config } from "tailwindcss";
 
 export default {
   darkMode: "class",
   content: [
-    "./src/**/*.{js,ts,jsx,tsx,md,mdx}",
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
     "./node_modules/unative/**/*.{js,jsx,ts,tsx}",
     "./node_modules/@unative/**/*.{js,jsx,ts,tsx}",
   ],
@@ -79,5 +129,23 @@ export default {
       },
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [],
 } satisfies Config;
+
+```
+
+### 4. Next Config
+
+```ts title="next.config.ts"
+import type { NextConfig } from "next";
+import { withUnative } from "unative/theme/with-unative";
+
+const nextConfig: NextConfig = {
+  transpilePackages: ["unative"],
+};
+
+export default withUnative(nextConfig, {
+  css: "./src/app/globals.css",
+  outputDir: "./src/lib/unative",
+});
+```

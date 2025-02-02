@@ -53,6 +53,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <Comp
         suppressHydrationWarning
         onClick={onClick || onPress}
+        type="button"
         className={cn(
           buttonVariants({
             variant,
